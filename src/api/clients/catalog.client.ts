@@ -37,6 +37,11 @@ export class CatalogClient extends BaseClient {
     return this.request.post('/products', { data: product });
   }
 
+  /** Name search, as the storefront uses it (full-text). No-cache, so readiness checks see fresh results. */
+  searchProducts(word: string): Promise<APIResponse> {
+    return this.request.get('/products/search', { params: { q: word }, headers: NO_CACHE });
+  }
+
   productsInCategory(slug: string, page = 1): Promise<APIResponse> {
     return this.request.get('/products', { params: { by_category_slug: slug, page }, headers: NO_CACHE });
   }

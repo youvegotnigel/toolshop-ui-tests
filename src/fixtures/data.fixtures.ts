@@ -6,6 +6,7 @@ import {
   BrandSchema,
   CategorySchema,
   ImageListSchema,
+  ProductPageSchema,
   ProductSchema,
   type Brand,
   type Category,
@@ -50,7 +51,9 @@ type DataFixtures = {
     category?: Category;
     overrides?: Partial<ProductInput> & { searchWord?: string };
   }) => Promise<NewProduct>;
-  /** Ready-made in-stock product. */
+  /** Waits until this many products are findable by the word (search index readiness). */
+  searchable: (searchWord: string, count: number) => Promise<void>;
+  /** Ready-made in-stock product, already findable by its search word. */
   createdProduct: NewProduct;
   /** Three products with distinct prices under one search word (data for sorting). */
   createdCatalogue: Catalogue;
@@ -158,11 +161,35 @@ export const test = apiTest.extend<DataFixtures>({
     { box: true },
   ],
 
-  createdProduct: async ({ createProduct }, use) => {
-    await use(await createProduct());
+  searchable: [
+    async ({ catalog }, use) => {
+      await use(async (searchWord, count) => {
+        // Data readiness, not a sleep: in CI the search index can trail a fresh product by a few seconds,
+        // and a test must not search before its own data is findable.
+        await expect
+          .poll(
+            async () => {
+              const res = await catalog.searchProducts(searchWord);
+              return res.ok() ? ProductPageSchema.parse(await res.json()).data.length : -1;
+            },
+            {
+              message: `test data setup: ${String(count)} product(s) searchable by "${searchWord}"`,
+              timeout: 30_000,
+            },
+          )
+          .toBe(count);
+      });
+    },
+    { box: true },
+  ],
+
+  createdProduct: async ({ createProduct, searchable }, use) => {
+    const created = await createProduct();
+    await searchable(created.searchWord, 1);
+    await use(created);
   },
 
-  createdCatalogue: async ({ createProduct }, use) => {
+  createdCatalogue: async ({ createProduct, searchable }, use) => {
     const searchWord = searchToken();
     const [firstPrice, ...otherPrices] = distinctPrices(3);
     const first = await createProduct({
@@ -178,6 +205,7 @@ export const test = apiTest.extend<DataFixtures>({
         }),
       );
     }
+    await searchable(searchWord, products.length);
     await use({ searchWord, products });
   },
 
