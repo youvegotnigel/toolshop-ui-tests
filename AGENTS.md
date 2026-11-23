@@ -134,17 +134,37 @@ option `shopper` -> `shopperAccount` -> `signedInPage` -> `homePage`, `productPa
 - Never commit `.env.local`, tokens or passwords. Never log, attach or screenshot a token: the logger and the
   recorder redact them, and `scripts/ci/redact-traces.mts` masks JWTs in traces before upload.
 - Never fix a flaky test with sleeps, retries or a longer timeout; find the race (see `fix-flaky-test`).
-- Use Playwright MCP or `npx playwright codegen` to explore the site, never to write assertions blindly:
+- Explore the site with `npx playwright-cli` (`explore-site` skill), never to write assertions blindly:
   every expected value comes from the test's own data or a documented rule.
+- No code before the human gate on non-trivial work (`ai-native-workflow`); run `node scripts/scan-constitution.mts`
+  before asking for review.
 - Definition of done: `npm run verify` is green, the PR template checklist is filled in, and the
   `review-ui-tests` checklist has no blocking findings.
 
-## Agent toolkit
+## Agent toolkit (Claude Code and GitHub Copilot)
 
-Shared skills (read by both Claude Code and Copilot) live in `.claude/skills/`:
-`add-ui-test`, `add-page-object`, `review-ui-tests`, `triage-ui-failures`, `fix-flaky-test`.
+Every non-trivial task starts with the `ai-native-workflow` skill: classify, route to a leaf skill, explore,
+propose with a confidence score, wait for the human gate, apply, verify, report. Adapted from
+[idavidov13/agentic-playwright](https://github.com/idavidov13/agentic-playwright).
+
+Skills live in `.claude/skills/` and are read by both tools (Claude Code natively; GitHub Copilot agent mode and
+the Copilot cloud agent read `.claude/skills/` as agent skills). Each is a short `SKILL.md` (Critical rules,
+Procedure) with details in `references/`, loaded only when needed:
+
+| Skill                | Use it for                                                                 |
+| -------------------- | -------------------------------------------------------------------------- |
+| `ai-native-workflow` | the entry point: routing, the proposal and confidence gate, the human gate |
+| `explore-site`       | looking at the live site with `npx playwright-cli` before any UI code      |
+| `selectors`          | choosing and fixing locators (data-test first, no CSS or XPath)            |
+| `test-data`          | factories, run tags, cleanup and HTTP 409 retention                        |
+| `add-ui-test`        | a user journey to page objects, fixtures and a spec                        |
+| `add-page-object`    | a page object, wizard step or component                                    |
+| `review-ui-tests`    | reviewing a branch (`node scripts/scan-constitution.mts` + checklist)      |
+| `triage-ui-failures` | classifying a red run from failure-summary.json, traces and api-calls.json |
+| `fix-flaky-test`     | root-causing a flake without sleeps or retries                             |
+
 Agents: `.claude/agents/*.md` (Claude Code) mirrored by `.github/agents/*.agent.md` (Copilot):
 `journey-analyst` (read-only), `ui-test-writer`, `ui-test-reviewer` (read-only), `failure-triager`.
 Commands: `.claude/commands/*.md` mirrored by `.github/prompts/*.prompt.md`: `/verify`, `/new-ui-test <journey>`,
-`/review`, `/triage`. When you change one side of a pair, change the other: `npm run agent:parity` (CI) checks
-that the instructions match word for word.
+`/review`, `/triage`. When you change one side of a pair, change the other: `npm run agent:parity` (CI) checks that
+the instructions match word for word and that every skill they name exists.

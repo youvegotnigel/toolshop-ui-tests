@@ -16,3 +16,4 @@ site/
 .DS_Store
 .gh-pages/
 all-blob-reports/
+.playwright-cli/

@@ -14,6 +14,7 @@ The essentials, in case you only read this file:
 - Web-first assertions only; every created record is cleaned up; never weaken an assertion.
 - Done means `npm run verify` is green.
 
-Reusable workflows: skills in `.claude/skills/`, custom agents in `.github/agents/`, prompts in `.github/prompts/`.
+Start non-trivial work with the `ai-native-workflow` skill (explore, propose with confidence, wait for approval).
+Reusable workflows: skills in `.claude/skills/` (Copilot reads them as agent skills), custom agents in `.github/agents/`, prompts in `.github/prompts/`.
 For Copilot cloud agent, allow `practicesoftwaretesting.com` and `api.practicesoftwaretesting.com` in the
 repository's Copilot firewall settings (see `.github/workflows/copilot-setup-steps.yml`).

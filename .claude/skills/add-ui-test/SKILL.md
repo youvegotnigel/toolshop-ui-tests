@@ -5,7 +5,15 @@ description: 'Turn a user journey into a Playwright UI test for the Toolshop: jo
 
 # Add a UI test
 
-Read `AGENTS.md` first: its rules and Toolshop facts are binding.
+Read `AGENTS.md` first: its rules and Toolshop facts are binding. Run through `ai-native-workflow`
+(explore, propose with confidence, human gate) before writing code.
+
+## Critical
+
+- Every locator comes from exploration (`explore-site`); every expected value from the test's own data (`test-data`).
+- Specs never call `page.goto`, the API or `new` a page object; ESLint fails the build if they do.
+- 2 to 6 flat business steps; describe title starts with the journey id; area and depth tags; `covers` annotations.
+- Never weaken an assertion, add a sleep or a retry to get green.
 
 ## 1. Pin down the journey
 
@@ -13,7 +21,8 @@ Read `AGENTS.md` first: its rules and Toolshop facts are binding.
    `page:<key>` entries it touches. New page keys come from the Angular routes.
 2. Write the scenario as 2 to 6 business sentences: they become the `test.step` titles.
    Name the shopper: `guest`, `customer` (worker's own), or `new-customer` (anything that places an order).
-3. Decide the data: what the test creates through the API (`createdProduct`, `createdCatalogue`,
+3. Explore the journey on the live site (`explore-site`) in the shopper's state, desktop and phone.
+4. Decide the data (`test-data`): what the test creates through the API (`createdProduct`, `createdCatalogue`,
    `createCustomer`, a new factory) and every value it will assert. Expected values come from that data or a
    documented rule, never from what the page happens to show.
 
@@ -26,29 +35,7 @@ For every page or step the journey visits, use the existing page object or follo
 
 `tests/<area>/<journey>.spec.ts`:
 
-```ts
-import { test, expect } from '../../src/fixtures';
-
-test.use({ shopper: 'customer' }); // only when not a guest
-
-test.describe('cart.remove: A signed-in customer removes an item', { tag: ['@cart', '@negative'] }, () => {
-  test(
-    'the removed item disappears and the total drops',
-    { annotation: [{ type: 'covers', description: 'page:cart' }] },
-    async ({ createdProduct, productPage }) => {
-      await test.step('A signed-in customer has a product in the cart', async () => {
-        /* ... */
-      });
-      await test.step('They remove it', async () => {
-        /* ... */
-      });
-      await test.step('The cart is empty and the badge disappears', async () => {
-        /* web-first expects */
-      });
-    },
-  );
-});
-```
+Start from `references/spec-template.md`.
 
 - Describe title = `<journey id>: <who does what>`. Tags: area plus depth (`@smoke`, `@negative`, `@a11y`).
 - Assertions in the spec, web-first, on page object locators. `expect.poll` for non-DOM state.
@@ -63,3 +50,8 @@ test.describe('cart.remove: A signed-in customer removes an item', { tag: ['@car
 3. `@smoke` tests: also `--project=mobile-chrome`.
 4. `npm run verify`, then run the `review-ui-tests` checklist on your diff and fix every blocking finding.
 5. The teardown log must show `Sweep removed 0` (or only `kept ... (HTTP 409)` after orders).
+
+## References
+
+- `references/spec-template.md`: the spec skeleton with tags, annotations, steps and the shopper option.
+- `.claude/skills/review-ui-tests/references/checklist.md`: what the reviewer will check.

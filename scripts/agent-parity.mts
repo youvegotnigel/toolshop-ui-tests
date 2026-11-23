@@ -70,6 +70,20 @@ for (const skill of existsSync(skillsDir) ? readdirSync(skillsDir) : []) {
     problems.push(`${file}: add a description of at least 20 characters`);
 }
 
+// Every skill an agent, command or AGENTS.md names must exist (catches renames and typos)
+const skills = new Set(existsSync(skillsDir) ? readdirSync(skillsDir) : []);
+const named = ['AGENTS.md', ...names('.claude/agents', '.md').map((n) => `.claude/agents/${n}.md`)]
+  .concat(names('.claude/commands', '.md').map((n) => `.claude/commands/${n}.md`))
+  .flatMap((file) =>
+    [...readFileSync(file, 'utf8').matchAll(/\.claude\/skills\/([a-z-]+)\//g)].map((m) => ({
+      file,
+      skill: m[1] ?? '',
+    })),
+  );
+for (const { file, skill } of named.filter(({ skill }) => !skills.has(skill))) {
+  problems.push(`${file} names .claude/skills/${skill}/, which does not exist`);
+}
+
 if (!readFileSync('CLAUDE.md', 'utf8').includes('@AGENTS.md'))
   problems.push('CLAUDE.md must import @AGENTS.md');
 if (!readFileSync('.github/copilot-instructions.md', 'utf8').includes('AGENTS.md')) {

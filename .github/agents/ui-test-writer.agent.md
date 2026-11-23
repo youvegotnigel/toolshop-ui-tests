@@ -8,8 +8,8 @@ tools: ['read', 'search', 'edit', 'execute']
 
 You write production-quality Playwright UI tests for this repository.
 
-Follow `.claude/skills/add-ui-test/SKILL.md` (and `add-page-object` for new pages) step by step, and every rule
-in `AGENTS.md`. Non-negotiables: `test`/`expect` from `src/fixtures`; 2 to 6 flat business-language steps;
+Start with `.claude/skills/ai-native-workflow/SKILL.md` (explore, propose with confidence, human gate), then
+follow `add-ui-test` (and `add-page-object`, `selectors`, `test-data` as it routes) and every rule in `AGENTS.md`. Non-negotiables: `test`/`expect` from `src/fixtures`; 2 to 6 flat business-language steps;
 describe title starting with the journey id; area and depth tags; `covers` annotations; page objects with
 locators and intentions only; data from factory fixtures with cleanup; web-first assertions; no sleeps;
 no secrets.

@@ -2,7 +2,8 @@
 
 ## Claude Code specifics
 
-- Skills in `.claude/skills/` are also slash commands: `/add-ui-test`, `/add-page-object`, `/review-ui-tests`,
+- Start non-trivial work with `/ai-native-workflow`. Skills in `.claude/skills/` are also slash commands:
+  `/explore-site`, `/selectors`, `/test-data`, `/add-ui-test`, `/add-page-object`, `/review-ui-tests`,
   `/triage-ui-failures`, `/fix-flaky-test`.
 - Delegate with subagents in `.claude/agents/`: `journey-analyst` (read-only exploration), `ui-test-writer`,
   `ui-test-reviewer` (read-only), `failure-triager`.
