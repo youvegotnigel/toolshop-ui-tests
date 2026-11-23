@@ -12,6 +12,8 @@ description: 'Create and clean up the data a Toolshop UI test needs: factory fix
 - **Every record carries the run tag** `qa-<RUN_ID>` (names, slugs, emails) so the teardown sweep can find it.
 - **Every factory registers its cleanup** right after creating (`cleanup.add`), so it runs even when the test fails.
 - **Search with the builder's `searchWord`**, never the run tag (MySQL full-text treats `-` as "exclude").
+- **Searchable before use**: products a test will search for go through `searchable(word, count)` (built into
+  `createdProduct` and `createdCatalogue`), because the index can trail a new product in CI.
 - **Products need `stock`** (else "Out of stock") and **prices between 1 and 99** (the sort's default price filter).
 - **Orders are permanent**: a customer, product, category or brand an invoice references answers **409**. Tests that
   place orders use `shopper: 'new-customer'`; cleanup records the 409 as `retained`, the hourly reset removes it.
