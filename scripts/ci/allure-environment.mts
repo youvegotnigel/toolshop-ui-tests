@@ -1,10 +1,13 @@
 /**
- * Writes allure-results/environment.properties and executor.json before `allure generate`:
- * base URL, Toolshop version (from the setup project), browser versions, commit, run and CI link.
+ * Prepares allure-results/ before `allure generate`:
+ * - environment.properties and executor.json: base URL, Toolshop version (from the setup project),
+ *   browser versions, commit, run and CI link
+ * - report labels on every result, derived from tags and the describe title (no runtime calls in tests):
+ *   area tag -> feature, describe title -> story, @smoke -> severity critical (else normal)
  *   node scripts/ci/allure-environment.mts [--results test-results/results.json]
  */
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 
 const resultsFile = process.argv.includes('--results')
   ? (process.argv[process.argv.indexOf('--results') + 1] ?? 'test-results/results.json')
@@ -75,3 +78,25 @@ console.log(
     .map(([k, v]) => `${k}=${v}`)
     .join(' | ')}`,
 );
+
+const AREAS = ['catalog', 'auth', 'cart', 'checkout', 'account', 'admin'];
+type Label = { name: string; value: string };
+let labelled = 0;
+for (const file of readdirSync('allure-results').filter((f) => f.endsWith('-result.json'))) {
+  const path = `allure-results/${file}`;
+  const result = JSON.parse(readFileSync(path, 'utf8')) as { labels: Label[] };
+  const value = (name: string): string | undefined => result.labels.find((l) => l.name === name)?.value;
+  const tags = result.labels.filter((l) => l.name === 'tag').map((l) => l.value);
+  const add = (name: string, label: string | undefined): void => {
+    if (label !== undefined && value(name) === undefined) result.labels.push({ name, value: label });
+  };
+  add(
+    'feature',
+    AREAS.find((area) => tags.includes(area)),
+  );
+  add('story', value('subSuite'));
+  add('severity', tags.includes('smoke') ? 'critical' : 'normal');
+  writeFileSync(path, JSON.stringify(result));
+  labelled += 1;
+}
+console.log(`allure-environment: labelled ${String(labelled)} result(s)`);

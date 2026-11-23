@@ -1,5 +1,4 @@
 import { expect, type Page } from '@playwright/test';
-import * as allure from 'allure-js-commons';
 import { test as dataTest } from './data.fixtures';
 import type { Customer } from './auth.fixtures';
 import type { OrdersClient } from '../api/clients/orders.client';
@@ -33,7 +32,7 @@ type PageFixtures = {
   accountPage: AccountPage;
   /** Audits the current page against WCAG 2.2 AA; fails on serious or critical violations. */
   a11y: { expectNoSeriousViolations: (pageKey: string) => Promise<void> };
-  /** auto: maps tags and the journey to report labels (Allure feature, story, severity). */
+  /** auto: records the journey id (Allure labels are derived from tags by scripts/ci/allure-environment.mts). */
   reportLabels: undefined;
 };
 
@@ -110,11 +109,6 @@ export const test = dataTest.extend<PageFixtures>({
       const labels = labelsOf(testInfo);
       if (labels.journey !== undefined)
         testInfo.annotations.push({ type: 'journey', description: labels.journey });
-      if (process.env.ALLURE !== undefined) {
-        if (labels.area !== undefined) await allure.feature(labels.area);
-        await allure.story(labels.story);
-        await allure.severity(labels.critical ? 'critical' : 'normal');
-      }
       await use(undefined);
     },
     { auto: true, box: true },
