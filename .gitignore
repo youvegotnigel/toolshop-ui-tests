@@ -10,6 +10,8 @@ allure-results/
 allure-report/
 allure-history/
 coverage-history/
+smart-report/
+smart-history/
 site/
 .claude/settings.local.json
 .playwright-mcp/

@@ -55,7 +55,7 @@ pipeline {
 
   post {
     always {
-      // The workspace keeps allure-history/ and coverage-history/ between builds for the trends
+      // The workspace keeps allure-history/, smart-history/ and coverage-history/ between builds for the trends
       sh 'scripts/ci/build-site.sh || true'
       junit allowEmptyResults: true, testResults: 'test-results/junit.xml'
       publishHTML(target: [
@@ -77,6 +77,14 @@ pipeline {
       publishHTML(target: [
         reportName: 'Playwright',
         reportDir: 'site/playwright',
+        reportFiles: 'index.html',
+        keepAll: true,
+        alwaysLinkToLastBuild: true,
+        allowMissing: true,
+      ])
+      publishHTML(target: [
+        reportName: 'Smart Report',
+        reportDir: 'site/smart',
         reportFiles: 'index.html',
         keepAll: true,
         alwaysLinkToLastBuild: true,

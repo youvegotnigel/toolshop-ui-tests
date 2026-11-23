@@ -125,7 +125,7 @@ export const renderDashboard = (d: Dashboard): string => {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(d.plan.suite.name)}: automation dashboard</title><style>${STYLES}</style></head><body><main>
 <header class="top"><div><h1>Test automation dashboard</h1><p class="muted">${escapeHtml(d.plan.suite.name)} · run #${escapeHtml(s.runNumber)} · ${escapeHtml(s.commit.slice(0, 7))} · ${escapeHtml(s.env)}${d.toolshopVersion === undefined ? '' : ` · Toolshop ${escapeHtml(d.toolshopVersion)}`} · release plan ${escapeHtml(d.plan.release)} · <span class="ago" data-time="${escapeHtml(s.date)}"></span></p></div>
-<nav>${link(d.links.allure, 'Allure report')}${link(d.links.playwright, 'Playwright report')}${link(d.links.run, 'CI run')}</nav></header>
+<nav>${link(d.links.allure, 'Allure report')}${link(d.links.playwright, 'Playwright report')}${link(d.links.smart, 'Smart report')}${link(d.links.run, 'CI run')}</nav></header>
 <section class="row">${suiteCard(d)}${donutCard(d)}</section>
 ${kpis(d)}
 ${trends(d)}
