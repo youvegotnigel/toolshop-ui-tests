@@ -24,6 +24,7 @@ description: 'Use first on every non-trivial task in this repo (new journey or t
    | --------------------------------------------- | -------------------- | ---------------------------------------------- |
    | Automate a user journey / new spec            | `add-ui-test`        | `explore-site`, `add-page-object`, `test-data` |
    | Add or change a page object or component      | `add-page-object`    | `explore-site`, `selectors`                    |
+   | Many cases with the same steps (validation)   | `data-driven-tests`  | `explore-site`, `add-ui-test`                  |
    | Choose or fix a locator                       | `selectors`          | `explore-site`                                 |
    | Create data for a test, cleanup, 409s         | `test-data`          | -                                              |
    | Look at the live site                         | `explore-site`       | -                                              |

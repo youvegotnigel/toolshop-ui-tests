@@ -7,6 +7,7 @@ import prettier from 'eslint-config-prettier';
 import playwright from 'eslint-plugin-playwright';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import qe from './eslint/index.mts';
 
 /** Every test body must describe its flow with test.step (readable reports for managers). */
 const TEST_WITHOUT_STEP =
@@ -158,8 +159,14 @@ export default defineConfig(
   {
     files: ['tests/**/*.ts'],
     extends: [playwright.configs['flat/recommended']],
+    plugins: { qe },
     rules: {
       ...PLAYWRIGHT_HYGIENE,
+      // Data-driven tests: docs/testing-patterns/data-driven-tests.md
+      'qe/prefer-data-driven-tests': ['error', { threshold: 3, minStatements: 2 }],
+      'qe/valid-data-driven-test': 'error',
+      // Must stay off: data-driven tests need template literal titles that use the case data
+      'playwright/no-template-literal-title': 'off',
       'playwright/no-focused-test': 'error',
       'playwright/no-skipped-test': ['error', { allowConditional: true }],
       'playwright/no-conditional-in-test': 'error',

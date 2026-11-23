@@ -17,13 +17,14 @@ Sister project: [toolshop-api-tests](https://github.com/youvegotnigel/toolshop-a
 
 ## What it covers
 
-| Journey          | Spec                              | What it proves                                                                                        | Tags                     |
-| ---------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------ |
-| `catalog.search` | `tests/catalog/search.spec.ts`    | A shopper finds a product by name; the detail page shows name, price and brand; WCAG 2.2 AA           | `@catalog @smoke @a11y`  |
-| `catalog.sort`   | `tests/catalog/sort.spec.ts`      | Price sorting, low to high and high to low (data-driven over the sort options)                        | `@catalog`               |
-| `auth.login`     | `tests/auth/login.spec.ts`        | A wrong password is refused without a session; the right one opens the account                        | `@auth @smoke @negative` |
-| `cart.update`    | `tests/cart/cart.spec.ts`         | Changing the quantity updates the line total, cart total and badge                                    | `@cart`                  |
-| `checkout.card`  | `tests/checkout/checkout.spec.ts` | End-to-end checkout paid by card, order confirmed in the UI and verified through the API; WCAG 2.2 AA | `@checkout @smoke @a11y` |
+| Journey                 | Spec                                  | What it proves                                                                                        | Tags                     |
+| ----------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------ |
+| `catalog.search`        | `tests/catalog/search.spec.ts`        | A shopper finds a product by name; the detail page shows name, price and brand; WCAG 2.2 AA           | `@catalog @smoke @a11y`  |
+| `catalog.sort`          | `tests/catalog/sort.spec.ts`          | Price sorting, low to high and high to low (data-driven over the sort options)                        | `@catalog`               |
+| `auth.login`            | `tests/auth/login.spec.ts`            | A wrong password is refused without a session; the right one opens the account                        | `@auth @smoke @negative` |
+| `auth.login-validation` | `tests/auth/login-validation.spec.ts` | Data-driven: the sign-in form flags each invalid field before sending it (4 rows, one test each)      | `@auth @negative`        |
+| `cart.update`           | `tests/cart/cart.spec.ts`             | Changing the quantity updates the line total, cart total and badge                                    | `@cart`                  |
+| `checkout.card`         | `tests/checkout/checkout.spec.ts`     | End-to-end checkout paid by card, order confirmed in the UI and verified through the API; WCAG 2.2 AA | `@checkout @smoke @a11y` |
 
 Every spec creates its own data through the API and removes it afterwards; all five run on Chromium, Firefox and
 WebKit, and the `@smoke` ones on a Pixel 7 too.
@@ -227,6 +228,7 @@ skill that does not exist.
 | -------------------- | --------------------------------------------------------------------------- |
 | `ai-native-workflow` | start any non-trivial task: it routes to the right skill and gates the plan |
 | `explore-site`       | look at a page with `playwright-cli` before writing UI code                 |
+| `data-driven-tests`  | one test per row of a typed cases table; guide in `docs/testing-patterns/`  |
 | `selectors`          | pick or fix a locator                                                       |
 | `test-data`          | give a test its own data, or understand a 409 in cleanup                    |
 | `add-ui-test`        | automate a journey end to end                                               |

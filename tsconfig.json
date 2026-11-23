@@ -16,5 +16,5 @@
     "allowImportingTsExtensions": true,
     "types": ["node"]
   },
-  "include": ["src", "tests", "scripts", "playwright.config.ts", "merge.config.ts"]
+  "include": ["src", "tests", "scripts", "eslint", "playwright.config.ts", "merge.config.ts"]
 }
