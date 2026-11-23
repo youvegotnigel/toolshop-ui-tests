@@ -67,3 +67,11 @@ export const tokenStorage = (): 'local' | 'session' =>
 
 /** Prefix for in-app routes: '' for path routing (public), '/#' for hash routing (with-bugs). */
 export const routePrefix = (): string => process.env.ROUTE_PREFIX ?? '';
+
+/**
+ * True when Cloudflare-guarded flows must be skipped: in CI only (CI is set by GitHub Actions and Jenkins),
+ * and not when RUN_CLOUDFLARE_GUARDED_TESTS=1 says the runner is on a network Cloudflare does not challenge.
+ * Local runs (npm test, UI mode, headed) never skip.
+ */
+export const skipCloudflareGuarded = (): boolean =>
+  process.env.CI !== undefined && process.env.RUN_CLOUDFLARE_GUARDED_TESTS !== '1';
