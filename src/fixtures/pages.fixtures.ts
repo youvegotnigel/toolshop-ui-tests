@@ -55,12 +55,15 @@ export const test = dataTest.extend<PageFixtures>({
     await use(await accounts[shopper]());
   },
 
-  signedInPage: async ({ page, shopperAccount, orders }, use) => {
+  signedInPage: async ({ page, shopperAccount, orders, browserName }, use, testInfo) => {
     if (shopperAccount !== undefined) {
       // Logged in through the API: only the login test types a password into the form.
       await page.context().addInitScript(seedToken, await shopperAccount.session.token());
     }
     await use(page);
+    // Read by the dashboard and the Allure environment (browser versions under test)
+    const version = page.context().browser()?.version() ?? 'unknown';
+    testInfo.annotations.push({ type: 'browser-version', description: `${browserName} ${version}` });
     // The cart lives in the browser session; remove it so no cart outlives the test.
     const cartId = await page.evaluate(() => sessionStorage.getItem('cart_id')).catch(() => null);
     if (cartId !== null) await cleanCart(orders, cartId);

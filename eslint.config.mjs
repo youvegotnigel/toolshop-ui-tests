@@ -32,6 +32,7 @@ export default defineConfig(
     'node_modules/',
     'playwright-report/',
     'blob-report/',
+    'all-blob-reports/',
     'test-results/',
     'allure-results/',
     'allure-report/',

@@ -24,7 +24,12 @@ export default defineConfig({
 
   reporter: [
     [isCI ? 'line' : 'list'],
-    ...(isCI ? ([['blob', { outputDir: 'blob-report' }]] as ReporterDescription[]) : []),
+    // One blob per CI job (BLOB_NAME = browser project), merged into one HTML report by merge.config.ts
+    ...(isCI || process.env.BLOB_NAME !== undefined
+      ? ([
+          ['blob', { outputDir: 'blob-report', fileName: `report-${process.env.BLOB_NAME ?? 'ci'}.zip` }],
+        ] as ReporterDescription[])
+      : []),
     ['html', { open: 'never' }],
     ['junit', { outputFile: 'test-results/junit.xml' }],
     ['json', { outputFile: 'test-results/results.json' }], // dashboard input
