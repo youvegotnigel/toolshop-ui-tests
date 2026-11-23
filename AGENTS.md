@@ -111,6 +111,12 @@ option `shopper` -> `shopperAccount` -> `signedInPage` -> `homePage`, `productPa
 - Name search is MySQL BOOLEAN MODE full-text, cached for an hour per query: search for the builder's
   unique `searchWord`, never the run tag (its `-` means "exclude").
 - Sorting re-queries with the default price filter (0 to 100): builders keep prices between 1 and 99.
+- From GitHub-hosted runners the search index can trail a new product by a few seconds (not reproducible
+  from other networks). `createdProduct` and `createdCatalogue` wait with `expect.poll` until their products are
+  searchable (`searchable` fixture) before the test starts: data readiness, never a sleep in the test.
+- Cloudflare protects the site. From GitHub-hosted runners it can answer the post-login `/account` load with a
+  "Verify you are human" challenge, which fails `auth.login` there. Never try to bypass it; run UI jobs from a
+  network it does not challenge (self-hosted runner or Jenkins).
 - Checkout: the cart is step 1 of `/checkout`; the address step is patched from `GET /users/me` when the
   page loads, which can land after typing and wipe it. Test customers register with a saved address, and
   specs wait for the pre-filled values. The postcode lookup overwrites street, city and state. Payment needs
