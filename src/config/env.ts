@@ -69,9 +69,10 @@ export const tokenStorage = (): 'local' | 'session' =>
 export const routePrefix = (): string => process.env.ROUTE_PREFIX ?? '';
 
 /**
- * True when Cloudflare-guarded flows must be skipped: in CI only (CI is set by GitHub Actions and Jenkins),
- * and not when RUN_CLOUDFLARE_GUARDED_TESTS=1 says the runner is on a network Cloudflare does not challenge.
- * Local runs (npm test, UI mode, headed) never skip.
+ * True when Cloudflare-guarded flows must be skipped: on GitHub-hosted runners only (GitHub sets
+ * RUNNER_ENVIRONMENT=github-hosted there), whose datacenter IPs Cloudflare challenges. Local runs, Jenkins
+ * and self-hosted runners never skip. RUN_CLOUDFLARE_GUARDED_TESTS=1 forces the tests to run anyway,
+ * e.g. to check whether Cloudflare still challenges GitHub-hosted runners.
  */
 export const skipCloudflareGuarded = (): boolean =>
-  process.env.CI !== undefined && process.env.RUN_CLOUDFLARE_GUARDED_TESTS !== '1';
+  process.env.RUNNER_ENVIRONMENT === 'github-hosted' && process.env.RUN_CLOUDFLARE_GUARDED_TESTS !== '1';

@@ -62,7 +62,7 @@ jobs:
       CI: true
       ALLURE: 1
       BLOB_NAME: ${{ matrix.project }}
-      # Set the repository variable to 1 once the jobs run where Cloudflare does not challenge them
+      # @cloudflare-guarded tests skip on GitHub-hosted runners; set the repository variable to 1 to force them
       RUN_CLOUDFLARE_GUARDED_TESTS: ${{ vars.RUN_CLOUDFLARE_GUARDED_TESTS }}
       ADMIN_PASSWORD: ${{ secrets.TOOLSHOP_ADMIN_PASSWORD }}
     steps:
