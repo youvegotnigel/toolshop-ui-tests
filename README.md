@@ -129,7 +129,15 @@ assertion. Latest run (Chromium, Firefox, WebKit):
    Allure, writes the dashboard numbers to the job summary, uploads the site as an artifact, and **publishes to
    GitHub Pages only from full runs on `main` against `public`** (never PRs, `--grep` subsets or `with-bugs`).
 
-Required: the repository secret `TOOLSHOP_ADMIN_PASSWORD`. To publish, enable Pages once:
+Required: the repository secret `TOOLSHOP_ADMIN_PASSWORD` (add it under **Actions** and under **Dependabot**
+secrets, because Dependabot runs cannot read Actions secrets).
+
+**Cloudflare-guarded tests.** From GitHub-hosted runners, Cloudflare answers the post-login `/account` page with a
+"Verify you are human" challenge. `auth.login` is therefore tagged `@cloudflare-guarded` and skipped in CI, with
+the reason shown in the HTML report, Allure and the dashboard. It always runs locally (`npm test`, UI mode,
+headed). On a runner Cloudflare does not challenge (self-hosted or Jenkins), set the repository variable
+`RUN_CLOUDFLARE_GUARDED_TESTS` to `1` (Settings > Secrets and variables > Actions > Variables) or tick the Jenkins
+parameter, and it runs in CI too. To publish, enable Pages once:
 **Settings > Pages > Build and deployment > Deploy from a branch > `gh-pages` / (root)**. The `gh-pages` branch
 always holds one commit; trend history lives in `history/` on it and survives every publish (last 30 runs).
 

@@ -114,9 +114,11 @@ option `shopper` -> `shopperAccount` -> `signedInPage` -> `homePage`, `productPa
 - From GitHub-hosted runners the search index can trail a new product by a few seconds (not reproducible
   from other networks). `createdProduct` and `createdCatalogue` wait with `expect.poll` until their products are
   searchable (`searchable` fixture) before the test starts: data readiness, never a sleep in the test.
-- Cloudflare protects the site. From GitHub-hosted runners it can answer the post-login `/account` load with a
-  "Verify you are human" challenge, which fails `auth.login` there. Never try to bypass it; run UI jobs from a
-  network it does not challenge (self-hosted runner or Jenkins).
+- Cloudflare protects the site. From GitHub-hosted runners it answers the post-login `/account` load with a
+  "Verify you are human" challenge. Never try to bypass it. Tests on such flows are tagged `@cloudflare-guarded`
+  and start with `test.skip(skipCloudflareGuarded(), '<reason>')`: skipped in CI (with the reason in every report),
+  never locally, and run in CI too once `RUN_CLOUDFLARE_GUARDED_TESTS=1` is set (repository variable or Jenkins
+  parameter) on a runner Cloudflare does not challenge. This is the only allowed skip, decided by the owner.
 - Checkout: the cart is step 1 of `/checkout`; the address step is patched from `GET /users/me` when the
   page loads, which can land after typing and wipe it. Test customers register with a saved address, and
   specs wait for the pre-filled values. The postcode lookup overwrites street, city and state. Payment needs
