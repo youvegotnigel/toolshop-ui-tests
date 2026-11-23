@@ -20,17 +20,18 @@ description: 'Use first on every non-trivial task in this repo (new journey or t
 1. **Classify**: codegen, edit, refactor, debug, review or explore.
 2. **Route** to the first skill:
 
-   | You want to...                                | First skill          | Then                                           |
-   | --------------------------------------------- | -------------------- | ---------------------------------------------- |
-   | Automate a user journey / new spec            | `add-ui-test`        | `explore-site`, `add-page-object`, `test-data` |
-   | Add or change a page object or component      | `add-page-object`    | `explore-site`, `selectors`                    |
-   | Many cases with the same steps (validation)   | `data-driven-tests`  | `explore-site`, `add-ui-test`                  |
-   | Choose or fix a locator                       | `selectors`          | `explore-site`                                 |
-   | Create data for a test, cleanup, 409s         | `test-data`          | -                                              |
-   | Look at the live site                         | `explore-site`       | -                                              |
-   | A red run                                     | `triage-ui-failures` | `fix-flaky-test`, `selectors`                  |
-   | A test that passes on retry or only sometimes | `fix-flaky-test`     | `explore-site`                                 |
-   | Review a branch or PR                         | `review-ui-tests`    | -                                              |
+   | You want to...                                 | First skill          | Then                                           |
+   | ---------------------------------------------- | -------------------- | ---------------------------------------------- |
+   | Automate a user journey / new spec             | `add-ui-test`        | `explore-site`, `add-page-object`, `test-data` |
+   | Add or change a page object or component       | `add-page-object`    | `explore-site`, `selectors`                    |
+   | Many cases with the same steps (validation)    | `data-driven-tests`  | `explore-site`, `add-ui-test`                  |
+   | Choose or fix a locator                        | `selectors`          | `explore-site`                                 |
+   | Create data for a test, cleanup, 409s          | `test-data`          | -                                              |
+   | Look at the live site                          | `explore-site`       | -                                              |
+   | A red run                                      | `triage-ui-failures` | `fix-flaky-test`, `selectors`                  |
+   | A test that passes on retry or only sometimes  | `fix-flaky-test`     | `explore-site`                                 |
+   | Review a branch or PR                          | `review-ui-tests`    | -                                              |
+   | Add logging, or change the console or log file | `run-logging`        | -                                              |
 
 3. **Explore**: read the files the leaf skill names, run `explore-site` for anything on screen, and list
    what is known and unknown. A missing primary input (journey, page, shopper, expected outcome) is asked now.

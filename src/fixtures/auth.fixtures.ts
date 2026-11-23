@@ -6,7 +6,9 @@ import { StatusSchema } from '../api/schemas/auth.schema';
 import { env, proxyFromEnv } from '../config/env';
 import { buildCustomer } from '../data/customer.builder';
 import { HTTP } from '../utils/http';
-import { logger } from '../utils/logger';
+import { createLogger } from '../utils/logger';
+
+const logger = createLogger('AuthFixtures');
 
 /** A customer and the session that logs them in. */
 export type Customer = { user: RegisteredUser; session: AuthSession; email: string; password: string };

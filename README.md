@@ -48,12 +48,17 @@ WebKit, and the `@smoke` ones on a Pixel 7 too.
 - **Two sites, one suite**: `TEST_ENV=with-bugs` runs the same specs against the deliberately buggy build.
 - **Evidence for every failure**: trace, screenshot and video (failures only), the API call log of the test data
   setup, the axe report, a correlation id and the failed business step in `failure-summary.json` and the job summary.
+- **A console you can read, a log file you can dig into**: one block per test with a ✅/❌ line per business step
+  and its duration, a one-line failure reason, a progress line and a summary with the flaky and failed tests, the same
+  locally and in Jenkins. `logs/automation_framework.log` adds millisecond timestamps, the source of each line and
+  the full error, stack, correlation id and evidence of every failed attempt (`LOG_FILE_LEVEL=debug` adds every click,
+  fill, select and assertion with its element and value; see [Logs and debug mode](#logs-and-debug-mode)). Modelled on a log4j2 + Cucumber framework; `--reporter=list` gives the stock Playwright output.
 - **Secrets stay secret**: the logger and the API recorder mask passwords and JWTs; `scripts/ci/redact-traces.mts`
   rewrites every trace, blob and HTML report so the `Authorization: Bearer` headers the browser sends are masked
   before anything is uploaded or published.
 - **One link for managers**: a GitHub Pages site with the automation dashboard, Allure 3 (with history and
   categories) and the merged Playwright HTML report.
-- **Agent-ready**: `AGENTS.md` as the single source of truth, nine skills, four agents and four commands for both
+- **Agent-ready**: `AGENTS.md` as the single source of truth, ten skills, four agents and four commands for both
   Claude Code and GitHub Copilot, a parity check and a constitution scan.
 
 ## Screenshots
@@ -89,17 +94,18 @@ routing, token storage). Real values in the environment (CI secrets) win over th
 
 ## Running the tests
 
-| What                                 | Command                                                                 |
-| ------------------------------------ | ----------------------------------------------------------------------- |
-| Everything (all browsers + mobile)   | `npm test`                                                              |
-| One browser                          | `npm run test:chromium` (`test:firefox`, `test:webkit`, `test:mobile`)  |
-| Smoke                                | `npm run test:smoke`                                                    |
-| Headed / UI mode                     | `npm run test:headed` / `npm run test:ui`                               |
-| Shuffled and repeated (independence) | `npm run test:shuffle`                                                  |
-| Against the buggy Toolshop           | `npm run test:with-bugs`                                                |
-| One test                             | `npx playwright test tests/cart/cart.spec.ts --project=webkit`          |
-| Everything a PR needs                | `npm run verify` (typecheck, lint, format, agent parity, tests)         |
-| Reports locally                      | `ALLURE=1 npm test && npm run report:site`, then open `site/index.html` |
+| What                                    | Command                                                                                          |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Everything (all browsers + mobile)      | `npm test`                                                                                       |
+| One browser                             | `npm run test:chromium` (`test:firefox`, `test:webkit`, `test:mobile`)                           |
+| Smoke                                   | `npm run test:smoke`                                                                             |
+| Headed / UI mode                        | `npm run test:headed` / `npm run test:ui`                                                        |
+| Shuffled and repeated (independence)    | `npm run test:shuffle`                                                                           |
+| Against the buggy Toolshop              | `npm run test:with-bugs`                                                                         |
+| One test                                | `npx playwright test tests/cart/cart.spec.ts --project=webkit`                                   |
+| Everything a PR needs                   | `npm run verify` (typecheck, lint, format, agent parity, tests)                                  |
+| Reports locally                         | `ALLURE=1 npm test && npm run report:site`, then open `site/index.html`                          |
+| Every click, fill and select in the log | `LOG_FILE_LEVEL=debug npx playwright test ...` (see [Logs and debug mode](#logs-and-debug-mode)) |
 
 Behind a TLS-inspecting proxy whose CA Firefox does not trust, set `TRUST_INTERCEPTING_PROXY=1` (local only,
 ignored in CI). `HTTPS_PROXY` is honoured by browsers and API contexts.
@@ -119,6 +125,124 @@ assertion. Latest run (Chromium, Firefox, WebKit):
 | `cart.update`    | The cart shows a line total of `$00.00` instead of the price                                                                                                |
 | `checkout.card`  | The saved postcode is not pre-filled on the address step (possibly an old-build difference: its API calls it `postcode`)                                    |
 
+## Logs and debug mode
+
+Every run writes the same story twice: a short **console** you can read at a glance (locally and in the Jenkins
+console) and a detailed **log file**, `logs/automation_framework.log`, for digging into failures. The format is
+modelled on a log4j2 + Cucumber framework: a `test()` is a scenario and a `test.step` is a step.
+
+### The console
+
+```
+10:15:02 INFO  ===== Test run started: 9 tests (+2 setup/teardown) | projects: chromium | workers: 3 | retries: 1 | TEST_ENV=public | RUN_ID=rmwtfcxjs =====
+10:15:04 INFO  ▶ Test 6/9 [chromium]: cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity
+10:15:05 INFO  Logged in as customer (token valid 300s)
+10:15:07 INFO     ✅ A signed-in customer adds a product to the cart (2.6s)
+10:15:08 INFO     ✅ They open the cart and see one item at the unit price (0.9s)
+10:15:19 ERROR    ❌ The line total, the cart total and the badge all show 3 items (10.8s) -> expect(locator).toHaveText(expected) failed | Locator: getByTestId('cart-quantity')
+10:15:19 ERROR ❌ Test FAILED [chromium]: cart.update: … › the line total and the cart badge follow the quantity (20.1s)
+10:15:19 WARN     ↻ Will retry (attempt 2/2)
+10:15:19 INFO  ---------- Test Suite Execution Status: 9/9 (100%) Completed | ✅ 8 passed | ⚠ 0 flaky | ❌ 1 failed ----------
+10:16:40 INFO  ===== Results: 8 passed, 1 failed (1m 00s) =====
+10:16:40 ERROR Failed tests:
+                 - [chromium] cart.update: … › the line total and the cart badge follow the quantity (tests/cart/cart.spec.ts:9)
+10:16:40 INFO  Full details: logs/automation_framework.log | HTML report: npx playwright show-report
+```
+
+- One block per test: `▶` when it starts, a ✅/❌ line per business step with its duration, the framework's own
+  log lines for that test (logins, test data, cleanup), and the result (`PASSED`, `FAILED`, `TIMED OUT`, `FLAKY`,
+  `SKIPPED`, `INTERRUPTED`).
+- A failure shows **one line of reason** (the first line of the error and the locator) on the step that failed. No
+  stack traces and no colour codes, so the Jenkins console stays readable without the AnsiColor plugin.
+- A progress line after every finished test, then a summary with the flaky and failed tests and where they live.
+- Tests run in parallel, so each test's lines are held back and printed as one block when it ends. With one worker
+  (`--workers=1`, `--headed`) lines appear live.
+- Setup and teardown get their own `⚙` lines. When the environment check fails you get one
+  `❌ Run aborted before any test started: <reason>` line and one `⏭ N tests not run because setup failed`, not a
+  wall of skips.
+
+### The log file
+
+`logs/automation_framework.log` has the same lines with a millisecond timestamp and the **source** of each line
+(`TestHooks`, `StepListener`, `AuthSession`, `DataFixtures`, ...), plus, for every failed attempt, the full error,
+the code frame, the stack (without Playwright internals), the correlation id and the paths of the trace,
+screenshot, video and `api-calls.json`:
+
+```
+2026-11-23 21:03:07.120 | ERROR | StepListener           |    ❌ The line total, the cart total and the badge all show 3 items (10.8s) -> expect(locator).toHaveText(expected) failed | Locator: getByTestId('cart-quantity')
+2026-11-23 21:03:11.238 | ERROR | TestHooks              | Error details for failed test '[chromium] cart.update: …' (attempt 1/2, correlation id 531a0ad7-d52a-4818-b9ae-1f6e1bcd9d0f)
+                                                           Error 1/1: Error: expect(locator).toHaveText(expected) failed
+                                                           Locator:  getByTestId('cart-quantity')
+                                                           Expected: "4"
+                                                           Received: "3"
+                                                           ...
+                                                           Evidence:
+                                                             - test-results/artifacts/cart-cart-…-chromium/trace.zip
+```
+
+Runs append to the file. It is renamed to `automation_framework_YYYY_MM_DD.log` on the first run of a new day or
+when it passes 20 MB. Jenkins archives `logs/*.log` with every build (and clears `logs/` at the start of each build);
+GitHub Actions uploads it per browser as the `logs-<project>` artifact. The folder is git-ignored.
+
+### Debug mode: every click, fill and select
+
+Set `LOG_FILE_LEVEL=debug` and the log file also records **every action and assertion the test makes, with the
+element and the value**, plus every API call:
+
+```
+2026-11-23 21:20:14.096 | DEBUG | StepListener           |          · Navigate /auth/login (1.1s)
+2026-11-23 21:20:14.102 | DEBUG | StepListener           |          · Fill getByTestId('email') value="qa-rmwtg0ljd.if1cfgmz@toolshop-tests.example" (0.0s)
+2026-11-23 21:20:14.110 | DEBUG | StepListener           |          · Fill getByTestId('password') value=*** (0.0s)
+2026-11-23 21:20:14.131 | DEBUG | StepListener           |          · Click getByTestId('login-submit') (0.0s)
+2026-11-23 21:20:21.540 | DEBUG | StepListener           |          · Select option getByTestId('sort') options=[{"label":"Price (High - Low)"}] (0.0s)
+2026-11-23 21:20:22.351 | DEBUG | StepListener           |          · Expect "toHaveText" getByTestId('product-price') expected=["$97.59","$53.09","$35.69"] (0.8s)
+2026-11-23 21:20:18.556 | DEBUG | ApiRecorder            | GET https://api.practicesoftwaretesting.com/status -> 200 in 443 ms
+```
+
+A failed action or assertion is marked `✗` instead of `·`. Values typed into or expected from **password, token,
+CVV and card-number fields are always masked** (`***`), and JWTs and secret environment values are masked in every
+line.
+
+How to switch it on:
+
+| Where                        | How                                                                                           |
+| ---------------------------- | --------------------------------------------------------------------------------------------- |
+| One run (macOS / Linux)      | `LOG_FILE_LEVEL=debug npx playwright test tests/cart/cart.spec.ts --project=chromium`         |
+| One run (Windows PowerShell) | `$env:LOG_FILE_LEVEL="debug"; npx playwright test tests/cart/cart.spec.ts --project=chromium` |
+| One run (any OS)             | `npx cross-env LOG_FILE_LEVEL=debug playwright test tests/cart/cart.spec.ts`                  |
+| Also on the console          | add `LOG_LEVEL=debug` (with `--workers=1` the actions appear live, as they happen)            |
+| Always, on your machine      | add `LOG_FILE_LEVEL=debug` to `.env.local`; remove it to go back                              |
+| Jenkins                      | `LOG_FILE_LEVEL = 'debug'` in the `environment { }` block of the `Jenkinsfile`                |
+| GitHub Actions               | `LOG_FILE_LEVEL: debug` under `env:` of the `test` job in `.github/workflows/ci.yml`          |
+
+### Settings
+
+| Variable         | Default | Effect                                                                                 |
+| ---------------- | ------- | -------------------------------------------------------------------------------------- |
+| `LOG_LEVEL`      | `info`  | Console level: `debug`, `info`, `warn` or `error`                                      |
+| `LOG_FILE_LEVEL` | `info`  | Log file level; `debug` adds every action, assertion and API call                      |
+| `LOG_STREAM`     | auto    | `1` prints lines live, `0` prints one block per test; auto = live only with one worker |
+
+Want Playwright's stock console instead? `npx playwright test --reporter=list` (the flag replaces every configured
+reporter, so no log file is written for that run).
+
+### Logging from framework code
+
+Use a named logger, never `console.*` (ESLint blocks it): the name fills the source column of the log file.
+
+```ts
+import { createLogger } from '../utils/logger';
+
+const logger = createLogger('DataFixtures');
+
+logger.info(`cleanup kept ${label}: referenced by an order (HTTP 409)`);
+logger.debug(`${method} ${url} -> ${String(status)} in ${String(ms)} ms`);
+```
+
+`info` for facts a reader of the run needs, `warn` when something went wrong but the test goes on, `error` only next
+to a failure, `debug` for high-volume detail. Never log passwords, tokens, cookies or whole request bodies. The
+`run-logging` skill (`.claude/skills/run-logging/`) holds the full rules for people and AI agents.
+
 ## CI/CD
 
 **GitHub Actions** (`.github/workflows/ci.yml`) on pull requests, pushes to `main`, nightly and on demand
@@ -126,7 +250,7 @@ assertion. Latest run (Chromium, Firefox, WebKit):
 
 1. `quality`: typecheck, lint (0 warnings), format, agent parity.
 2. `test`: one job per browser project (`npx playwright install --with-deps <browser>`), blob and Allure results
-   uploaded, traces redacted first; failures upload `test-results/` and write a failures table to the job summary.
+   uploaded, traces redacted first; the run log uploaded as `logs-<project>`; failures upload `test-results/` and write a failures table to the job summary.
 3. `report`: merges the blobs into one HTML report, restores history from `gh-pages`, builds the dashboard and
    Allure, writes the dashboard numbers to the job summary, uploads the site as an artifact, and **publishes to
    GitHub Pages only from full runs on `main` against `public`** (never PRs, `--grep` subsets or `with-bugs`).
@@ -145,7 +269,8 @@ always holds one commit; trend history lives in `history/` on it and survives ev
 
 **Jenkins** (`Jenkinsfile`) runs the same stages in `mcr.microsoft.com/playwright:v1.65.1-noble` (keep the tag equal
 to `@playwright/test`) and publishes "Automation Dashboard", "Allure", "Playwright" and "Smart Report" with the HTML Publisher
-plugin. Credential: `toolshop-admin-password` (Secret text). Allure, Playwright and smart reports need JavaScript, so relax
+plugin. Credential: `toolshop-admin-password` (Secret text). It archives `logs/*.log` with every build and
+clears `logs/` at the start of each one. Allure, Playwright and smart reports need JavaScript, so relax
 Jenkins' Content Security Policy for HTML Publisher (`hudson.model.DirectoryBrowserSupport.CSP`).
 
 Also included: Dependabot (npm and actions), CODEOWNERS, a PR template, a "UI test request" issue template and an
@@ -192,7 +317,8 @@ src/components/           Header, CartBadge, ProductCard
 src/fixtures/             auth -> api -> data -> pages, exported by src/fixtures/index.ts
 src/data/                 faker builders, checkout data, sort options
 src/utils/                logger, api-recorder, a11y audit and known violations, report labels
-src/reporting/            failure tracker (failure-summary.json, job summary), smart report options
+src/reporting/            run logger (console + logs/automation_framework.log), failure tracker, smart report
+logs/                     automation_framework.log: the detailed run log (git-ignored, archived by CI)
 scripts/coverage/         automation dashboard
 scripts/ci/               redact-traces, allure-environment, build-site, restore-history, publish-pages
 scripts/                  agent-parity, scan-constitution, hooks/
@@ -224,18 +350,19 @@ skill that does not exist.
 
 ### Skills
 
-| Skill                | Use it when you want to...                                                  |
-| -------------------- | --------------------------------------------------------------------------- |
-| `ai-native-workflow` | start any non-trivial task: it routes to the right skill and gates the plan |
-| `explore-site`       | look at a page with `playwright-cli` before writing UI code                 |
-| `data-driven-tests`  | one test per row of a typed cases table; guide in `docs/testing-patterns/`  |
-| `selectors`          | pick or fix a locator                                                       |
-| `test-data`          | give a test its own data, or understand a 409 in cleanup                    |
-| `add-ui-test`        | automate a journey end to end                                               |
-| `add-page-object`    | add a page, a checkout step or a component                                  |
-| `review-ui-tests`    | review a branch or PR                                                       |
-| `triage-ui-failures` | understand a red run                                                        |
-| `fix-flaky-test`     | root-cause a flake (never with sleeps or retries)                           |
+| Skill                | Use it when you want to...                                                   |
+| -------------------- | ---------------------------------------------------------------------------- |
+| `ai-native-workflow` | start any non-trivial task: it routes to the right skill and gates the plan  |
+| `explore-site`       | look at a page with `playwright-cli` before writing UI code                  |
+| `data-driven-tests`  | one test per row of a typed cases table; guide in `docs/testing-patterns/`   |
+| `selectors`          | pick or fix a locator                                                        |
+| `test-data`          | give a test its own data, or understand a 409 in cleanup                     |
+| `add-ui-test`        | automate a journey end to end                                                |
+| `add-page-object`    | add a page, a checkout step or a component                                   |
+| `review-ui-tests`    | review a branch or PR                                                        |
+| `triage-ui-failures` | understand a red run                                                         |
+| `fix-flaky-test`     | root-cause a flake (never with sleeps or retries)                            |
+| `run-logging`        | log from new code, or change the console and `logs/automation_framework.log` |
 
 ### Example prompts
 

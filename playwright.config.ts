@@ -24,7 +24,9 @@ export default defineConfig({
   expect: { timeout: 10_000 },
 
   reporter: [
-    [isCI ? 'line' : 'list'],
+    // CaseWORKS-style console + logs/automation_framework.log, locally and on CI (run-logging skill).
+    // `npx playwright test --reporter=list` still gives the stock console: the CLI flag replaces this list.
+    ['./src/reporting/run-logger.ts'],
     // One blob per CI job (BLOB_NAME = browser project), merged into one HTML report by merge.config.ts
     ...(isCI || process.env.BLOB_NAME !== undefined
       ? ([

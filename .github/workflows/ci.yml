@@ -42,6 +42,7 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run lint
+      - run: npm run test:reporting
       - run: npm run format:check
       - run: node scripts/agent-parity.mts
 
@@ -97,6 +98,14 @@ jobs:
           name: allure-${{ matrix.project }}
           path: allure-results/
           retention-days: 3
+      # The run log of this shard (logs/automation_framework.log): one artifact per project, no overwrites
+      - uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() }}
+        with:
+          name: logs-${{ matrix.project }}
+          path: logs/
+          retention-days: 14
+          if-no-files-found: ignore
       - uses: actions/upload-artifact@v7
         if: ${{ failure() }}
         with:

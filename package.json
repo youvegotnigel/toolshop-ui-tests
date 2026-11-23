@@ -51,13 +51,14 @@
     "format:check": "prettier --check .",
     "agent:parity": "node scripts/agent-parity.mts",
     "test:lint-rules": "node --test eslint/rules/rules.test.mts",
-    "verify": "npm run typecheck && npm run lint && npm run test:lint-rules && npm run format:check && npm run agent:parity && npm test",
+    "verify": "npm run typecheck && npm run lint && npm run test:lint-rules && npm run test:reporting && npm run format:check && npm run agent:parity && npm test",
     "report": "playwright show-report",
     "allure:generate": "allure generate ./allure-results",
     "allure:report": "npm run allure:generate && allure open",
     "report:dashboard": "node scripts/coverage/index.mts",
     "report:site": "scripts/ci/build-site.sh",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test:reporting": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test src/reporting/run-log-format.test.mts"
   },
   "lint-staged": {
     "*.{ts,mts,mjs}": [

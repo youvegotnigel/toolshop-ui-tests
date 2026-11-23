@@ -12,19 +12,21 @@ built to grow page by page. Sister project: `youvegotnigel/toolshop-api-tests` (
 
 ## Commands
 
-| Task                                | Command                                                                  |
-| ----------------------------------- | ------------------------------------------------------------------------ |
-| Everything a PR needs               | `npm run verify`                                                         |
-| All browsers / one browser          | `npm test` / `npm run test:chromium` (`test:firefox`, `test:webkit`)     |
-| Smoke (also runs on mobile)         | `npm run test:smoke`                                                     |
-| Prove tests are independent         | `npm run test:shuffle`                                                   |
-| Against the deliberately buggy site | `npm run test:with-bugs`                                                 |
-| Headed / UI mode                    | `npm run test:headed` / `npm run test:ui`                                |
-| Typecheck / lint / format           | `npm run typecheck`, `npm run lint`, `npm run format`                    |
-| Agent files in sync                 | `npm run agent:parity`                                                   |
-| Test the custom ESLint rules        | `npm run test:lint-rules`                                                |
-| Dashboard + reports locally         | `ALLURE=1 npm test`, then `npm run report:site` (open `site/index.html`) |
-| Open a trace                        | `npx playwright show-trace test-results/artifacts/<test>/trace.zip`      |
+| Task                                | Command                                                                    |
+| ----------------------------------- | -------------------------------------------------------------------------- |
+| Everything a PR needs               | `npm run verify`                                                           |
+| All browsers / one browser          | `npm test` / `npm run test:chromium` (`test:firefox`, `test:webkit`)       |
+| Smoke (also runs on mobile)         | `npm run test:smoke`                                                       |
+| Prove tests are independent         | `npm run test:shuffle`                                                     |
+| Against the deliberately buggy site | `npm run test:with-bugs`                                                   |
+| Headed / UI mode                    | `npm run test:headed` / `npm run test:ui`                                  |
+| Typecheck / lint / format           | `npm run typecheck`, `npm run lint`, `npm run format`                      |
+| Agent files in sync                 | `npm run agent:parity`                                                     |
+| Test the custom ESLint rules        | `npm run test:lint-rules`                                                  |
+| Test the run log formatting         | `npm run test:reporting`                                                   |
+| Stock Playwright console (debug)    | `npx playwright test --reporter=list` (replaces every configured reporter) |
+| Dashboard + reports locally         | `ALLURE=1 npm test`, then `npm run report:site` (open `site/index.html`)   |
+| Open a trace                        | `npx playwright show-trace test-results/artifacts/<test>/trace.zip`        |
 
 Behind a TLS-inspecting proxy whose CA Firefox does not trust, set `TRUST_INTERCEPTING_PROXY=1`
 locally (never honoured in CI). `HTTPS_PROXY` is picked up by browsers and API contexts alike.
@@ -41,8 +43,10 @@ src/pages/                page objects: one class per page, extends BasePage; ch
 src/components/           parts several pages share: Header, CartBadge, ProductCard
 src/fixtures/             auth -> api -> data -> pages, re-exported by src/fixtures/index.ts
 src/data/                 faker builders (run tag qa-<RUN_ID> + a search word), checkout data, sort options
-src/utils/                logger (redacts secrets and JWTs), api-recorder, a11y + known violations, report labels
-src/reporting/            failure tracker (failure-summary.json + job summary), smart report options
+src/utils/                logger (createLogger, redacts secrets and JWTs), api-recorder, a11y + known violations, report labels
+src/reporting/            run logger (console + logs/automation_framework.log), failure tracker (failure-summary.json +
+                          job summary), smart report options
+logs/                     automation_framework.log (git-ignored; archived by Jenkins, uploaded per shard by GitHub)
 scripts/coverage/         dashboard: KPIs, trends, heat map, browser matrix, critical journeys, a11y, backlog
 scripts/ci/               redact-traces, allure-environment, build-site, restore-history, publish-pages
 coverage-plan.json        pages (from the Angular routes) and journeys, with priority and target release
@@ -102,6 +106,28 @@ option `shopper` -> `shopperAccount` -> `signedInPage` -> `homePage`, `productPa
   without `-- reason`. Never relax a lint rule to make code pass.
 - New page: page object in `src/pages`, a fixture in `src/fixtures/pages.fixtures.ts`, its key in
   `coverage-plan.json`. New data: a builder in `src/data` and a factory fixture in `data.fixtures.ts`.
+
+## Logging
+
+Modelled on the CaseWORKS QA automation framework (log4j2): a `test()` per project is a scenario, a `test.step`
+is a step, the run logger reporter (`src/reporting/run-logger.ts`) is the listener. Details: `run-logging` skill.
+
+- **Console** (local and CI, same format): `HH:mm:ss LEVEL message`, one block per test (`▶ Test n/total
+[project]: ...`, a `✅`/`❌` line per `test.step` with its duration, the worker log lines of that test, the
+  result), a one-line reason on the innermost failed step (or on the test line), a progress line after every final
+  outcome, then `===== Results: ... =====` with the flaky and failed lists. No stack traces, no ANSI codes. Hooks
+  and fixtures appear only when they fail. Setup failure prints one `Run aborted` line, not a skip per test.
+- **File** `logs/automation_framework.log`: the same lines as
+  `yyyy-MM-dd HH:mm:ss.SSS | LEVEL | <source, 22 wide> | message`, plus, per failed attempt, every error in full,
+  its code frame, a filtered stack, the correlation id and the evidence paths. Rolled daily and at 20 MB.
+- **Parallel**: each attempt is buffered and printed as one block when it ends; one worker streams live.
+- **Env**: `LOG_LEVEL` (console, default `info`), `LOG_FILE_LEVEL` (file, default `info`; `debug` adds every API
+  call and every action with its element and value, e.g. `Fill getByTestId('email') value="..."`; password, token,
+  CVV and card-number values are masked), `LOG_STREAM` (`1` live, `0` buffered).
+- **Code**: log with `const logger = createLogger('<ModuleName>')` (`src/utils/logger.ts`), never `console.*`; never
+  log secrets; `info` for facts a reader needs, `warn` when something failed but the test goes on, `debug` for
+  volume. Only `RunLogSink` writes the console and the file; pure formatting lives in `run-log-format.ts` with
+  unit tests (`npm run test:reporting`). `--reporter=list` gives the stock Playwright console.
 
 ## Toolshop facts that shape the tests
 
@@ -171,18 +197,19 @@ Skills live in `.claude/skills/` and are read by both tools (Claude Code nativel
 the Copilot cloud agent read `.claude/skills/` as agent skills). Each is a short `SKILL.md` (Critical rules,
 Procedure) with details in `references/`, loaded only when needed:
 
-| Skill                | Use it for                                                                 |
-| -------------------- | -------------------------------------------------------------------------- |
-| `ai-native-workflow` | the entry point: routing, the proposal and confidence gate, the human gate |
-| `explore-site`       | looking at the live site with `npx playwright-cli` before any UI code      |
-| `selectors`          | choosing and fixing locators (data-test first, no CSS or XPath)            |
-| `test-data`          | factories, run tags, cleanup and HTTP 409 retention                        |
-| `add-ui-test`        | a user journey to page objects, fixtures and a spec                        |
-| `add-page-object`    | a page object, wizard step or component                                    |
-| `data-driven-tests`  | one test per row of a typed cases table (validation, boundaries, options)  |
-| `review-ui-tests`    | reviewing a branch (`node scripts/scan-constitution.mts` + checklist)      |
-| `triage-ui-failures` | classifying a red run from failure-summary.json, traces and api-calls.json |
-| `fix-flaky-test`     | root-causing a flake without sleeps or retries                             |
+| Skill                | Use it for                                                                   |
+| -------------------- | ---------------------------------------------------------------------------- |
+| `ai-native-workflow` | the entry point: routing, the proposal and confidence gate, the human gate   |
+| `explore-site`       | looking at the live site with `npx playwright-cli` before any UI code        |
+| `selectors`          | choosing and fixing locators (data-test first, no CSS or XPath)              |
+| `test-data`          | factories, run tags, cleanup and HTTP 409 retention                          |
+| `add-ui-test`        | a user journey to page objects, fixtures and a spec                          |
+| `add-page-object`    | a page object, wizard step or component                                      |
+| `data-driven-tests`  | one test per row of a typed cases table (validation, boundaries, options)    |
+| `review-ui-tests`    | reviewing a branch (`node scripts/scan-constitution.mts` + checklist)        |
+| `triage-ui-failures` | classifying a red run from failure-summary.json, traces and api-calls.json   |
+| `fix-flaky-test`     | root-causing a flake without sleeps or retries                               |
+| `run-logging`        | named loggers, log levels, step titles as log lines, the run logger reporter |
 
 Agents: `.claude/agents/*.md` (Claude Code) mirrored by `.github/agents/*.agent.md` (Copilot):
 `journey-analyst` (read-only), `ui-test-writer`, `ui-test-reviewer` (read-only), `failure-triager`.

@@ -1,6 +1,8 @@
 import { test, expect } from '../../src/fixtures';
 import { StatusSchema } from '../../src/api/schemas/auth.schema';
-import { logger } from '../../src/utils/logger';
+import { createLogger } from '../../src/utils/logger';
+
+const logger = createLogger('EnvironmentSetup');
 
 // Setup project: proves the site and API answer, and records the Toolshop build under test.
 // eslint-disable-next-line no-restricted-syntax -- the setup project checks the API directly by design

@@ -35,13 +35,17 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'npm ci'
+        // Each build's run log holds only this build (history folders are kept: see post)
+        sh 'rm -rf logs'
+        // No progress bars or funding/audit notices: the console stays the run log
+        sh 'npm ci --no-progress --no-fund --no-audit'
       }
     }
     stage('Quality gate') {
       steps {
         sh 'npm run typecheck'
         sh 'npm run lint'
+        sh 'npm run test:reporting'
         sh 'npm run format:check'
         sh 'node scripts/agent-parity.mts'
       }
@@ -91,6 +95,8 @@ pipeline {
         allowMissing: true,
       ])
       archiveArtifacts artifacts: 'site/**, test-results/**', allowEmptyArchive: true
+      // The detailed run log (timestamps, sources, full failure details): the console's long form
+      archiveArtifacts artifacts: 'logs/*.log', allowEmptyArchive: true
       // allure includeProperties: false, results: [[path: 'allure-results']]   // with the Allure plugin
     }
   }

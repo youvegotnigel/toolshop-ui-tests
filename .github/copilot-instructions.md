@@ -14,6 +14,7 @@ The essentials, in case you only read this file:
 - Web-first assertions only; every created record is cleaned up; never weaken an assertion.
 - 3 or more tests with the same steps become one `test()` per row of a typed cases table (`data-driven-tests`
   skill, `docs/testing-patterns/data-driven-tests.md`).
+- Log with a named `createLogger('<Module>')`, never `console.*`, and never log secrets (`run-logging` skill).
 - Done means `npm run verify` is green.
 
 Start non-trivial work with the `ai-native-workflow` skill (explore, propose with confidence, wait for approval).

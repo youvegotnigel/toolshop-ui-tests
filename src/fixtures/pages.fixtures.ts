@@ -8,9 +8,11 @@ import { HomePage } from '../pages/home.page';
 import { LoginPage } from '../pages/login.page';
 import { ProductPage } from '../pages/product.page';
 import { auditPage, describeViolations } from '../utils/a11y';
-import { logger } from '../utils/logger';
+import { createLogger } from '../utils/logger';
 import { labelsOf } from '../utils/report-labels';
 import { tokenStorage } from '../config/env';
+
+const logger = createLogger('PageFixtures');
 
 /**
  * Who is browsing: `guest` (default), the worker's `customer`, or a `new-customer` of the test's
