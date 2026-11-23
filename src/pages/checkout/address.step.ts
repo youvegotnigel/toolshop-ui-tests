@@ -4,9 +4,10 @@ import { PaymentStep } from './payment.step';
 import type { AddressEntry } from '../../data/checkout.data';
 
 /**
- * Step 3: billing address. The Toolshop looks the postcode up (GET /postcode-lookup) and fills
- * street, city and state itself, overwriting anything typed there. The country is chosen last so
- * exactly one lookup runs; "Proceed" stays disabled until the form is valid, so its click waits for it.
+ * Step 3: billing address. For a signed-in customer the form is patched from their profile
+ * (GET /users/me) when the checkout loads, which can land after typing and wipe it: wait for the
+ * pre-filled values (web-first) before proceeding. The Toolshop also looks the postcode up and fills
+ * street, city and state itself. "Proceed" stays disabled until the form is valid, so its click waits.
  */
 export class AddressStep extends BasePage {
   readonly country: Locator;
@@ -32,6 +33,10 @@ export class AddressStep extends BasePage {
     await expect(this.country).toBeVisible();
   }
 
+  /**
+   * Guests only (no profile patch can race it). The country is chosen last so exactly one postcode
+   * lookup runs, which then fills street, city and state.
+   */
   async enterAddress(address: AddressEntry): Promise<this> {
     await this.houseNumber.fill(address.houseNumber);
     await this.postalCode.fill(address.postalCode);

@@ -2,6 +2,7 @@ import { randomBytes } from 'node:crypto';
 import { faker } from '@faker-js/faker';
 import { testDataTag } from './test-data';
 import type { UserRegistration } from '../api/schemas/user.schema';
+import { SAVED_ADDRESS } from './checkout.data';
 
 /** Emails start with the run tag, so the teardown sweep can find leftovers. */
 export const testEmail = (): string =>
@@ -17,6 +18,8 @@ export const buildCustomer = (overrides: Partial<UserRegistration> = {}): UserRe
   email: testEmail(),
   password: `Qa!9${randomBytes(12).toString('base64url')}`,
   dob: '1990-01-01',
+  phone: '+49 30 1234567',
+  address: SAVED_ADDRESS,
   ...overrides,
 });
 

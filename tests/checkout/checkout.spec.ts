@@ -1,5 +1,5 @@
 import { test, expect } from '../../src/fixtures';
-import { GERMAN_ADDRESS, PAYMENT } from '../../src/data/checkout.data';
+import { buildCard, PAYMENT, SAVED_ADDRESS } from '../../src/data/checkout.data';
 
 // The order makes this customer undeletable (HTTP 409), so the test uses a customer of its own.
 test.use({ shopper: 'new-customer' });
@@ -36,19 +36,19 @@ test.describe(
             return signIn.proceed();
           });
 
-        const payment =
-          await test.step('They enter a billing address the shop completes from the postcode', async () => {
-            await address.enterAddress(GERMAN_ADDRESS);
-            return address.proceed();
-          });
+        const payment = await test.step('Their saved billing address is filled in for them', async () => {
+          await expect(address.country).toHaveValue(SAVED_ADDRESS.country);
+          await expect(address.postalCode).toHaveValue(SAVED_ADDRESS.postal_code);
+          await expect(address.houseNumber).toHaveValue(SAVED_ADDRESS.house_number);
+          return address.proceed();
+        });
 
-        const confirmation =
-          await test.step('They pay cash on delivery and see the order confirmation', async () => {
-            const page = await payment.payWith(PAYMENT.cashOnDelivery);
-            await expect(page.invoiceNumber).toHaveText(/^INV-\d+$/);
-            await a11y.expectNoSeriousViolations('page:order-confirmation');
-            return page;
-          });
+        const confirmation = await test.step('They pay by card and see the order confirmation', async () => {
+          const page = await payment.payByCard(buildCard());
+          await expect(page.invoiceNumber).toHaveText(/^INV-\d+$/);
+          await a11y.expectNoSeriousViolations('page:order-confirmation');
+          return page;
+        });
 
         await test.step('The order is recorded for the customer with the right product and total', async () => {
           const invoiceNumber = await confirmation.readInvoiceNumber();
@@ -56,9 +56,9 @@ test.describe(
           expect(invoices.map((i) => i.invoice_number)).toContain(invoiceNumber);
           expect(invoices.find((i) => i.invoice_number === invoiceNumber)).toMatchObject({
             total: product.price,
-            billing_country: GERMAN_ADDRESS.countryCode,
-            billing_postal_code: GERMAN_ADDRESS.postalCode,
-            payment: { payment_method: PAYMENT.cashOnDelivery },
+            billing_country: SAVED_ADDRESS.country,
+            billing_postal_code: SAVED_ADDRESS.postal_code,
+            payment: { payment_method: PAYMENT.creditCard },
             invoicelines: [{ product_id: product.id, quantity: 1, unit_price: product.price }],
           });
         });
