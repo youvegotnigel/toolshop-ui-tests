@@ -17,7 +17,9 @@ import { InvoicePageSchema, type Invoice } from '../api/schemas/order.schema';
 import { buildBrand, buildCategory, buildProduct, distinctPrices } from '../data/catalog.builder';
 import { searchToken } from '../data/test-data';
 import { HTTP } from '../utils/http';
-import { logger } from '../utils/logger';
+import { createLogger } from '../utils/logger';
+
+const logger = createLogger('DataFixtures');
 
 export type Cleanup = { add: (label: string, task: () => Promise<APIResponse | null>) => void };
 

@@ -2,7 +2,9 @@ import type { APIRequestContext } from '@playwright/test';
 import { AuthClient } from '../api/clients/auth.client';
 import { TokenSchema, type Credentials, type Role } from '../api/schemas/auth.schema';
 import { HTTP } from '../utils/http';
-import { logger } from '../utils/logger';
+import { createLogger } from '../utils/logger';
+
+const logger = createLogger('AuthSession');
 
 /** Renew this long before expiry, so a token never dies mid-test. */
 const REFRESH_MARGIN_MS = 60_000;

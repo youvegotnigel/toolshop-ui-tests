@@ -1,7 +1,12 @@
-import { expect, type Locator, type Page } from '@playwright/test';
+import { expect, type Locator, type Page, type Response } from '@playwright/test';
 import { BasePage } from './base.page';
 import { ProductCard } from '../components/product-card.component';
 import { ProductPage } from './product.page';
+
+/** The grid's re-query of the product list (`/products` or `/products/search`, QUERY or GET by build). */
+const isCatalogueQuery = (response: Response): boolean =>
+  ['fetch', 'xhr'].includes(response.request().resourceType()) &&
+  /^\/products(\/search)?$/.test(new URL(response.url()).pathname);
 
 /** The catalogue: search, sort, filters and the product grid. */
 export class HomePage extends BasePage {
@@ -49,10 +54,16 @@ export class HomePage extends BasePage {
     return this;
   }
 
-  /** Picks a sort option by the label a shopper sees, e.g. "Price (Low - High)". */
+  /**
+   * Picks a sort option by the label a shopper sees, e.g. "Price (Low - High)", and waits for the catalogue
+   * query it triggers. The app does not cancel an earlier query, so without this wait a slow response for the
+   * previous sort can land after the next one and overwrite the grid with the old order.
+   */
   async sortBy(label: string): Promise<this> {
     await this.revealFilters();
+    const resorted = this.page.waitForResponse(isCatalogueQuery);
     await this.sort.selectOption({ label });
+    await resorted;
     return this;
   }
 

@@ -8,7 +8,9 @@ import {
 import { UserPageSchema } from '../../src/api/schemas/user.schema';
 import { testDataTag } from '../../src/data/test-data';
 import { HTTP } from '../../src/utils/http';
-import { logger } from '../../src/utils/logger';
+import { createLogger } from '../../src/utils/logger';
+
+const logger = createLogger('TestDataSweep');
 
 const GONE: readonly number[] = [HTTP.NO_CONTENT, HTTP.NOT_FOUND];
 

@@ -20,10 +20,13 @@
       table; assertions on the outcome only, not the field or value; a disable of `qe/*` without a convincing reason.
 - [ ] Secrets or tokens in code, logs, attachments or screenshots; forbidden endpoints (`/refresh`,
       forgot-password, change-password).
+- [ ] `console.*` or an unnamed `logger` in new code instead of `createLogger('<Module>')`; a log line carrying a
+      password, token, cookie or whole body (`run-logging` skill).
 
 ## Non-blocking
 
 - [ ] Step wording a manager would not understand; duplicated locators that belong in a component.
+- [ ] Log levels that do not match the `run-logging` skill (an `info` per API call, an `error` without a failure).
 - [ ] Missing depth tags (`@negative`, `@a11y`) or `coverage-plan.json` not updated for a new journey.
 - [ ] `reason` texts in a cases table that read badly in the report ("cannot sign in when **...**").
 - [ ] Unused page object members, missing doc comments on non-obvious waits.

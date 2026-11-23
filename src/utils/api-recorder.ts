@@ -1,6 +1,8 @@
 import { writeFile } from 'node:fs/promises';
 import type { APIRequestContext, APIResponse, TestInfo } from '@playwright/test';
-import { logger, redact, redactText } from './logger';
+import { createLogger, redact, redactText } from './logger';
+
+const logger = createLogger('ApiRecorder');
 
 /** Responses carry secrets too (login returns access_token): redact JSON bodies before storing. */
 const redactBody = (text: string): string => {
