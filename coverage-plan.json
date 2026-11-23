@@ -125,6 +125,13 @@
       "target": "0.1"
     },
     {
+      "id": "auth.login-validation",
+      "title": "The sign-in form rejects invalid details before sending them",
+      "area": "auth",
+      "priority": "high",
+      "target": "0.1"
+    },
+    {
       "id": "auth.register",
       "title": "Register a new account",
       "area": "auth",

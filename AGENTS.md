@@ -22,6 +22,7 @@ built to grow page by page. Sister project: `youvegotnigel/toolshop-api-tests` (
 | Headed / UI mode                    | `npm run test:headed` / `npm run test:ui`                                |
 | Typecheck / lint / format           | `npm run typecheck`, `npm run lint`, `npm run format`                    |
 | Agent files in sync                 | `npm run agent:parity`                                                   |
+| Test the custom ESLint rules        | `npm run test:lint-rules`                                                |
 | Dashboard + reports locally         | `ALLURE=1 npm test`, then `npm run report:site` (open `site/index.html`) |
 | Open a trace                        | `npx playwright show-trace test-results/artifacts/<test>/trace.zip`      |
 
@@ -46,6 +47,8 @@ scripts/coverage/         dashboard: KPIs, trends, heat map, browser matrix, cri
 scripts/ci/               redact-traces, allure-environment, build-site, restore-history, publish-pages
 coverage-plan.json        pages (from the Angular routes) and journeys, with priority and target release
 tests/<area>/             specs, one behaviour per file
+eslint/                   local ESLint plugin `qe/*` (data-driven test rules) and its RuleTester suite
+docs/testing-patterns/    guides for humans (data-driven tests)
 tests/setup/              environment check (setup) and run-tag sweep (teardown)
 ```
 
@@ -74,8 +77,13 @@ option `shopper` -> `shopperAccount` -> `signedInPage` -> `homePage`, `productPa
 7. Tests pass alone, in parallel, shuffled and on every browser project. No shared module state.
 8. Accessibility: `await a11y.expectNoSeriousViolations('page:<key>')` audits WCAG 2.2 AA and fails on any
    serious or critical violation that is not a known product defect.
-9. Never weaken an assertion to make a test green. Prove the behaviour first (trace, screenshot,
-   `api-calls.json`, axe JSON) and explain it in the PR.
+9. Data-driven: when 3 or more tests share their steps and only the data changes, write one `test()` inside
+   `for (const { ... } of cases)` over a typed table in `src/data/<thing>.cases.ts`
+   (`as const satisfies readonly FormValidationCase<Form>[]`, types in `src/data/test-cases.ts`). One row breaks
+   one thing; the title is a template literal built from the row; no `if` per row; static values only (per-run data
+   comes from fixtures). ESLint enforces the shape (`qe/*`). Guide: `docs/testing-patterns/data-driven-tests.md`.
+10. Never weaken an assertion to make a test green. Prove the behaviour first (trace, screenshot,
+    `api-calls.json`, axe JSON) and explain it in the PR.
 
 ## Rules for framework code
 
@@ -130,6 +138,9 @@ option `shopper` -> `shopperAccount` -> `signedInPage` -> `homePage`, `productPa
 - Known accessibility defects in the site are listed in `src/utils/a11y-known-violations.ts`, matched by rule,
   page **and** element, each with a GitHub issue. A new element with the same defect still fails; a fixed one
   fails with "FIXED: remove it from the baseline".
+- The sign-in form validates before it sends anything (no `/users/login` request, so no lockout risk) and shows one
+  message per field: `email-error` "Email is required" or "Email format is invalid", `password-error`
+  "Password is required" or "Password length is invalid" (2 characters is too short).
 - Firefox: `getByLabel()` followed by an axe scan crashes the page (content process signal 11). Locate the
   product badges by text and assert their `aria-label` instead.
 - `TEST_ENV=with-bugs` runs the same suite against `with-bugs.practicesoftwaretesting.com` (deliberate
@@ -168,6 +179,7 @@ Procedure) with details in `references/`, loaded only when needed:
 | `test-data`          | factories, run tags, cleanup and HTTP 409 retention                        |
 | `add-ui-test`        | a user journey to page objects, fixtures and a spec                        |
 | `add-page-object`    | a page object, wizard step or component                                    |
+| `data-driven-tests`  | one test per row of a typed cases table (validation, boundaries, options)  |
 | `review-ui-tests`    | reviewing a branch (`node scripts/scan-constitution.mts` + checklist)      |
 | `triage-ui-failures` | classifying a red run from failure-summary.json, traces and api-calls.json |
 | `fix-flaky-test`     | root-causing a flake without sleeps or retries                             |

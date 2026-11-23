@@ -15,6 +15,9 @@
 - [ ] Page object with an assertion outside `waitForReady()`, a constructor taking more than `Page`,
       a navigation method that does not return a ready page, or API/data imports.
 - [ ] CSS/XPath selectors, `nth()` without a comment, or locators on translated text.
+- [ ] Data-driven tests (`data-driven-tests` skill): 3+ copy-pasted tests that should be a table; a table forced
+      onto tests whose steps differ or rows with behaviour flags; a row that breaks two things; per-run data in the
+      table; assertions on the outcome only, not the field or value; a disable of `qe/*` without a convincing reason.
 - [ ] Secrets or tokens in code, logs, attachments or screenshots; forbidden endpoints (`/refresh`,
       forgot-password, change-password).
 
@@ -22,4 +25,5 @@
 
 - [ ] Step wording a manager would not understand; duplicated locators that belong in a component.
 - [ ] Missing depth tags (`@negative`, `@a11y`) or `coverage-plan.json` not updated for a new journey.
+- [ ] `reason` texts in a cases table that read badly in the report ("cannot sign in when **...**").
 - [ ] Unused page object members, missing doc comments on non-obvious waits.

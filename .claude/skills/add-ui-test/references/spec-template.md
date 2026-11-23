@@ -3,8 +3,9 @@
 `tests/<area>/<journey>.spec.ts`. One describe per file, one journey per describe.
 
 ```ts
-// Data-driven variant: keep the cases in src/data/<thing>.ts and loop over them inside the test,
-// one test.step per case (see tests/catalog/sort.spec.ts).
+// Data-driven variant (3+ cases, same steps): a typed table in src/data/<thing>.cases.ts and
+// `for (const { reason, ... } of cases) test(`... when ${reason}`, ...)` inside the describe
+// (see tests/auth/login-validation.spec.ts and the data-driven-tests skill).
 import { test, expect } from '../../src/fixtures';
 
 test.use({ shopper: 'customer' }); // only when not a guest

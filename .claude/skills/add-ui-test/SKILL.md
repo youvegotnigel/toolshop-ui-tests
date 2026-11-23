@@ -41,7 +41,9 @@ Start from `references/spec-template.md`.
 - Assertions in the spec, web-first, on page object locators. `expect.poll` for non-DOM state.
 - Accessibility depth: `await a11y.expectNoSeriousViolations('page:<key>')` at the end of a step.
 - Verify side effects through fixtures (`invoicesOf(shopperAccount)`), never `api` directly.
-- Data-driven: data in `src/data/*.ts`, one `test.step` per case inside the test (see `catalog/sort.spec.ts`).
+- Data-driven: 3 or more cases with the same steps follow `data-driven-tests` (a typed table in
+  `src/data/<thing>.cases.ts`, one `test()` per row, see `auth/login-validation.spec.ts`). Cases that build on one
+  session stay one test with a `test.step` per case (see `catalog/sort.spec.ts`).
 
 ## 4. Prove it
 

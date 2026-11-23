@@ -11,6 +11,8 @@ export class LoginPage extends BasePage {
   readonly password: Locator;
   readonly submitButton: Locator;
   readonly error: Locator;
+  /** Every error on the form: the field errors (`email-error`, `password-error`) and the server's `login-error`. */
+  readonly errors: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -18,6 +20,12 @@ export class LoginPage extends BasePage {
     this.password = page.getByTestId('password');
     this.submitButton = page.getByTestId('login-submit');
     this.error = page.getByTestId('login-error');
+    this.errors = page.getByTestId(/-error$/);
+  }
+
+  /** The validation message under one field, e.g. `email-error`. */
+  fieldError(field: keyof SignInDetails): Locator {
+    return this.page.getByTestId(`${field}-error`);
   }
 
   async waitForReady(): Promise<void> {

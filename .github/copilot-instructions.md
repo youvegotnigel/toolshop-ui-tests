@@ -12,6 +12,8 @@ The essentials, in case you only read this file:
 - Page objects: locators as readonly properties, intentions as methods, no assertions except `waitForReady()`.
   `getByTestId` (the site's `data-test`) first; no CSS or XPath.
 - Web-first assertions only; every created record is cleaned up; never weaken an assertion.
+- 3 or more tests with the same steps become one `test()` per row of a typed cases table (`data-driven-tests`
+  skill, `docs/testing-patterns/data-driven-tests.md`).
 - Done means `npm run verify` is green.
 
 Start non-trivial work with the `ai-native-workflow` skill (explore, propose with confidence, wait for approval).

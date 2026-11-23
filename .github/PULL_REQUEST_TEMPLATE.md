@@ -16,6 +16,7 @@
 - [ ] 2 to 6 flat business-language `test.step`s; describe title starts with the journey id; area and depth tags set
 - [ ] Pages declared with `covers` annotations; `coverage-plan.json` updated for new pages or journeys
 - [ ] Locators: `getByTestId` first, no CSS or XPath; page objects hold no assertions except `waitForReady()`
+- [ ] Repeated cases are a typed cases table (`for...of`, title from the row, one broken thing per row, no `if` per row)
 - [ ] Every created record is cleaned up (factory fixtures / `cleanup.add`); 409s explained if any
 - [ ] No sleeps, retries or weakened assertions; any known product defect has an issue and evidence
 - [ ] No secrets, tokens or personal data in code, logs or attachments
