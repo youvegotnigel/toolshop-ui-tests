@@ -1,0 +1,41 @@
+# Allure 3 report configuration: npm run allure:report (after a run with ALLURE=1)
+# Environment and executor details are written into allure-results/ by scripts/ci/allure-environment.mts.
+name: Toolshop UI tests
+output: ./allure-report
+historyPath: ./allure-history/history.jsonl # trend charts across runs (restored from gh-pages in CI)
+historyLimit: 30
+plugins:
+  awesome:
+    options:
+      reportName: Toolshop UI tests
+      groupBy: [parentSuite, feature, story]
+  # Classic Allure 2 layout: overview dashboard, suites, graphs, timeline
+  allure2:
+    options:
+      reportName: Toolshop UI tests
+categories:
+  rules:
+    # Order matters: the first matching rule wins.
+    - name: Flaky (passed on retry)
+      matchers:
+        flaky: true
+    - name: 'Environment: site, API or browser unavailable'
+      matchers:
+        statuses: [failed, broken]
+        message: '(net::ERR|ECONNRESET|ECONNREFUSED|ENOTFOUND|unhealthy|unreachable|HTTP 5\d\d|HTTP 423|HTTP 429|Page crashed|Target page, context or browser has been closed|browserType.launch)'
+    - name: 'Product defect: accessibility (WCAG 2.2 AA)'
+      matchers:
+        statuses: [failed]
+        message: 'WCAG 2\.2 AA violation'
+    - name: 'Product defect: the site behaved differently than expected'
+      matchers:
+        statuses: [failed]
+        message: '(expect\(.*\)\.(toHave|toBe|toContain|toMatch)|Expected)'
+    - name: 'Test defect: locator, timing or framework error'
+      matchers:
+        statuses: [failed, broken]
+        message: '(strict mode violation|TimeoutError|Timeout \d+ms exceeded|TypeError|ReferenceError|SyntaxError|is not a function)'
+    - name: 'Test data: setup through the API failed'
+      matchers:
+        statuses: [failed, broken]
+        message: 'test data setup'

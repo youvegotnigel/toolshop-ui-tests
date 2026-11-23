@@ -1,0 +1,213 @@
+{
+  "$comment": "Maintained by hand (with tags and describe titles). Pages come from the Toolshop's Angular routes; journeys are what the team commits to automate. A spec covers a journey through its describe title ('catalog.search: ...') and pages through { annotation: { type: 'covers', description: 'page:<key>' } }.",
+  "suite": {
+    "name": "Toolshop UI tests",
+    "framework": "Playwright",
+    "group": "Toolshop · UI regression"
+  },
+  "release": "0.1",
+  "targetCoverage": 60,
+  "staleAfterHours": 48,
+  "projects": ["chromium", "firefox", "webkit", "mobile-chrome"],
+  "depths": ["happy", "negative", "a11y", "mobile"],
+  "pages": [
+    { "key": "page:home", "route": "/", "area": "catalog", "priority": "critical" },
+    { "key": "page:search", "route": "/ (search results)", "area": "catalog", "priority": "critical" },
+    { "key": "page:product", "route": "/product/:id", "area": "catalog", "priority": "critical" },
+    { "key": "page:category", "route": "/category/:name", "area": "catalog", "priority": "high" },
+    { "key": "page:rentals", "route": "/rentals", "area": "catalog", "priority": "normal" },
+    { "key": "page:comparison", "route": "/comparison", "area": "catalog", "priority": "normal" },
+    { "key": "page:cart", "route": "/checkout (step 1)", "area": "cart", "priority": "critical" },
+    {
+      "key": "page:checkout-sign-in",
+      "route": "/checkout (step 2)",
+      "area": "checkout",
+      "priority": "critical"
+    },
+    {
+      "key": "page:checkout-address",
+      "route": "/checkout (step 3)",
+      "area": "checkout",
+      "priority": "critical"
+    },
+    {
+      "key": "page:checkout-payment",
+      "route": "/checkout (step 4)",
+      "area": "checkout",
+      "priority": "critical"
+    },
+    {
+      "key": "page:order-confirmation",
+      "route": "/checkout (done)",
+      "area": "checkout",
+      "priority": "critical"
+    },
+    { "key": "page:sign-in", "route": "/auth/login", "area": "auth", "priority": "critical" },
+    { "key": "page:register", "route": "/auth/register", "area": "auth", "priority": "critical" },
+    {
+      "key": "page:forgot-password",
+      "route": "/auth/forgot-password",
+      "area": "auth",
+      "priority": "normal",
+      "excluded": "Safety rule: never call /users/forgot-password on the shared demo"
+    },
+    { "key": "page:account", "route": "/account", "area": "account", "priority": "high" },
+    { "key": "page:profile", "route": "/account/profile", "area": "account", "priority": "high" },
+    { "key": "page:favorites", "route": "/account/favorites", "area": "account", "priority": "normal" },
+    { "key": "page:invoices", "route": "/account/invoices", "area": "account", "priority": "high" },
+    {
+      "key": "page:invoice-detail",
+      "route": "/account/invoices/:id",
+      "area": "account",
+      "priority": "normal"
+    },
+    { "key": "page:messages", "route": "/account/messages", "area": "account", "priority": "normal" },
+    { "key": "page:contact", "route": "/contact", "area": "account", "priority": "normal" },
+    { "key": "page:privacy", "route": "/privacy", "area": "account", "priority": "normal" },
+    { "key": "page:admin-dashboard", "route": "/admin/dashboard", "area": "admin", "priority": "high" },
+    { "key": "page:admin-brands", "route": "/admin/brands", "area": "admin", "priority": "normal" },
+    { "key": "page:admin-categories", "route": "/admin/categories", "area": "admin", "priority": "normal" },
+    { "key": "page:admin-products", "route": "/admin/products", "area": "admin", "priority": "high" },
+    { "key": "page:admin-orders", "route": "/admin/orders", "area": "admin", "priority": "high" },
+    { "key": "page:admin-users", "route": "/admin/users", "area": "admin", "priority": "normal" },
+    { "key": "page:admin-messages", "route": "/admin/messages", "area": "admin", "priority": "normal" },
+    { "key": "page:admin-reports", "route": "/admin/reports/*", "area": "admin", "priority": "normal" },
+    { "key": "page:admin-settings", "route": "/admin/settings", "area": "admin", "priority": "normal" }
+  ],
+  "journeys": [
+    {
+      "id": "catalog.search",
+      "title": "Find a product by name",
+      "area": "catalog",
+      "priority": "critical",
+      "target": "0.1"
+    },
+    {
+      "id": "catalog.sort",
+      "title": "Sort the catalogue",
+      "area": "catalog",
+      "priority": "high",
+      "target": "0.1"
+    },
+    {
+      "id": "catalog.filter",
+      "title": "Filter by brand, category and price",
+      "area": "catalog",
+      "priority": "high",
+      "target": "0.2"
+    },
+    {
+      "id": "catalog.category",
+      "title": "Browse a category page",
+      "area": "catalog",
+      "priority": "normal",
+      "target": "0.2"
+    },
+    {
+      "id": "catalog.compare",
+      "title": "Compare products",
+      "area": "catalog",
+      "priority": "normal",
+      "target": "0.3"
+    },
+    {
+      "id": "catalog.rentals",
+      "title": "Browse rentals",
+      "area": "catalog",
+      "priority": "normal",
+      "target": "0.3"
+    },
+    {
+      "id": "auth.login",
+      "title": "Sign in with the login form",
+      "area": "auth",
+      "priority": "critical",
+      "target": "0.1"
+    },
+    {
+      "id": "auth.register",
+      "title": "Register a new account",
+      "area": "auth",
+      "priority": "critical",
+      "target": "0.2"
+    },
+    { "id": "auth.logout", "title": "Sign out", "area": "auth", "priority": "high", "target": "0.2" },
+    {
+      "id": "cart.update",
+      "title": "Change the quantity in the cart",
+      "area": "cart",
+      "priority": "high",
+      "target": "0.1"
+    },
+    {
+      "id": "cart.remove",
+      "title": "Remove an item from the cart",
+      "area": "cart",
+      "priority": "high",
+      "target": "0.2"
+    },
+    {
+      "id": "checkout.card",
+      "title": "Check out signed in, paying by card",
+      "area": "checkout",
+      "priority": "critical",
+      "target": "0.1"
+    },
+    {
+      "id": "checkout.guest",
+      "title": "Check out as a guest",
+      "area": "checkout",
+      "priority": "critical",
+      "target": "0.2"
+    },
+    {
+      "id": "checkout.payment-methods",
+      "title": "Pay by bank transfer, gift card, buy now pay later",
+      "area": "checkout",
+      "priority": "high",
+      "target": "0.2"
+    },
+    {
+      "id": "account.profile",
+      "title": "Update the profile",
+      "area": "account",
+      "priority": "high",
+      "target": "0.2"
+    },
+    {
+      "id": "account.invoices",
+      "title": "See past orders and invoices",
+      "area": "account",
+      "priority": "high",
+      "target": "0.2"
+    },
+    {
+      "id": "account.favorites",
+      "title": "Save and remove favourites",
+      "area": "account",
+      "priority": "normal",
+      "target": "0.3"
+    },
+    {
+      "id": "account.contact",
+      "title": "Send a contact message",
+      "area": "account",
+      "priority": "normal",
+      "target": "0.3"
+    },
+    {
+      "id": "admin.products",
+      "title": "An admin manages products",
+      "area": "admin",
+      "priority": "high",
+      "target": "0.3"
+    },
+    {
+      "id": "admin.orders",
+      "title": "An admin updates an order status",
+      "area": "admin",
+      "priority": "high",
+      "target": "0.3"
+    }
+  ]
+}

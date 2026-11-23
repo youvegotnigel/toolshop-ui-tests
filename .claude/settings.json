@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(npm run typecheck)",
+      "Bash(npm run lint)",
+      "Bash(npm run lint:fix)",
+      "Bash(npm run format)",
+      "Bash(npm run format:check)",
+      "Bash(npm run verify)",
+      "Bash(npm run agent:parity)",
+      "Bash(npm test)",
+      "Bash(npm run test:*)",
+      "Bash(npx playwright test:*)",
+      "Bash(npx playwright show-report:*)",
+      "Bash(npx playwright show-trace:*)",
+      "Bash(node scripts/agent-parity.mts)",
+      "Bash(node scripts/scan-constitution.mts:*)",
+      "Bash(npx playwright-cli:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)"
+    ],
+    "deny": [
+      "Read(./.env.local)",
+      "Read(./.env)",
+      "Bash(curl:*refresh*)",
+      "Bash(curl:*forgot-password*)",
+      "Bash(curl:*change-password*)",
+      "Bash(git push --force:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [{ "type": "command", "command": "node scripts/hooks/lint-edited-file.mjs", "timeout": 60 }]
+      }
+    ]
+  }
+}

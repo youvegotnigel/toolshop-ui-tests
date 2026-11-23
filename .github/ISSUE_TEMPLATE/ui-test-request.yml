@@ -1,0 +1,44 @@
+name: UI test request
+description: Ask for new UI test coverage. Structured so Claude Code or Copilot cloud agent can implement it.
+title: 'tests: <area.journey>'
+labels: [ui-tests]
+body:
+  - type: input
+    id: journey
+    attributes:
+      label: Journey id
+      description: From coverage-plan.json (add it there if it is new), e.g. checkout.guest
+      placeholder: checkout.guest
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Scenario
+      description: One line per step, in business language. These become test.step names (2 to 6).
+      placeholder: |
+        A guest puts a product in the cart
+        They check out with their email address
+        They pay by bank transfer and see the order confirmation
+    validations:
+      required: true
+  - type: dropdown
+    id: shopper
+    attributes:
+      label: Who performs the journey?
+      options: [Guest, Signed-in customer, New customer (places an order), Admin]
+    validations:
+      required: true
+  - type: checkboxes
+    id: depth
+    attributes:
+      label: Depth
+      options:
+        - label: Negative path (@negative)
+        - label: Accessibility audit (@a11y)
+        - label: Critical, also on mobile (@smoke)
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes for the agent or engineer
+      description: Pages touched, data needed, known bugs, links

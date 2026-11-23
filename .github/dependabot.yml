@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      playwright:
+        # The Jenkinsfile image tag (mcr.microsoft.com/playwright:vX.Y.Z) must follow this bump
+        patterns: ['@playwright/*', '@axe-core/*']
+      allure:
+        patterns: ['allure', 'allure-*']
+      lint:
+        patterns: ['eslint*', '@eslint/*', 'typescript-eslint', 'prettier', 'globals']
+    ignore:
+      # typescript-eslint 8.x supports TypeScript < 6.1; bump both together
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
+      # @types/node must match the Node.js major in .nvmrc; bump both together
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

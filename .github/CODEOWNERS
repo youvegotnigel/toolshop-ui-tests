@@ -1,0 +1,5 @@
+# Framework owners review every change; agent instructions need a human owner too.
+* @youvegotnigel
+/AGENTS.md @youvegotnigel
+/.claude/ @youvegotnigel
+/.github/ @youvegotnigel

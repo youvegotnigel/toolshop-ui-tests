@@ -15,3 +15,5 @@ site/
 .playwright-mcp/
 .DS_Store
 .gh-pages/
+all-blob-reports/
+.playwright-cli/

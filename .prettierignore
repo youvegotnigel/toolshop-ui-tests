@@ -1,0 +1,13 @@
+.auth/
+all-blob-reports/
+allure-history/
+allure-report/
+allure-results/
+blob-report/
+coverage-history/
+node_modules/
+package-lock.json
+playwright-report/
+site/
+test-results/
+.playwright-cli/
