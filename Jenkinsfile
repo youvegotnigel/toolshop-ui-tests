@@ -13,9 +13,7 @@ pipeline {
   parameters {
     choice(name: 'TEST_ENV', choices: ['public', 'with-bugs'], description: 'Target environment')
     choice(name: 'PROJECT', choices: ['all', 'chromium', 'firefox', 'webkit', 'mobile-chrome'], description: 'Browser project')
-    string(name: 'GREP', defaultValue: '', description: 'Optional tag filter, e.g. @smoke')
-    booleanParam(name: 'RUN_CLOUDFLARE_GUARDED_TESTS', defaultValue: false, description: 'Run @cloudflare-guarded tests (only on a network Cloudflare does not challenge)')
-  }
+    string(name: 'GREP', defaultValue: '', description: 'Optional tag filter, e.g. @smoke')  }
 
   options {
     timeout(time: 45, unit: 'MINUTES')
@@ -32,9 +30,7 @@ pipeline {
     TEST_ENV = "${params.TEST_ENV}"
     ALLURE = '1'
     ADMIN_PASSWORD = credentials('toolshop-admin-password')
-    HUSKY = '0'
-    RUN_CLOUDFLARE_GUARDED_TESTS = "${params.RUN_CLOUDFLARE_GUARDED_TESTS ? '1' : ''}"
-  }
+    HUSKY = '0'  }
 
   stages {
     stage('Install') {

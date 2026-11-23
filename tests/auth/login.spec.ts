@@ -4,15 +4,15 @@ import { skipCloudflareGuarded } from '../../src/config/env';
 
 test.describe(
   'auth.login: A customer signs in with the login form',
-  // @cloudflare-guarded: skipped in CI, where Cloudflare challenges the post-login /account load
+  // @cloudflare-guarded: skipped on GitHub-hosted runners, where Cloudflare challenges the post-login /account load
   { tag: ['@auth', '@smoke', '@negative', '@cloudflare-guarded'] },
   () => {
     test.skip(
       skipCloudflareGuarded(),
-      'Skipped in CI: Cloudflare answers the post-login /account page load from datacenter runners ' +
-        '(GitHub-hosted) with a "Verify you are human" challenge, so the account page never renders. ' +
-        'Not a product or test defect: the test passes locally. It still runs in CI when ' +
-        'RUN_CLOUDFLARE_GUARDED_TESTS=1 is set on a runner Cloudflare does not challenge.',
+      'Skipped on GitHub-hosted runners: Cloudflare answers the post-login /account page load from their ' +
+        'datacenter IPs with a "Verify you are human" challenge, so the account page never renders. ' +
+        'Not a product or test defect: the test runs locally, on Jenkins and on self-hosted runners. ' +
+        'Set RUN_CLOUDFLARE_GUARDED_TESTS=1 to force it to run here.',
     );
 
     test(
