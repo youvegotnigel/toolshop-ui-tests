@@ -24,6 +24,13 @@ export const SAVED_ADDRESS: SavedAddress = {
   postal_code: '10115',
 };
 
+/** What a guest types on the address step: the same address test customers save. */
+export const GUEST_ADDRESS: AddressEntry = {
+  countryCode: SAVED_ADDRESS.country,
+  postalCode: SAVED_ADDRESS.postal_code,
+  houseNumber: SAVED_ADDRESS.house_number,
+};
+
 /** Payment methods by their option value. */
 export const PAYMENT = {
   creditCard: 'credit-card',

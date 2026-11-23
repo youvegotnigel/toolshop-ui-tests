@@ -23,3 +23,7 @@ What exploration found so far (keep `AGENTS.md` "Toolshop facts" in sync when yo
 - Product badges (brand, category) have only an `aria-label`.
 - Checkout is one route (`/checkout`) with four steps; the address step races `GET /users/me`.
 - Phones collapse the navbar (button "Toggle navigation") and the filters panel (`data-test="filters"`).
+- `playwright-cli run-code` uses the stock `data-testid`: target Toolshop elements with `[data-test="..."]` there.
+- Registration and the checkout address step look the postcode up (`GET /postcode-lookup`) once country,
+  postcode and house number are set; the registration form wants a digits-only phone.
+- Guest checkout: the "Continue as Guest" tab on step 2 (role `tab`), then `guest-*` fields and `proceed-2-guest`.

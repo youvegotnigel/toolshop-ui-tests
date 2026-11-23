@@ -18,7 +18,8 @@ export const InvoiceSchema = z
   .object({
     id: IdSchema,
     invoice_number: z.string().regex(/^INV-\d+$/),
-    user_id: IdSchema,
+    /** null for a guest order. */
+    user_id: IdSchema.nullable(),
     total: z.number(),
     billing_country: z.string().nullable(),
     billing_postal_code: z.string().nullable().optional(),
@@ -38,7 +39,7 @@ export const InvoiceSchema = z
     invoicelines: raw.invoicelines,
   }));
 
-/** GET /invoices: the signed-in customer's own invoices, paginated. */
+/** GET /invoices (the signed-in customer's own) and GET /invoices/search (admin), paginated. */
 export const InvoicePageSchema = z.object({ data: z.array(InvoiceSchema) });
 
 export type Invoice = z.infer<typeof InvoiceSchema>;

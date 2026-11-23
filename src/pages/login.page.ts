@@ -1,7 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { BasePage } from './base.page';
 import { AccountPage } from './account.page';
-import { tokenStorage } from '../config/env';
 
 export type SignInDetails = { email: string; password: string };
 
@@ -49,13 +48,5 @@ export class LoginPage extends BasePage {
     const account = new AccountPage(this.page);
     await account.waitForReady();
     return account;
-  }
-
-  /** Whether the browser holds a session token. Never returns the token itself (it must not reach reports). */
-  async hasStoredSession(): Promise<boolean> {
-    return this.page.evaluate(
-      (storage) => (storage === 'session' ? sessionStorage : localStorage).getItem('auth-token') !== null,
-      tokenStorage(),
-    );
   }
 }

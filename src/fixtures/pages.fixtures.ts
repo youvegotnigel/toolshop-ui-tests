@@ -7,6 +7,7 @@ import { CartPage } from '../pages/cart.page';
 import { HomePage } from '../pages/home.page';
 import { LoginPage } from '../pages/login.page';
 import { ProductPage } from '../pages/product.page';
+import { RegisterPage } from '../pages/register.page';
 import { auditPage, describeViolations } from '../utils/a11y';
 import { createLogger } from '../utils/logger';
 import { labelsOf } from '../utils/report-labels';
@@ -31,6 +32,7 @@ type PageFixtures = {
   productPage: ProductPage;
   cartPage: CartPage;
   loginPage: LoginPage;
+  registerPage: RegisterPage;
   accountPage: AccountPage;
   /** Audits the current page against WCAG 2.2 AA; fails on serious or critical violations. */
   a11y: { expectNoSeriousViolations: (pageKey: string) => Promise<void> };
@@ -85,6 +87,9 @@ export const test = dataTest.extend<PageFixtures>({
   },
   loginPage: async ({ signedInPage }, use) => {
     await use(new LoginPage(signedInPage));
+  },
+  registerPage: async ({ signedInPage }, use) => {
+    await use(new RegisterPage(signedInPage));
   },
   accountPage: async ({ signedInPage }, use) => {
     await use(new AccountPage(signedInPage));

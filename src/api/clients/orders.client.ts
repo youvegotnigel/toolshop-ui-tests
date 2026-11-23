@@ -11,4 +11,9 @@ export class OrdersClient extends BaseClient {
   myInvoices(): Promise<APIResponse> {
     return this.request.get('/invoices', { headers: NO_CACHE });
   }
+
+  /** Admin only: every invoice matching the query (e.g. an invoice number), guest orders included. */
+  searchInvoices(query: string): Promise<APIResponse> {
+    return this.request.get('/invoices/search', { params: { q: query }, headers: NO_CACHE });
+  }
 }

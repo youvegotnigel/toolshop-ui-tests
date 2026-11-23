@@ -2,7 +2,7 @@ import { randomBytes } from 'node:crypto';
 import { faker } from '@faker-js/faker';
 import { testDataTag } from './test-data';
 import type { UserRegistration } from '../api/schemas/user.schema';
-import { SAVED_ADDRESS } from './checkout.data';
+import { SAVED_ADDRESS, type SavedAddress } from './checkout.data';
 
 /** Emails start with the run tag, so the teardown sweep can find leftovers. */
 export const testEmail = (): string =>
@@ -22,6 +22,29 @@ export const buildCustomer = (overrides: Partial<UserRegistration> = {}): UserRe
   phone: '+49 30 1234567',
   address: SAVED_ADDRESS,
   ...overrides,
+});
+
+/** What a visitor types into the registration form: every field, the address included. */
+export type Registration = UserRegistration & { phone: string; address: SavedAddress };
+
+/**
+ * A run-tagged visitor for the registration form. The form accepts digits only in the phone field
+ * ("Only numbers are allowed"), unlike the API, so the phone is digits.
+ */
+export const buildRegistration = (): Registration => ({
+  ...buildCustomer(),
+  phone: '49301234567',
+  address: SAVED_ADDRESS,
+});
+
+/** The details a guest gives on the checkout's "Continue as Guest" tab. */
+export type GuestDetails = { email: string; firstName: string; lastName: string };
+
+/** A run-tagged guest shopper (the email starts with the run tag, like a customer's). */
+export const buildGuest = (): GuestDetails => ({
+  email: testEmail(),
+  firstName: faker.person.firstName().slice(0, 40),
+  lastName: 'Automation',
 });
 
 /** A password guaranteed to differ from the customer's real one (for the single wrong attempt). */

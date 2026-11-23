@@ -57,10 +57,11 @@ tests/setup/              environment check (setup) and run-tag sweep (teardown)
 ```
 
 Fixture graph: worker `envGuard` (auto), `adminSession`, `workerCustomer` -> test `correlationId`,
-`apiRecorder` -> `api`, `adminApi`, `apiAs`, clients -> `cleanup` (boxed) -> `createBrand`, `createCategory`,
-`productImageId`, `createProduct`, `createdProduct`, `createdCatalogue`, `createCustomer`, `invoicesOf` ->
-option `shopper` -> `shopperAccount` -> `signedInPage` -> `homePage`, `productPage`, `cartPage`,
-`loginPage`, `accountPage`, `a11y`; `reportLabels` (auto).
+`apiRecorder` -> `api`, `adminApi`, `apiAs`, clients (`adminOrders` among them) -> `cleanup` (boxed) ->
+`createBrand`, `createCategory`, `productImageId`, `createProduct`, `createdProduct`, `createdCatalogue`,
+`createCustomer`, `invoicesOf`, `invoiceByNumber`, `registeredAccount` -> option `shopper` -> `shopperAccount` ->
+`signedInPage` -> `homePage`, `productPage`, `cartPage`, `loginPage`, `registerPage`, `accountPage`, `a11y`;
+`reportLabels` (auto).
 
 ## Rules for every test (ESLint enforces most of them)
 
@@ -167,6 +168,18 @@ is a step, the run logger reporter (`src/reporting/run-logger.ts`) is the listen
 - The sign-in form validates before it sends anything (no `/users/login` request, so no lockout risk) and shows one
   message per field: `email-error` "Email is required" or "Email format is invalid", `password-error`
   "Password is required" or "Password length is invalid" (2 characters is too short).
+- Registration (`/auth/register`): the phone field takes digits only ("Only numbers are allowed"; the API takes
+  `+49 30 ...`). The postcode lookup runs once country, postcode and house number are all set and fills street,
+  city and state. A registration lands on the sign-in page, not signed in. **Known defect**: the form never sends
+  `address.house_number` (stored as `null`); `register.spec.ts` keeps a `test.fail` with a `known-defect`
+  annotation for it, which reports "passed unexpectedly" once the Toolshop fixes it. Verify a UI-registered
+  account with `registeredAccount(credentials)` (API sign-in + `GET /users/me`; it also deletes the account).
+- Guest checkout: step 2 has a "Continue as Guest" tab (role `tab`, no `data-test`); the guest's email and name
+  stay in the browser (`sessionStorage['guestCheckout']`) until `POST /invoices/guest` places the order with
+  `user_id: null`. No customer can read it back: verify with `invoiceByNumber` (admin `GET /invoices/search`).
+- Sign-out (`nav-sign-out` in the account menu) is client-side only: no server call, the token is removed from
+  storage and the shopper stays on the current page (pages that need a session, like `/account`, then redirect
+  to sign-in). `signedInPage` seeds the token once per tab, so reopening a page after sign-out stays signed out.
 - Firefox: `getByLabel()` followed by an axe scan crashes the page (content process signal 11). Locate the
   product badges by text and assert their `aria-label` instead.
 - `TEST_ENV=with-bugs` runs the same suite against `with-bugs.practicesoftwaretesting.com` (deliberate
