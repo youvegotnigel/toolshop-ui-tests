@@ -1,0 +1,152 @@
+name: ui-tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '41 1 * * *' # nightly, 07:11 Sri Lanka time
+  workflow_dispatch:
+    inputs:
+      test_env:
+        description: Target environment (with-bugs proves the suite catches real defects)
+        type: choice
+        options: [public, with-bugs]
+        default: public
+      grep:
+        description: Optional tag filter, e.g. @smoke (a filtered run is never published)
+        required: false
+
+concurrency:
+  group: ui-tests-${{ github.ref }}-${{ inputs.test_env || 'public' }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  HUSKY: 0
+  TEST_ENV: ${{ inputs.test_env || 'public' }}
+
+jobs:
+  quality:
+    name: Typecheck, lint, format, agent parity
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run format:check
+      - run: node scripts/agent-parity.mts
+
+  test:
+    name: UI tests (${{ matrix.project }})
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { project: chromium, browser: chromium }
+          - { project: firefox, browser: firefox }
+          - { project: webkit, browser: webkit }
+          - { project: mobile-chrome, browser: chromium }
+    env:
+      CI: true
+      ALLURE: 1
+      BLOB_NAME: ${{ matrix.project }}
+      ADMIN_PASSWORD: ${{ secrets.TOOLSHOP_ADMIN_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Check credentials
+        run: |
+          if [ -z "$ADMIN_PASSWORD" ]; then
+            echo "::error::The TOOLSHOP_ADMIN_PASSWORD secret is missing (Settings > Secrets and variables > Actions)."
+            exit 1
+          fi
+      - name: Install ${{ matrix.browser }}
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Run tests
+        run: npx playwright test --project=${{ matrix.project }} ${{ inputs.grep && format('--grep "{0}"', inputs.grep) || '' }}
+      - name: Redact tokens from traces and blobs
+        if: ${{ !cancelled() }}
+        run: node scripts/ci/redact-traces.mts
+      - uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() }}
+        with:
+          name: blob-${{ matrix.project }}
+          path: blob-report/
+          retention-days: 3
+      - uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() }}
+        with:
+          name: allure-${{ matrix.project }}
+          path: allure-results/
+          retention-days: 3
+      - uses: actions/upload-artifact@v7
+        if: ${{ failure() }}
+        with:
+          name: failures-${{ matrix.project }}-${{ github.run_id }}
+          path: test-results/
+          retention-days: 14
+
+  report:
+    name: Reports and dashboard
+    needs: test
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write # publishes the site to the gh-pages branch
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: blob-*
+          path: all-blob-reports
+          merge-multiple: true
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: allure-*
+          path: allure-results
+          merge-multiple: true
+      - name: Merge the shards into one Playwright report
+        run: npx playwright merge-reports --config merge.config.ts ./all-blob-reports
+      - name: Restore report history
+        run: scripts/ci/restore-history.sh
+      - name: Build dashboard and reports
+        run: scripts/ci/build-site.sh
+      - name: Dashboard summary
+        run: |
+          node -e "const {summary:s}=require('./site/summary.json');console.log('### Automation dashboard\n\n| Pass rate | Flaky | Journeys covered | Critical journeys passing | Pages covered | Test runs |\n| --- | --- | --- | --- | --- | --- |\n| '+s.passRate+'% | '+s.flakyRate+'% | '+s.journeyCoverage+'% | '+s.criticalPassing+'% | '+s.pageCoverage+'% | '+s.total+' |')" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: site-${{ github.run_id }}
+          path: site/
+          retention-days: 14
+      - name: Publish to GitHub Pages
+        # Full runs on main against the public site only: no PRs, no --grep subsets, no with-bugs
+        if: ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && env.TEST_ENV == 'public' && !inputs.grep }}
+        run: scripts/ci/publish-pages.sh
+      - name: Fail when any shard failed
+        if: ${{ needs.test.result != 'success' }}
+        run: |
+          echo "::error::At least one browser shard failed. See the failures table in this summary and the site artifact."
+          exit 1

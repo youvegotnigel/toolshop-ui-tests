@@ -1,0 +1,32 @@
+# Prepares the environment GitHub Copilot cloud agent works in.
+# The job name must be exactly `copilot-setup-steps`.
+# Copilot's firewall must allow practicesoftwaretesting.com and api.practicesoftwaretesting.com
+# (repository Settings > Copilot > Coding agent), and the TOOLSHOP_ADMIN_PASSWORD secret must be
+# available to the Copilot environment as ADMIN_PASSWORD.
+name: Copilot Setup Steps
+
+on:
+  workflow_dispatch:
+  push:
+    paths: [.github/workflows/copilot-setup-steps.yml]
+  pull_request:
+    paths: [.github/workflows/copilot-setup-steps.yml]
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      HUSKY: 0
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Install every browser the projects use
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Prove the toolchain works (no network needed)
+        run: npm run typecheck && npm run lint && node scripts/agent-parity.mts
