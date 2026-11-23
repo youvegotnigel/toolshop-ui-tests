@@ -1,7 +1,10 @@
 import { expect, type APIResponse } from '@playwright/test';
 import { test as apiTest } from './api.fixtures';
 import { registerCustomer, type Customer } from './auth.fixtures';
+import { AuthClient } from '../api/clients/auth.client';
 import { OrdersClient } from '../api/clients/orders.client';
+import { UsersClient } from '../api/clients/users.client';
+import { TokenSchema, type Credentials } from '../api/schemas/auth.schema';
 import {
   BrandSchema,
   CategorySchema,
@@ -14,6 +17,7 @@ import {
   type ProductInput,
 } from '../api/schemas/catalog.schema';
 import { InvoicePageSchema, type Invoice } from '../api/schemas/order.schema';
+import { AccountSchema, UserPageSchema, type Account } from '../api/schemas/user.schema';
 import { buildBrand, buildCategory, buildProduct, distinctPrices } from '../data/catalog.builder';
 import { searchToken } from '../data/test-data';
 import { HTTP } from '../utils/http';
@@ -61,6 +65,13 @@ type DataFixtures = {
   createdCatalogue: Catalogue;
   /** Reads a customer's own invoices through the API, to verify what the UI ordered. */
   invoicesOf: (customer: Customer | undefined) => Promise<Invoice[]>;
+  /** Reads any order by its invoice number as the admin (guest orders have no customer to ask). */
+  invoiceByNumber: (invoiceNumber: string) => Promise<Invoice>;
+  /**
+   * For an account the UI registered: signs in through the API with the credentials the visitor chose and
+   * returns the stored account. The account is deleted afterwards (the teardown sweep catches it too).
+   */
+  registeredAccount: (credentials: Credentials) => Promise<Account>;
 };
 
 /** Toolshop answers 409 when a record is still referenced by an order, which can never be deleted. */
@@ -219,6 +230,38 @@ export const test = apiTest.extend<DataFixtures>({
       const res = await orders.myInvoices();
       await expect(res, 'verification: list the customer invoices').toBeOK();
       return InvoicePageSchema.parse(await res.json()).data;
+    });
+  },
+
+  invoiceByNumber: async ({ adminOrders }, use) => {
+    await use(async (invoiceNumber) => {
+      const res = await adminOrders.searchInvoices(invoiceNumber);
+      await expect(res, `verification: find invoice ${invoiceNumber}`).toBeOK();
+      const invoice = InvoicePageSchema.parse(await res.json()).data.find(
+        (i) => i.invoice_number === invoiceNumber,
+      );
+      if (invoice === undefined) throw new Error(`verification: no invoice ${invoiceNumber} was recorded`);
+      return invoice;
+    });
+  },
+
+  registeredAccount: async ({ api, apiAs, adminUsers, cleanup }, use) => {
+    await use(async (credentials) => {
+      // Cleanup first, so the account is removed even when signing in fails.
+      const search = await adminUsers.search(credentials.email);
+      await expect(search, 'verification: look up the registered account').toBeOK();
+      const found = UserPageSchema.parse(await search.json()).data.find((u) => u.email === credentials.email);
+      if (found === undefined)
+        throw new Error(`verification: no account was registered as ${credentials.email}`);
+      cleanup.add(`delete customer ${found.id}`, () => adminUsers.remove(found.id));
+
+      const login = await new AuthClient(api).login(credentials);
+      await expect(login, 'verification: sign in with the password they chose').toBeOK();
+      const { access_token } = TokenSchema.parse(await login.json());
+      const users = new UsersClient(await apiAs(`Bearer ${access_token}`));
+      const me = await users.me();
+      await expect(me, 'verification: read the stored account').toBeOK();
+      return AccountSchema.parse(await me.json());
     });
   },
 });

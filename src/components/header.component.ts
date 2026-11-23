@@ -7,6 +7,8 @@ export class Header {
   readonly signIn: Locator;
   /** The signed-in customer's menu; its label is the customer's full name. */
   readonly accountMenu: Locator;
+  /** In the account menu's dropdown. */
+  readonly signOut: Locator;
   readonly cart: CartBadge;
   /** Phones only: the collapsed menu. Its aria-label is the only handle (no data-test). */
   readonly menuToggle: Locator;
@@ -16,6 +18,7 @@ export class Header {
     this.signIn = page.getByTestId('nav-sign-in');
     // nav-menu on the public v5 site, nav-user-menu on the older with-bugs build
     this.accountMenu = page.getByTestId('nav-menu').or(page.getByTestId('nav-user-menu'));
+    this.signOut = page.getByTestId('nav-sign-out');
     this.cart = new CartBadge(page);
     this.menuToggle = page.getByRole('button', { name: 'Toggle navigation' });
   }

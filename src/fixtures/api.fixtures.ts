@@ -21,6 +21,8 @@ type ApiFixtures = {
   adminCatalog: CatalogClient;
   adminUsers: UsersClient;
   orders: OrdersClient;
+  /** Admin reads of any order, guest orders included. */
+  adminOrders: OrdersClient;
 };
 
 type Playwright = PlaywrightWorkerArgs['playwright'];
@@ -95,5 +97,8 @@ export const test = authTest.extend<ApiFixtures>({
   },
   orders: async ({ api }, use) => {
     await use(new OrdersClient(api));
+  },
+  adminOrders: async ({ adminApi }, use) => {
+    await use(new OrdersClient(adminApi));
   },
 });

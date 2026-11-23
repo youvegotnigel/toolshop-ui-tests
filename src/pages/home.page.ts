@@ -77,6 +77,14 @@ export class HomePage extends BasePage {
     }
   }
 
+  /** Signs out from the account menu. The shopper stays on the catalogue, now as a guest. */
+  async signOut(): Promise<this> {
+    await this.header.expand();
+    await this.header.accountMenu.click();
+    await this.header.signOut.click();
+    return this;
+  }
+
   async openProduct(name: string): Promise<ProductPage> {
     await this.product(name).root.click();
     const productPage = new ProductPage(this.page);

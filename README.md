@@ -17,14 +17,17 @@ Sister project: [toolshop-api-tests](https://github.com/youvegotnigel/toolshop-a
 
 ## What it covers
 
-| Journey                 | Spec                                  | What it proves                                                                                        | Tags                     |
-| ----------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------ |
-| `catalog.search`        | `tests/catalog/search.spec.ts`        | A shopper finds a product by name; the detail page shows name, price and brand; WCAG 2.2 AA           | `@catalog @smoke @a11y`  |
-| `catalog.sort`          | `tests/catalog/sort.spec.ts`          | Price sorting, low to high and high to low (data-driven over the sort options)                        | `@catalog`               |
-| `auth.login`            | `tests/auth/login.spec.ts`            | A wrong password is refused without a session; the right one opens the account                        | `@auth @smoke @negative` |
-| `auth.login-validation` | `tests/auth/login-validation.spec.ts` | Data-driven: the sign-in form flags each invalid field before sending it (4 rows, one test each)      | `@auth @negative`        |
-| `cart.update`           | `tests/cart/cart.spec.ts`             | Changing the quantity updates the line total, cart total and badge                                    | `@cart`                  |
-| `checkout.card`         | `tests/checkout/checkout.spec.ts`     | End-to-end checkout paid by card, order confirmed in the UI and verified through the API; WCAG 2.2 AA | `@checkout @smoke @a11y` |
+| Journey                 | Spec                                    | What it proves                                                                                                                                                            | Tags                     |
+| ----------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| `catalog.search`        | `tests/catalog/search.spec.ts`          | A shopper finds a product by name; the detail page shows name, price and brand; WCAG 2.2 AA                                                                               | `@catalog @smoke @a11y`  |
+| `catalog.sort`          | `tests/catalog/sort.spec.ts`            | Price sorting, low to high and high to low (data-driven over the sort options)                                                                                            | `@catalog`               |
+| `auth.login`            | `tests/auth/login.spec.ts`              | A wrong password is refused without a session; the right one opens the account                                                                                            | `@auth @smoke @negative` |
+| `auth.register`         | `tests/auth/register.spec.ts`           | A visitor registers through the form; the stored account has their details and signs in with their password (plus an expected-to-fail check for the dropped house number) | `@auth @smoke`           |
+| `auth.logout`           | `tests/auth/logout.spec.ts`             | Signing out removes the session, and coming back to the shop keeps the customer signed out                                                                                | `@auth @smoke`           |
+| `auth.login-validation` | `tests/auth/login-validation.spec.ts`   | Data-driven: the sign-in form flags each invalid field before sending it (4 rows, one test each)                                                                          | `@auth @negative`        |
+| `cart.update`           | `tests/cart/cart.spec.ts`               | Changing the quantity updates the line total, cart total and badge                                                                                                        | `@cart`                  |
+| `checkout.card`         | `tests/checkout/checkout.spec.ts`       | End-to-end checkout paid by card, order confirmed in the UI and verified through the API; WCAG 2.2 AA                                                                     | `@checkout @smoke @a11y` |
+| `checkout.guest`        | `tests/checkout/guest-checkout.spec.ts` | A guest checks out without an account, pays cash on delivery; the guest order is verified through the API                                                                 | `@checkout @smoke`       |
 
 Every spec creates its own data through the API and removes it afterwards; all five run on Chromium, Firefox and
 WebKit, and the `@smoke` ones on a Pixel 7 too.
