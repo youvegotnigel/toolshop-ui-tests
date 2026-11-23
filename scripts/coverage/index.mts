@@ -2,7 +2,8 @@
  * Builds the UI automation dashboard.
  *   node scripts/coverage/index.mts [--results test-results/results.json] [--history coverage-history/history.json] [--site site]
  * Writes <site>/index.html (dashboard), <site>/summary.json and <site>/history.json, updates the history file,
- * and copies allure-report/ and playwright-report/ into <site>/allure and <site>/playwright (each with a link
+ * and copies allure-report/, playwright-report/ and smart-report/ into <site>/allure, <site>/playwright and
+ * <site>/smart (each with a link
  * back to the dashboard). Works the same on GitHub Actions, Jenkins and locally.
  */
 import { execFileSync } from 'node:child_process';
@@ -109,6 +110,7 @@ mkdirSync(site, { recursive: true });
 const links: Links = {
   allure: copyReport('allure-report', path.join(site, 'allure')),
   playwright: copyReport('playwright-report', path.join(site, 'playwright')),
+  smart: copyReport('smart-report', path.join(site, 'smart')),
   run: runUrl(),
 };
 

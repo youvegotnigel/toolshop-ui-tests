@@ -11,8 +11,9 @@ skills, agents and commands).
 Sister project: [toolshop-api-tests](https://github.com/youvegotnigel/toolshop-api-tests) (same conventions).
 
 **Live reports:** https://youvegotnigel.github.io/toolshop-ui-tests/ (automation dashboard), with the
-[Allure report](https://youvegotnigel.github.io/toolshop-ui-tests/allure/) and the
-[Playwright report](https://youvegotnigel.github.io/toolshop-ui-tests/playwright/), updated by every full CI run on `main`.
+[Allure report](https://youvegotnigel.github.io/toolshop-ui-tests/allure/), the
+[Playwright report](https://youvegotnigel.github.io/toolshop-ui-tests/playwright/) and the
+[smart report](https://youvegotnigel.github.io/toolshop-ui-tests/smart/), updated by every full CI run on `main`.
 
 ## What it covers
 
@@ -142,8 +143,8 @@ on GitHub-hosted runners (e.g. to check whether Cloudflare still challenges them
 always holds one commit; trend history lives in `history/` on it and survives every publish (last 30 runs).
 
 **Jenkins** (`Jenkinsfile`) runs the same stages in `mcr.microsoft.com/playwright:v1.65.1-noble` (keep the tag equal
-to `@playwright/test`) and publishes "Automation Dashboard", "Allure" and "Playwright" with the HTML Publisher
-plugin. Credential: `toolshop-admin-password` (Secret text). Allure and Playwright reports need JavaScript, so relax
+to `@playwright/test`) and publishes "Automation Dashboard", "Allure", "Playwright" and "Smart Report" with the HTML Publisher
+plugin. Credential: `toolshop-admin-password` (Secret text). Allure, Playwright and smart reports need JavaScript, so relax
 Jenkins' Content Security Policy for HTML Publisher (`hudson.model.DirectoryBrowserSupport.CSP`).
 
 Also included: Dependabot (npm and actions), CODEOWNERS, a PR template, a "UI test request" issue template and an
@@ -157,6 +158,12 @@ importable ruleset for `main` (`.github/rulesets/protect-main.json`: Settings > 
   test defect, test data, environment, flaky), environment (base URL, Toolshop version, browser versions,
   commit, run) and executor. Labels come from the tests: area tag -> feature, journey -> story,
   `@smoke` -> critical, browser -> parent suite.
+- **Smart report** ([playwright-smart-reporter](https://github.com/qa-gary-parker/playwright-smart-reporter),
+  `src/reporting/smart-report.ts`): failure clusters, stability grades (A to F), flakiness, retry analysis,
+  trends over the last 30 runs, a built-in trace viewer, network logs and the accessibility summary. GitHub Actions
+  builds it once over every browser shard (`merge.config.ts`); Jenkins and local runs build it during the run
+  (`smart-report/index.html`). History lives in `smart-history/` and on `gh-pages` like Allure's. Report text is
+  redacted for JWTs and AI analysis is off. Open traces with one click: `npx playwright-smart-reporter-serve smart-report/index.html`.
 - **Automation dashboard** (`scripts/coverage/`): pass and flaky rate, journeys covered against the plan,
   critical journeys passing, pages covered, duration, last run (stale after 48 hours), trends, the coverage heat
   map (journey x depth), the browser matrix, critical journeys with links to Allure, the accessibility summary and
@@ -184,7 +191,7 @@ src/components/           Header, CartBadge, ProductCard
 src/fixtures/             auth -> api -> data -> pages, exported by src/fixtures/index.ts
 src/data/                 faker builders, checkout data, sort options
 src/utils/                logger, api-recorder, a11y audit and known violations, report labels
-src/reporting/            failure tracker (failure-summary.json, job summary)
+src/reporting/            failure tracker (failure-summary.json, job summary), smart report options
 scripts/coverage/         automation dashboard
 scripts/ci/               redact-traces, allure-environment, build-site, restore-history, publish-pages
 scripts/                  agent-parity, scan-constitution, hooks/

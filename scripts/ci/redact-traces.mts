@@ -1,6 +1,6 @@
 /**
  * Masks every JWT in test artifacts before they are uploaded or published.
- *   node scripts/ci/redact-traces.mts [dir ...]   (default: test-results playwright-report blob-report)
+ *   node scripts/ci/redact-traces.mts [dir ...]   (default: test-results playwright-report blob-report smart-report)
  *
  * Why: tests sign in through the API and the browser then sends `Authorization: Bearer <jwt>` to the
  * Toolshop API. Playwright traces record request headers, so the token would sit in trace.zip
@@ -135,8 +135,8 @@ const redactFile = (file: string): boolean => {
 };
 
 const roots = process.argv.slice(2);
-const targets = (roots.length > 0 ? roots : ['test-results', 'playwright-report', 'blob-report']).filter(
-  existsSync,
-);
+const targets = (
+  roots.length > 0 ? roots : ['test-results', 'playwright-report', 'blob-report', 'smart-report']
+).filter(existsSync);
 const redacted = targets.flatMap(files).filter(redactFile).length;
 console.log(`redact-traces: masked JWTs in ${String(redacted)} file(s)`);

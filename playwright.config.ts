@@ -1,5 +1,6 @@
 import { defineConfig, devices, type ReporterDescription } from '@playwright/test';
 import { env, loadEnvironment, proxyFromEnv, trustInterceptingProxy } from './src/config/env';
+import { smartReporter } from './src/reporting/smart-report';
 
 const testEnv = loadEnvironment();
 // Set once, inherited by every worker: the run tag qa-<RUN_ID> on every record this run creates
@@ -34,6 +35,8 @@ export default defineConfig({
     ['junit', { outputFile: 'test-results/junit.xml' }],
     ['json', { outputFile: 'test-results/results.json' }], // dashboard input
     ['./src/reporting/failure-tracker.ts'],
+    // GitHub shards (BLOB_NAME set) leave it to merge.config.ts: one smart report across browsers
+    ...(process.env.BLOB_NAME === undefined ? [smartReporter] : []),
     ...optionalReporters,
   ],
 

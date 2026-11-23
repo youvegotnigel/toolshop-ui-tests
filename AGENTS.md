@@ -32,7 +32,7 @@ locally (never honoured in CI). `HTTPS_PROXY` is picked up by browsers and API c
 
 ```
 playwright.config.ts      env loading, RUN_ID, testIdAttribute 'data-test', reporters, projects
-merge.config.ts           reporters for merging CI shards (one HTML report, JSON, JUnit, failures)
+merge.config.ts           reporters for merging CI shards (one HTML report, smart report, JSON, JUnit, failures)
 src/config/env.ts         .env.local + .env.<TEST_ENV>, env() fail-fast reader, runId(), proxy
 src/api/                  minimal API clients + zod schemas: test data, auth and verification only
 src/auth/auth-session.ts  worker-scoped API login per role, renews the ~5 min JWT
@@ -41,7 +41,7 @@ src/components/           parts several pages share: Header, CartBadge, ProductC
 src/fixtures/             auth -> api -> data -> pages, re-exported by src/fixtures/index.ts
 src/data/                 faker builders (run tag qa-<RUN_ID> + a search word), checkout data, sort options
 src/utils/                logger (redacts secrets and JWTs), api-recorder, a11y + known violations, report labels
-src/reporting/            failure tracker: failure-summary.json + GitHub job summary
+src/reporting/            failure tracker (failure-summary.json + job summary), smart report options
 scripts/coverage/         dashboard: KPIs, trends, heat map, browser matrix, critical journeys, a11y, backlog
 scripts/ci/               redact-traces, allure-environment, build-site, restore-history, publish-pages
 coverage-plan.json        pages (from the Angular routes) and journeys, with priority and target release

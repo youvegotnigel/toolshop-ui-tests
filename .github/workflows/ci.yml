@@ -129,10 +129,11 @@ jobs:
           pattern: allure-*
           path: allure-results
           merge-multiple: true
-      - name: Merge the shards into one Playwright report
-        run: npx playwright merge-reports --config merge.config.ts ./all-blob-reports
+      # Before the merge: the smart reporter reads its history while merge-reports replays the shards
       - name: Restore report history
         run: scripts/ci/restore-history.sh
+      - name: Merge the shards into one Playwright and one smart report
+        run: npx playwright merge-reports --config merge.config.ts ./all-blob-reports
       - name: Build dashboard and reports
         run: scripts/ci/build-site.sh
       - name: Dashboard summary

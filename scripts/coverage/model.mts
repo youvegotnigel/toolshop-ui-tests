@@ -82,7 +82,7 @@ export type RunSummary = {
   failingJourneys: string[];
 };
 
-export type Links = { allure?: string; playwright?: string; run?: string };
+export type Links = { allure?: string; playwright?: string; smart?: string; run?: string };
 
 export type Dashboard = {
   plan: Plan;
