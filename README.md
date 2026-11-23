@@ -261,10 +261,11 @@ to a failure, `debug` for high-volume detail. Never log passwords, tokens, cooki
 Required: the repository secret `TOOLSHOP_ADMIN_PASSWORD` (add it under **Actions** and under **Dependabot**
 secrets, because Dependabot runs cannot read Actions secrets).
 
-**Cloudflare-guarded tests.** From GitHub-hosted runners, Cloudflare answers the post-login `/account` page with a
-"Verify you are human" challenge. `auth.login` is therefore tagged `@cloudflare-guarded` and skipped on GitHub-hosted
-runners only (`RUNNER_ENVIRONMENT=github-hosted`), with the reason shown in the HTML report, Allure and the
-dashboard. It always runs locally (`npm test`, UI mode, headed), on Jenkins and on self-hosted runners. To force it
+**Cloudflare-guarded tests.** From GitHub-hosted runners, Cloudflare answers the pages that follow an authentication
+change with a "Verify you are human" challenge: the post-login `/account` page, the redirect to `/auth/login` after
+registering and the page after signing out. `auth.login`, `auth.register` and `auth.logout` are therefore tagged
+`@cloudflare-guarded` and skipped on GitHub-hosted runners only (`RUNNER_ENVIRONMENT=github-hosted`), with the reason shown in the HTML report, Allure and the
+dashboard. They always run locally (`npm test`, UI mode, headed), on Jenkins and on self-hosted runners. To force them
 on GitHub-hosted runners (e.g. to check whether Cloudflare still challenges them), set the repository variable
 `RUN_CLOUDFLARE_GUARDED_TESTS` to `1` (Settings > Secrets and variables > Actions > Variables). To publish, enable Pages once:
 **Settings > Pages > Build and deployment > Deploy from a branch > `gh-pages` / (root)**. The `gh-pages` branch
