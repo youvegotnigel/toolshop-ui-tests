@@ -1,24 +1,26 @@
 import { z } from 'zod';
+import { IdSchema } from '../dialect';
 
-export const BrandSchema = z.object({ id: z.string().min(1), name: z.string().min(1), slug: z.string() });
+export const BrandSchema = z.object({ id: IdSchema, name: z.string().min(1), slug: z.string() });
 export const BrandListSchema = z.array(BrandSchema);
 
 export const CategorySchema = z.object({
-  id: z.string().min(1),
+  id: IdSchema,
   name: z.string().min(1),
   slug: z.string(),
-  parent_id: z.string().nullable(),
+  parent_id: IdSchema.nullable(),
 });
 export const CategoryListSchema = z.array(CategorySchema);
 
-export const ImageListSchema = z.array(z.object({ id: z.string().min(1) }));
+export const ImageListSchema = z.array(z.object({ id: IdSchema }));
 
 export const ProductSchema = z.object({
-  id: z.string().min(1),
+  id: IdSchema,
   name: z.string().min(1),
   price: z.number().nonnegative(),
-  brand: z.object({ id: z.string(), name: z.string() }),
-  category: z.object({ id: z.string(), name: z.string() }),
+  /** Embedded by v5 only; tests compare against the brand and category they created. */
+  brand: z.object({ id: IdSchema, name: z.string() }).optional(),
+  category: z.object({ id: IdSchema, name: z.string() }).optional(),
 });
 
 /** GET /products is paginated, 9 per page. */

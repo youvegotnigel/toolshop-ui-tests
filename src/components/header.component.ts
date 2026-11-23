@@ -14,7 +14,8 @@ export class Header {
   constructor(page: Page) {
     this.home = page.getByTestId('nav-home');
     this.signIn = page.getByTestId('nav-sign-in');
-    this.accountMenu = page.getByTestId('nav-menu');
+    // nav-menu on the public v5 site, nav-user-menu on the older with-bugs build
+    this.accountMenu = page.getByTestId('nav-menu').or(page.getByTestId('nav-user-menu'));
     this.cart = new CartBadge(page);
     this.menuToggle = page.getByRole('button', { name: 'Toggle navigation' });
   }

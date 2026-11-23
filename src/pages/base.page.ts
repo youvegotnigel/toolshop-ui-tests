@@ -1,5 +1,6 @@
 import type { Page } from '@playwright/test';
 import { Header } from '../components/header.component';
+import { routePrefix } from '../config/env';
 
 /**
  * Every page object: locators as readonly properties, user intentions as methods, no assertions.
@@ -16,9 +17,12 @@ export abstract class BasePage {
   /** Waits until the page's key element is visible. */
   abstract waitForReady(): Promise<void>;
 
-  /** Opens a path relative to baseURL (TEST_ENV switches the site) and waits until the page is ready. */
+  /**
+   * Opens an app route relative to baseURL (TEST_ENV switches the site, ROUTE_PREFIX its routing style)
+   * and waits until the page is ready.
+   */
   protected async visit(path: string): Promise<this> {
-    await this.page.goto(path);
+    await this.page.goto(`${routePrefix()}${path}`);
     await this.waitForReady();
     return this;
   }

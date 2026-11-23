@@ -14,7 +14,8 @@ export const testEmail = (): string =>
  */
 export const buildCustomer = (overrides: Partial<UserRegistration> = {}): UserRegistration => ({
   first_name: faker.person.firstName().slice(0, 40),
-  last_name: 'QA Automation',
+  // Letters only: the legacy API (with-bugs) rejects spaces in last names
+  last_name: 'Automation',
   email: testEmail(),
   password: `Qa!9${randomBytes(12).toString('base64url')}`,
   dob: '1990-01-01',

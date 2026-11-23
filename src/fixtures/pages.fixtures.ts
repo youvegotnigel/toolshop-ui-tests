@@ -11,6 +11,7 @@ import { ProductPage } from '../pages/product.page';
 import { auditPage, describeViolations } from '../utils/a11y';
 import { logger } from '../utils/logger';
 import { labelsOf } from '../utils/report-labels';
+import { tokenStorage } from '../config/env';
 
 /**
  * Who is browsing: `guest` (default), the worker's `customer`, or a `new-customer` of the test's
@@ -37,9 +38,9 @@ type PageFixtures = {
 };
 
 /** Seeds the token once per tab, so the app's own sign-out is not undone by the next navigation. */
-const seedToken = (token: string): void => {
+const seedToken = ({ token, storage }: { token: string; storage: 'local' | 'session' }): void => {
   if (sessionStorage.getItem('qa-session-seeded') !== null) return;
-  localStorage.setItem('auth-token', token);
+  (storage === 'session' ? sessionStorage : localStorage).setItem('auth-token', token);
   sessionStorage.setItem('qa-session-seeded', '1');
 };
 
@@ -58,7 +59,10 @@ export const test = dataTest.extend<PageFixtures>({
   signedInPage: async ({ page, shopperAccount, orders, browserName }, use, testInfo) => {
     if (shopperAccount !== undefined) {
       // Logged in through the API: only the login test types a password into the form.
-      await page.context().addInitScript(seedToken, await shopperAccount.session.token());
+      await page.context().addInitScript(seedToken, {
+        token: await shopperAccount.session.token(),
+        storage: tokenStorage(),
+      });
     }
     await use(page);
     // Read by the dashboard and the Allure environment (browser versions under test)

@@ -1,9 +1,10 @@
 import type { SavedAddress } from '../../data/checkout.data';
 import { z } from 'zod';
+import { IdSchema } from '../dialect';
 
 /** Response of POST /users/register. */
 export const RegisteredUserSchema = z.object({
-  id: z.string().min(1),
+  id: IdSchema,
   email: z.string().min(1),
   first_name: z.string(),
   last_name: z.string(),

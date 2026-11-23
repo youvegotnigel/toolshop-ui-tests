@@ -1,7 +1,7 @@
 import type { Locator, Page } from '@playwright/test';
 
 /** Product cards are links whose data-test is `product-<ULID>`. */
-const CARD = /^product-[0-9a-z]{26}$/i;
+const CARD = /^product-(?:[0-9a-z]{26}|\d+)$/i; // ULID (v5) or number (legacy with-bugs)
 
 /** One product tile in the catalogue grid. */
 export class ProductCard {

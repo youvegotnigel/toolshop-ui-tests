@@ -58,7 +58,7 @@ test.describe(
             total: product.price,
             billing_country: SAVED_ADDRESS.country,
             billing_postal_code: SAVED_ADDRESS.postal_code,
-            payment: { payment_method: PAYMENT.creditCard },
+            payment_method: PAYMENT.creditCard,
             invoicelines: [{ product_id: product.id, quantity: 1, unit_price: product.price }],
           });
         });

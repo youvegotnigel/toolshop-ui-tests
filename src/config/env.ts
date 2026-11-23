@@ -60,3 +60,10 @@ export const proxyFromEnv = (): { server: string } | undefined => {
  */
 export const trustInterceptingProxy = (): boolean =>
   process.env.TRUST_INTERCEPTING_PROXY === '1' && process.env.CI === undefined;
+
+/** Where the front end keeps its JWT ('auth-token'): localStorage (public) or sessionStorage (with-bugs). */
+export const tokenStorage = (): 'local' | 'session' =>
+  process.env.TOKEN_STORAGE === 'session' ? 'session' : 'local';
+
+/** Prefix for in-app routes: '' for path routing (public), '/#' for hash routing (with-bugs). */
+export const routePrefix = (): string => process.env.ROUTE_PREFIX ?? '';
