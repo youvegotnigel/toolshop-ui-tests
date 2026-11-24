@@ -149,8 +149,11 @@ is a step, the run logger reporter (`src/reporting/run-logger.ts`) is the listen
 - From GitHub-hosted runners the search index can trail a new product by a few seconds (not reproducible
   from other networks). `createdProduct` and `createdCatalogue` wait with `expect.poll` until their products are
   searchable (`searchable` fixture) before the test starts: data readiness, never a sleep in the test.
-- Cloudflare protects the site. From GitHub-hosted runners it answers the post-login `/account` load with a
-  "Verify you are human" challenge. Never try to bypass it. Tests on such flows are tagged `@cloudflare-guarded`
+- Cloudflare protects the site. From GitHub-hosted runners it answers the pages that follow an authentication
+  change with a "Verify you are human" challenge: the post-login `/account` load (`auth.login`), the redirect
+  to `/auth/login` after registering (`auth.register`) and the page after Sign out (`auth.logout`). The
+  failure shows as the sign-in form or menu "not found" on every browser; the screenshot or `error-context` of
+  the failed attempt is the challenge page. Never try to bypass it. Tests on such flows are tagged `@cloudflare-guarded`
   and start with `test.skip(skipCloudflareGuarded(), '<reason>')`: skipped on GitHub-hosted runners only
   (`RUNNER_ENVIRONMENT=github-hosted`, with the reason in every report); they run locally, on Jenkins and on
   self-hosted runners. `RUN_CLOUDFLARE_GUARDED_TESTS=1` (repository variable) forces them to run on GitHub-hosted
