@@ -27,9 +27,14 @@ Sister project: [toolshop-api-tests](https://github.com/youvegotnigel/toolshop-a
 | `auth.login-validation` | `tests/auth/login-validation.spec.ts`   | Data-driven: the sign-in form flags each invalid field before sending it (4 rows, one test each)                                                                          | `@auth @negative`        |
 | `cart.update`           | `tests/cart/cart.spec.ts`               | Changing the quantity updates the line total, cart total and badge                                                                                                        | `@cart`                  |
 | `checkout.card`         | `tests/checkout/checkout.spec.ts`       | End-to-end checkout paid by card, order confirmed in the UI and verified through the API; WCAG 2.2 AA                                                                     | `@checkout @smoke @a11y` |
+| `a11y.catalogue`        | `tests/a11y/catalogue.spec.ts`          | The home page and the search results for a product of the test's own meet the configured a11y standard                                                                    | `@a11y @catalog`         |
+| `a11y.sign-in`          | `tests/a11y/sign-in.spec.ts`            | The sign-in form meets the standard empty and with its validation errors showing                                                                                          | `@a11y @auth`            |
+| `a11y.register`         | `tests/a11y/register.spec.ts`           | The registration form meets the standard                                                                                                                                  | `@a11y @auth`            |
+| `a11y.cart`             | `tests/a11y/cart.spec.ts`               | The cart with a product in it meets the standard                                                                                                                          | `@a11y @cart`            |
+| `a11y.account`          | `tests/a11y/account.spec.ts`            | A signed-in customer's account page, and the page with its account menu open, meet the standard                                                                           | `@a11y @account`         |
 | `checkout.guest`        | `tests/checkout/guest-checkout.spec.ts` | A guest checks out without an account, pays cash on delivery; the guest order is verified through the API                                                                 | `@checkout @smoke`       |
 
-Every spec creates its own data through the API and removes it afterwards; all five run on Chromium, Firefox and
+Every spec creates its own data through the API and removes it afterwards; all of them (except `tests/a11y/`, which runs on the projects in `A11Y_PROJECTS`, Chromium by default) run on Chromium, Firefox and
 WebKit, and the `@smoke` ones on a Pixel 7 too.
 
 ## Features
@@ -45,8 +50,10 @@ WebKit, and the `@smoke` ones on a Pixel 7 too.
 - **Own, run-tagged data**: brands, categories, products (with stock) and customers carry `qa-<RUN_ID>`; cleanup
   runs newest first even on failure, and a teardown sweep catches leftovers. Orders are permanent in the Toolshop,
   so the records an order references are kept (HTTP 409) and reported, not failed.
-- **Accessibility**: `@axe-core/playwright` audits WCAG 2.2 AA; serious and critical violations fail the test,
-  with a readable list and the full axe JSON attached. Known site defects are a baseline matched by rule, page and
+- **Accessibility**: `@axe-core/playwright` audits every `@a11y` step against a standard set in one place
+  (`use.a11yConfig` in `playwright.config.ts`, default WCAG 2.2 AA failing on serious and critical), switchable per
+  run with `A11Y_STANDARD` / `A11Y_FAIL_ON`; a dedicated suite in `tests/a11y/` audits pages and their interactive
+  states (see [Accessibility testing](#accessibility-testing)). Failures list each violation with the full axe JSON attached. Known site defects are a baseline matched by rule, page and
   element, each with an issue ([#1](https://github.com/youvegotnigel/toolshop-ui-tests/issues/1)).
 - **Two sites, one suite**: `TEST_ENV=with-bugs` runs the same specs against the deliberately buggy build.
 - **Evidence for every failure**: trace, screenshot and video (failures only), the API call log of the test data
@@ -61,7 +68,7 @@ WebKit, and the `@smoke` ones on a Pixel 7 too.
   before anything is uploaded or published.
 - **One link for managers**: a GitHub Pages site with the automation dashboard, Allure 3 (with history and
   categories) and the merged Playwright HTML report.
-- **Agent-ready**: `AGENTS.md` as the single source of truth, ten skills, four agents and four commands for both
+- **Agent-ready**: `AGENTS.md` as the single source of truth, eleven skills, four agents and four commands for both
   Claude Code and GitHub Copilot, a parity check and a constitution scan.
 
 ## Screenshots
@@ -102,6 +109,7 @@ routing, token storage). Real values in the environment (CI secrets) win over th
 | Everything (all browsers + mobile)      | `npm test`                                                                                       |
 | One browser                             | `npm run test:chromium` (`test:firefox`, `test:webkit`, `test:mobile`)                           |
 | Smoke                                   | `npm run test:smoke`                                                                             |
+| Accessibility suite                     | `npm run test:a11y` (see [Accessibility testing](#accessibility-testing))                        |
 | Headed / UI mode                        | `npm run test:headed` / `npm run test:ui`                                                        |
 | Shuffled and repeated (independence)    | `npm run test:shuffle`                                                                           |
 | Against the buggy Toolshop              | `npm run test:with-bugs`                                                                         |
@@ -127,6 +135,52 @@ assertion. Latest run (Chromium, Firefox, WebKit):
 | `auth.login`     | After a successful sign-in the header shows "User Data not found" instead of the customer's name                                                            |
 | `cart.update`    | The cart shows a line total of `$00.00` instead of the price                                                                                                |
 | `checkout.card`  | The saved postcode is not pre-filled on the address step (possibly an old-build difference: its API calls it `postcode`)                                    |
+
+## Accessibility testing
+
+Every `@a11y` test audits the page with [axe](https://github.com/dequelabs/axe-core) through one fixture:
+
+```ts
+await a11y.expectNoViolations('page:sign-in');
+```
+
+The standard, the impact that fails a test and the browsers that run the suite are configured **once**, at the
+top of `playwright.config.ts`:
+
+```ts
+const a11yConfig: A11yConfig = {
+  standard: 'wcag22aa', // wcag2a | wcag2aa | wcag2aaa | wcag21a | wcag21aa | wcag22aa | section508 | en-301-549
+  failOn: 'serious', // critical | serious | moderate | minor: this impact and everything more severe fails
+  bestPractices: false, // also run axe's best-practice rules
+  disabledRules: [], // axe rule ids, each with a comment saying why
+};
+
+// Browser projects that run tests/a11y: add one to enable it there, [] disables the suite
+const A11Y_PROJECTS: readonly BrowserProject[] = a11yProjects(['chromium'], BROWSER_PROJECTS);
+```
+
+Projects not in the list skip `tests/a11y/` (a `testIgnore` set by the `browserProject()` helper). `@a11y` audit
+steps inside other specs, such as `catalog.search`, still run wherever their spec runs.
+
+| To...                              | Do                                                                                                                                                               |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Choose the browsers for the suite  | `A11Y_PROJECTS` in `playwright.config.ts` (default `['chromium']`, `[]` disables it); one run: `A11Y_PROJECTS=chromium,firefox npm test` or `A11Y_PROJECTS=none` |
+| Change the level for everyone      | edit `use.a11yConfig` above                                                                                                                                      |
+| Try another level for one run      | `A11Y_STANDARD=wcag21aa A11Y_FAIL_ON=moderate npm run test:a11y` (unknown values fail fast)                                                                      |
+| Change it for one spec (exception) | `test.use({ a11yConfig: { ...defaultA11yConfig, bestPractices: true } })` with a comment                                                                         |
+| Add a standard                     | a key in `A11Y_STANDARDS` (`src/config/a11y.config.ts`) with its axe tags                                                                                        |
+
+WCAG levels are cumulative (AA includes A; 2.2 includes 2.1 and 2.0). Each audit attaches `axe-page-<key>.json`,
+records per-impact counts for the dashboard and the standard used (`a11y-standard` annotation), and fails with one
+readable line per violation (impact, rule, elements, help link).
+
+The suite in `tests/a11y/` follows Playwright's guidance: scan after the page is ready, and scan **states**, not
+just page loads. Before each audit it asserts the state with a web-first assertion (errors showing, menu open,
+cart filled), never a sleep. Known Toolshop defects are a baseline in `src/utils/a11y-known-violations.ts`,
+matched by rule, page and element, each with a GitHub issue; a new element with the same defect still fails, and a
+fixed one fails with "FIXED: remove it from the baseline". Never lower the standard or `failOn` to get green. The
+`accessibility-testing` skill (Claude Code and Copilot) and `.github/instructions/a11y.instructions.md` hold the
+rules for agents.
 
 ## Logs and debug mode
 
@@ -310,10 +364,11 @@ maintain by hand, together with two conventions in the specs:
 ## Project structure
 
 ```
-playwright.config.ts      env loading, RUN_ID, testIdAttribute 'data-test', reporters, projects
+playwright.config.ts      env loading, RUN_ID, testIdAttribute 'data-test', a11yConfig, reporters, projects
 merge.config.ts           reporters for merging CI shards
 coverage-plan.json        pages and journeys the dashboard measures against
 src/config/env.ts         .env.local + .env.<TEST_ENV>, env(), runId(), proxy, routing, token storage
+src/config/a11y.config.ts accessibility standards, failOn impact, A11Y_STANDARD / A11Y_FAIL_ON overrides
 src/api/                  minimal clients + zod schemas (test data, auth, verification), API dialects
 src/auth/auth-session.ts  worker-scoped API login, renews the 5 minute JWT
 src/pages/                page objects (checkout/ holds the wizard steps)
@@ -327,6 +382,7 @@ scripts/coverage/         automation dashboard
 scripts/ci/               redact-traces, allure-environment, build-site, restore-history, publish-pages
 scripts/                  agent-parity, scan-constitution, hooks/
 tests/<area>/             specs; tests/setup/ holds the environment check and the teardown sweep
+tests/a11y/               accessibility specs, one page and its interactive states per file (projects in A11Y_PROJECTS)
 .claude/                  skills (shared), agents, commands, settings and hook (Claude Code)
 .github/                  workflows, Copilot instructions, agents and prompts, templates, ruleset
 AGENTS.md                 the single source of truth for humans and agents
@@ -354,19 +410,20 @@ skill that does not exist.
 
 ### Skills
 
-| Skill                | Use it when you want to...                                                   |
-| -------------------- | ---------------------------------------------------------------------------- |
-| `ai-native-workflow` | start any non-trivial task: it routes to the right skill and gates the plan  |
-| `explore-site`       | look at a page with `playwright-cli` before writing UI code                  |
-| `data-driven-tests`  | one test per row of a typed cases table; guide in `docs/testing-patterns/`   |
-| `selectors`          | pick or fix a locator                                                        |
-| `test-data`          | give a test its own data, or understand a 409 in cleanup                     |
-| `add-ui-test`        | automate a journey end to end                                                |
-| `add-page-object`    | add a page, a checkout step or a component                                   |
-| `review-ui-tests`    | review a branch or PR                                                        |
-| `triage-ui-failures` | understand a red run                                                         |
-| `fix-flaky-test`     | root-cause a flake (never with sleeps or retries)                            |
-| `run-logging`        | log from new code, or change the console and `logs/automation_framework.log` |
+| Skill                   | Use it when you want to...                                                        |
+| ----------------------- | --------------------------------------------------------------------------------- |
+| `ai-native-workflow`    | start any non-trivial task: it routes to the right skill and gates the plan       |
+| `explore-site`          | look at a page with `playwright-cli` before writing UI code                       |
+| `data-driven-tests`     | one test per row of a typed cases table; guide in `docs/testing-patterns/`        |
+| `selectors`             | pick or fix a locator                                                             |
+| `test-data`             | give a test its own data, or understand a 409 in cleanup                          |
+| `add-ui-test`           | automate a journey end to end                                                     |
+| `add-page-object`       | add a page, a checkout step or a component                                        |
+| `review-ui-tests`       | review a branch or PR                                                             |
+| `triage-ui-failures`    | understand a red run                                                              |
+| `fix-flaky-test`        | root-cause a flake (never with sleeps or retries)                                 |
+| `run-logging`           | log from new code, or change the console and `logs/automation_framework.log`      |
+| `accessibility-testing` | add an a11y test, change the standard or level, or understand a failing axe audit |
 
 ### Example prompts
 

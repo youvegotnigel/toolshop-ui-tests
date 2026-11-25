@@ -4,7 +4,7 @@
 
 - Start non-trivial work with `/ai-native-workflow`. Skills in `.claude/skills/` are also slash commands:
   `/explore-site`, `/selectors`, `/test-data`, `/add-ui-test`, `/add-page-object`, `/review-ui-tests`,
-  `/triage-ui-failures`, `/fix-flaky-test`.
+  `/triage-ui-failures`, `/fix-flaky-test`, `/accessibility-testing`.
 - Delegate with subagents in `.claude/agents/`: `journey-analyst` (read-only exploration), `ui-test-writer`,
   `ui-test-reviewer` (read-only), `failure-triager`.
 - Commands in `.claude/commands/`: `/verify`, `/new-ui-test <journey>`, `/review`, `/triage`.

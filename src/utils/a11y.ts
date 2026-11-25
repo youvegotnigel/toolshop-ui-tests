@@ -1,10 +1,7 @@
 import { AxeBuilder } from '@axe-core/playwright';
 import type { Page, TestInfo } from '@playwright/test';
 import { KNOWN_VIOLATIONS, type KnownViolation } from './a11y-known-violations';
-
-/** WCAG 2.2 AA, including the 2.0 and 2.1 A/AA rules it builds on. */
-export const WCAG_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
-const BLOCKING = new Set(['serious', 'critical']);
+import { blockingImpacts, describeConfig, tagsOf, type A11yConfig } from '../config/a11y.config';
 
 export type ViolationSummary = {
   rule: string;
@@ -16,7 +13,9 @@ export type ViolationSummary = {
 
 export type A11yAudit = {
   page: string;
-  /** Serious or critical violations that are not in the known-violation baseline. */
+  /** What was audited, e.g. "WCAG 2.2 AA, serious or worse". */
+  standard: string;
+  /** Violations at or above `failOn` that are not in the known-violation baseline. */
   blocking: ViolationSummary[];
   /** Baseline entries that still reproduce. */
   known: KnownViolation[];
@@ -26,18 +25,26 @@ export type A11yAudit = {
 };
 
 /**
- * Runs axe on the current page, attaches the full report, records per-impact counts as an `a11y`
- * annotation (read by the dashboard) and splits violations into blocking, known and fixed.
+ * Runs axe on the current page against the configured standard, attaches the full report, records per-impact
+ * counts as an `a11y` annotation (read by the dashboard) and splits violations into blocking, known and fixed.
  */
-export const auditPage = async (page: Page, testInfo: TestInfo, pageKey: string): Promise<A11yAudit> => {
-  const results = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
+export const auditPage = async (
+  page: Page,
+  testInfo: TestInfo,
+  pageKey: string,
+  config: A11yConfig,
+): Promise<A11yAudit> => {
+  const builder = new AxeBuilder({ page }).withTags(tagsOf(config));
+  if (config.disabledRules.length > 0) builder.disableRules([...config.disabledRules]);
+  const results = await builder.analyze();
+  const blocking = blockingImpacts(config);
   await testInfo.attach(`axe-${pageKey.replace(/\W+/g, '-')}.json`, {
     body: JSON.stringify(results, null, 2),
     contentType: 'application/json',
   });
 
-  const serious = results.violations
-    .filter((v) => BLOCKING.has(v.impact ?? ''))
+  const failing = results.violations
+    .filter((v) => blocking.has(v.impact ?? ''))
     .map((v) => ({
       rule: v.id,
       impact: v.impact ?? 'unknown',
@@ -50,7 +57,7 @@ export const auditPage = async (page: Page, testInfo: TestInfo, pageKey: string)
   const isKnown = (v: ViolationSummary): boolean =>
     baseline.some((k) => k.rule === v.rule && v.nodes.every((node) => k.targets.includes(node)));
   const reproduces = (k: KnownViolation): boolean =>
-    serious.some((v) => v.rule === k.rule && v.nodes.some((node) => k.targets.includes(node)));
+    failing.some((v) => v.rule === k.rule && v.nodes.some((node) => k.targets.includes(node)));
 
   const counts = { critical: 0, serious: 0, moderate: 0, minor: 0 };
   for (const v of results.violations) {
@@ -80,7 +87,8 @@ export const auditPage = async (page: Page, testInfo: TestInfo, pageKey: string)
 
   return {
     page: pageKey,
-    blocking: serious.filter((v) => !isKnown(v)),
+    standard: describeConfig(config),
+    blocking: failing.filter((v) => !isKnown(v)),
     known: baseline.filter(reproduces),
     fixed,
     counts,
@@ -90,7 +98,7 @@ export const auditPage = async (page: Page, testInfo: TestInfo, pageKey: string)
 /** A failure message a manager can read: one line per violation with the elements involved. */
 export const describeViolations = (audit: A11yAudit): string =>
   [
-    `${String(audit.blocking.length)} serious/critical WCAG 2.2 AA violation(s) on ${audit.page}:`,
+    `${String(audit.blocking.length)} accessibility violation(s) (${audit.standard}) on ${audit.page}:`,
     ...audit.blocking.map(
       (v) => `- [${v.impact}] ${v.rule}: ${v.help} (${v.nodes.slice(0, 3).join(', ')}) ${v.helpUrl}`,
     ),

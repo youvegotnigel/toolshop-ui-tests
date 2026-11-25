@@ -37,7 +37,7 @@ test.describe(
         });
 
         await test.step('The product page has no serious accessibility problems', async () => {
-          await a11y.expectNoSeriousViolations('page:product');
+          await a11y.expectNoViolations('page:product');
         });
       },
     );

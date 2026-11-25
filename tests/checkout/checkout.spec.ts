@@ -46,7 +46,7 @@ test.describe(
         const confirmation = await test.step('They pay by card and see the order confirmation', async () => {
           const page = await payment.payByCard(buildCard());
           await expect(page.invoiceNumber).toHaveText(/^INV-\d+$/);
-          await a11y.expectNoSeriousViolations('page:order-confirmation');
+          await a11y.expectNoViolations('page:order-confirmation');
           return page;
         });
 
