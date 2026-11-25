@@ -215,6 +215,41 @@
       "area": "admin",
       "priority": "high",
       "target": "0.3"
+    },
+    {
+      "id": "a11y.catalogue",
+      "title": "The home page and search results meet the accessibility standard",
+      "area": "a11y",
+      "priority": "critical",
+      "target": "0.2"
+    },
+    {
+      "id": "a11y.sign-in",
+      "title": "The sign-in form meets the accessibility standard, with and without errors",
+      "area": "a11y",
+      "priority": "critical",
+      "target": "0.2"
+    },
+    {
+      "id": "a11y.register",
+      "title": "The registration form meets the accessibility standard",
+      "area": "a11y",
+      "priority": "high",
+      "target": "0.2"
+    },
+    {
+      "id": "a11y.cart",
+      "title": "The cart meets the accessibility standard",
+      "area": "a11y",
+      "priority": "critical",
+      "target": "0.2"
+    },
+    {
+      "id": "a11y.account",
+      "title": "The account page and menu meet the accessibility standard",
+      "area": "a11y",
+      "priority": "high",
+      "target": "0.2"
     }
   ]
 }

@@ -179,7 +179,8 @@ export default defineConfig(
       'playwright/no-useless-not': 'error',
       'playwright/valid-title': 'error',
       'playwright/no-identical-title': 'error',
-      'playwright/expect-expect': 'error',
+      // a11y.expectNoViolations() asserts inside the a11y fixture (src/fixtures/pages.fixtures.ts)
+      'playwright/expect-expect': ['error', { assertFunctionNames: ['expectNoViolations'] }],
       'no-restricted-imports': [
         'error',
         {

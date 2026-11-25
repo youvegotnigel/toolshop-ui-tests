@@ -35,4 +35,4 @@ Checklist before running it:
 - Tags: one area (`@catalog`, `@auth`, `@cart`, `@checkout`, `@account`, `@admin`) plus depth (`@smoke`, `@negative`, `@a11y`).
 - `covers` annotation for every `page:<key>` the test visits.
 - Expected values derive from fixtures (`product.price.toFixed(2)`), never copied from the page.
-- `a11y.expectNoSeriousViolations('page:<key>')` for `@a11y`.
+- `a11y.expectNoViolations('page:<key>')` for `@a11y` (standard and level from `use.a11yConfig`).

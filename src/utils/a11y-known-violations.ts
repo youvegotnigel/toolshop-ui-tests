@@ -18,7 +18,24 @@ export type KnownViolation = {
 
 const LABEL_IN_NAME = 'https://github.com/youvegotnigel/toolshop-ui-tests/issues/1';
 
+/** The header's language selector fails label-in-name on every page (issue #1). */
+const languageSelector = (page: string): KnownViolation => ({
+  rule: 'label-content-name-mismatch',
+  page,
+  targets: ['#language'],
+  issue: LABEL_IN_NAME,
+  summary: 'Language selector: visible text is not part of its accessible name (WCAG 2.5.3)',
+});
+
 export const KNOWN_VIOLATIONS: readonly KnownViolation[] = [
+  ...['page:home', 'page:search', 'page:sign-in', 'page:register', 'page:account'].map(languageSelector),
+  {
+    rule: 'label-content-name-mismatch',
+    page: 'page:cart',
+    targets: ['#language', 'a[data-test="nav-cart"]'],
+    issue: LABEL_IN_NAME,
+    summary: 'Language selector and cart link: visible text is not part of the accessible name (WCAG 2.5.3)',
+  },
   {
     rule: 'label-content-name-mismatch',
     page: 'page:product',

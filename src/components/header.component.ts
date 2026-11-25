@@ -34,6 +34,13 @@ export class Header {
     return this;
   }
 
+  /** Opens the signed-in customer's account menu (expanding the collapsed navbar on phones first). */
+  async openAccountMenu(): Promise<this> {
+    await this.expand();
+    await this.accountMenu.click();
+    return this;
+  }
+
   async openCart(): Promise<void> {
     await this.expand();
     await this.cart.link.click();

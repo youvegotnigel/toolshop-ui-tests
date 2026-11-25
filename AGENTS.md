@@ -12,21 +12,22 @@ built to grow page by page. Sister project: `youvegotnigel/toolshop-api-tests` (
 
 ## Commands
 
-| Task                                | Command                                                                    |
-| ----------------------------------- | -------------------------------------------------------------------------- |
-| Everything a PR needs               | `npm run verify`                                                           |
-| All browsers / one browser          | `npm test` / `npm run test:chromium` (`test:firefox`, `test:webkit`)       |
-| Smoke (also runs on mobile)         | `npm run test:smoke`                                                       |
-| Prove tests are independent         | `npm run test:shuffle`                                                     |
-| Against the deliberately buggy site | `npm run test:with-bugs`                                                   |
-| Headed / UI mode                    | `npm run test:headed` / `npm run test:ui`                                  |
-| Typecheck / lint / format           | `npm run typecheck`, `npm run lint`, `npm run format`                      |
-| Agent files in sync                 | `npm run agent:parity`                                                     |
-| Test the custom ESLint rules        | `npm run test:lint-rules`                                                  |
-| Test the run log formatting         | `npm run test:reporting`                                                   |
-| Stock Playwright console (debug)    | `npx playwright test --reporter=list` (replaces every configured reporter) |
-| Dashboard + reports locally         | `ALLURE=1 npm test`, then `npm run report:site` (open `site/index.html`)   |
-| Open a trace                        | `npx playwright show-trace test-results/artifacts/<test>/trace.zip`        |
+| Task                                | Command                                                                                 |
+| ----------------------------------- | --------------------------------------------------------------------------------------- |
+| Everything a PR needs               | `npm run verify`                                                                        |
+| All browsers / one browser          | `npm test` / `npm run test:chromium` (`test:firefox`, `test:webkit`)                    |
+| Smoke (also runs on mobile)         | `npm run test:smoke`                                                                    |
+| Accessibility suite (`@a11y`)       | `npm run test:a11y` (`A11Y_STANDARD`, `A11Y_FAIL_ON`, `A11Y_PROJECTS=chromium,firefox`) |
+| Prove tests are independent         | `npm run test:shuffle`                                                                  |
+| Against the deliberately buggy site | `npm run test:with-bugs`                                                                |
+| Headed / UI mode                    | `npm run test:headed` / `npm run test:ui`                                               |
+| Typecheck / lint / format           | `npm run typecheck`, `npm run lint`, `npm run format`                                   |
+| Agent files in sync                 | `npm run agent:parity`                                                                  |
+| Test the custom ESLint rules        | `npm run test:lint-rules`                                                               |
+| Test the run log formatting         | `npm run test:reporting`                                                                |
+| Stock Playwright console (debug)    | `npx playwright test --reporter=list` (replaces every configured reporter)              |
+| Dashboard + reports locally         | `ALLURE=1 npm test`, then `npm run report:site` (open `site/index.html`)                |
+| Open a trace                        | `npx playwright show-trace test-results/artifacts/<test>/trace.zip`                     |
 
 Behind a TLS-inspecting proxy whose CA Firefox does not trust, set `TRUST_INTERCEPTING_PROXY=1`
 locally (never honoured in CI). `HTTPS_PROXY` is picked up by browsers and API contexts alike.
@@ -34,9 +35,10 @@ locally (never honoured in CI). `HTTPS_PROXY` is picked up by browsers and API c
 ## Architecture
 
 ```
-playwright.config.ts      env loading, RUN_ID, testIdAttribute 'data-test', reporters, projects
+playwright.config.ts      env loading, RUN_ID, testIdAttribute 'data-test', a11yConfig, reporters, projects
 merge.config.ts           reporters for merging CI shards (one HTML report, smart report, JSON, JUnit, failures)
 src/config/env.ts         .env.local + .env.<TEST_ENV>, env() fail-fast reader, runId(), proxy
+src/config/a11y.config.ts accessibility standards (axe tags), failOn impact, A11Y_STANDARD / A11Y_FAIL_ON overrides
 src/api/                  minimal API clients + zod schemas: test data, auth and verification only
 src/auth/auth-session.ts  worker-scoped API login per role, renews the ~5 min JWT
 src/pages/                page objects: one class per page, extends BasePage; checkout/ holds the wizard steps
@@ -51,6 +53,8 @@ scripts/coverage/         dashboard: KPIs, trends, heat map, browser matrix, cri
 scripts/ci/               redact-traces, allure-environment, build-site, restore-history, publish-pages
 coverage-plan.json        pages (from the Angular routes) and journeys, with priority and target release
 tests/<area>/             specs, one behaviour per file
+tests/a11y/               accessibility specs, one page (and its interactive states) per file; on the
+                          projects in A11Y_PROJECTS (playwright.config.ts, default chromium)
 eslint/                   local ESLint plugin `qe/*` (data-driven test rules) and its RuleTester suite
 docs/testing-patterns/    guides for humans (data-driven tests)
 tests/setup/              environment check (setup) and run-tag sweep (teardown)
@@ -60,7 +64,8 @@ Fixture graph: worker `envGuard` (auto), `adminSession`, `workerCustomer` -> tes
 `apiRecorder` -> `api`, `adminApi`, `apiAs`, clients (`adminOrders` among them) -> `cleanup` (boxed) ->
 `createBrand`, `createCategory`, `productImageId`, `createProduct`, `createdProduct`, `createdCatalogue`,
 `createCustomer`, `invoicesOf`, `invoiceByNumber`, `registeredAccount` -> option `shopper` -> `shopperAccount` ->
-`signedInPage` -> `homePage`, `productPage`, `cartPage`, `loginPage`, `registerPage`, `accountPage`, `a11y`;
+`signedInPage` -> `homePage`, `productPage`, `cartPage`, `loginPage`, `registerPage`, `accountPage`; option
+`a11yConfig` -> `a11y`;
 `reportLabels` (auto).
 
 ## Rules for every test (ESLint enforces most of them)
@@ -80,8 +85,10 @@ Fixture graph: worker `envGuard` (auto), `adminSession`, `workerCustomer` -> tes
    test fails. Choose the shopper with `test.use({ shopper: 'guest' | 'customer' | 'new-customer' })`;
    use `new-customer` whenever the test places an order.
 7. Tests pass alone, in parallel, shuffled and on every browser project. No shared module state.
-8. Accessibility: `await a11y.expectNoSeriousViolations('page:<key>')` audits WCAG 2.2 AA and fails on any
-   serious or critical violation that is not a known product defect.
+8. Accessibility: `await a11y.expectNoViolations('page:<key>')` audits the page against `use.a11yConfig` in
+   `playwright.config.ts` (default WCAG 2.2 AA, failing on serious or critical) and fails on any violation at or
+   above `failOn` that is not a known product defect. Change the level there or with `A11Y_STANDARD` /
+   `A11Y_FAIL_ON`, never in a spec; assert the state before auditing it (`accessibility-testing` skill).
 9. Data-driven: when 3 or more tests share their steps and only the data changes, write one `test()` inside
    `for (const { ... } of cases)` over a typed table in `src/data/<thing>.cases.ts`
    (`as const satisfies readonly FormValidationCase<Form>[]`, types in `src/data/test-cases.ts`). One row breaks
@@ -213,19 +220,20 @@ Skills live in `.claude/skills/` and are read by both tools (Claude Code nativel
 the Copilot cloud agent read `.claude/skills/` as agent skills). Each is a short `SKILL.md` (Critical rules,
 Procedure) with details in `references/`, loaded only when needed:
 
-| Skill                | Use it for                                                                   |
-| -------------------- | ---------------------------------------------------------------------------- |
-| `ai-native-workflow` | the entry point: routing, the proposal and confidence gate, the human gate   |
-| `explore-site`       | looking at the live site with `npx playwright-cli` before any UI code        |
-| `selectors`          | choosing and fixing locators (data-test first, no CSS or XPath)              |
-| `test-data`          | factories, run tags, cleanup and HTTP 409 retention                          |
-| `add-ui-test`        | a user journey to page objects, fixtures and a spec                          |
-| `add-page-object`    | a page object, wizard step or component                                      |
-| `data-driven-tests`  | one test per row of a typed cases table (validation, boundaries, options)    |
-| `review-ui-tests`    | reviewing a branch (`node scripts/scan-constitution.mts` + checklist)        |
-| `triage-ui-failures` | classifying a red run from failure-summary.json, traces and api-calls.json   |
-| `fix-flaky-test`     | root-causing a flake without sleeps or retries                               |
-| `run-logging`        | named loggers, log levels, step titles as log lines, the run logger reporter |
+| Skill                   | Use it for                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------ |
+| `ai-native-workflow`    | the entry point: routing, the proposal and confidence gate, the human gate     |
+| `explore-site`          | looking at the live site with `npx playwright-cli` before any UI code          |
+| `selectors`             | choosing and fixing locators (data-test first, no CSS or XPath)                |
+| `test-data`             | factories, run tags, cleanup and HTTP 409 retention                            |
+| `add-ui-test`           | a user journey to page objects, fixtures and a spec                            |
+| `add-page-object`       | a page object, wizard step or component                                        |
+| `data-driven-tests`     | one test per row of a typed cases table (validation, boundaries, options)      |
+| `review-ui-tests`       | reviewing a branch (`node scripts/scan-constitution.mts` + checklist)          |
+| `triage-ui-failures`    | classifying a red run from failure-summary.json, traces and api-calls.json     |
+| `fix-flaky-test`        | root-causing a flake without sleeps or retries                                 |
+| `run-logging`           | named loggers, log levels, step titles as log lines, the run logger reporter   |
+| `accessibility-testing` | axe audits, the a11yConfig standard and failOn level, a11y specs, the baseline |
 
 Agents: `.claude/agents/*.md` (Claude Code) mirrored by `.github/agents/*.agent.md` (Copilot):
 `journey-analyst` (read-only), `ui-test-writer`, `ui-test-reviewer` (read-only), `failure-triager`.

@@ -15,6 +15,8 @@ The essentials, in case you only read this file:
 - 3 or more tests with the same steps become one `test()` per row of a typed cases table (`data-driven-tests`
   skill, `docs/testing-patterns/data-driven-tests.md`).
 - Log with a named `createLogger('<Module>')`, never `console.*`, and never log secrets (`run-logging` skill).
+- Accessibility: `await a11y.expectNoViolations('page:<key>')`; the standard and failing impact come from
+  `use.a11yConfig` in `playwright.config.ts`, never from the spec (`accessibility-testing` skill).
 - Done means `npm run verify` is green.
 
 Start non-trivial work with the `ai-native-workflow` skill (explore, propose with confidence, wait for approval).

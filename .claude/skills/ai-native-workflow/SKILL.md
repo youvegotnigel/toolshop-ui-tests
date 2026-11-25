@@ -33,6 +33,8 @@ description: 'Use first on every non-trivial task in this repo (new journey or t
    | Review a branch or PR                          | `review-ui-tests`    | -                                              |
    | Add logging, or change the console or log file | `run-logging`        | -                                              |
 
+| Accessibility test, standard or failing audit | `accessibility-testing` | `explore-site`, `add-ui-test` |
+
 3. **Explore**: read the files the leaf skill names, run `explore-site` for anything on screen, and list
    what is known and unknown. A missing primary input (journey, page, shopper, expected outcome) is asked now.
 4. **Propose** and stop:

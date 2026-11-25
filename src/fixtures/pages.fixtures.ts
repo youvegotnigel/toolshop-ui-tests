@@ -12,6 +12,7 @@ import { auditPage, describeViolations } from '../utils/a11y';
 import { createLogger } from '../utils/logger';
 import { labelsOf } from '../utils/report-labels';
 import { tokenStorage } from '../config/env';
+import { defaultA11yConfig, describeConfig, type A11yConfig } from '../config/a11y.config';
 
 const logger = createLogger('PageFixtures');
 
@@ -34,8 +35,10 @@ type PageFixtures = {
   loginPage: LoginPage;
   registerPage: RegisterPage;
   accountPage: AccountPage;
-  /** Audits the current page against WCAG 2.2 AA; fails on serious or critical violations. */
-  a11y: { expectNoSeriousViolations: (pageKey: string) => Promise<void> };
+  /** option: the standard and failing impact, set in playwright.config.ts (`use.a11yConfig`) or with test.use. */
+  a11yConfig: A11yConfig;
+  /** Audits the current page against `a11yConfig`; fails on violations at or above its `failOn` impact. */
+  a11y: { expectNoViolations: (pageKey: string) => Promise<void> };
   /** auto: records the journey id (Allure labels are derived from tags by scripts/ci/allure-environment.mts). */
   reportLabels: undefined;
 };
@@ -95,10 +98,13 @@ export const test = dataTest.extend<PageFixtures>({
     await use(new AccountPage(signedInPage));
   },
 
-  a11y: async ({ signedInPage }, use, testInfo) => {
+  a11yConfig: [defaultA11yConfig, { option: true }],
+
+  a11y: async ({ signedInPage, a11yConfig }, use, testInfo) => {
+    testInfo.annotations.push({ type: 'a11y-standard', description: describeConfig(a11yConfig) });
     await use({
-      expectNoSeriousViolations: async (pageKey) => {
-        const audit = await auditPage(signedInPage, testInfo, pageKey);
+      expectNoViolations: async (pageKey) => {
+        const audit = await auditPage(signedInPage, testInfo, pageKey, a11yConfig);
         for (const known of audit.known) {
           testInfo.annotations.push({
             type: 'known-a11y-violation',

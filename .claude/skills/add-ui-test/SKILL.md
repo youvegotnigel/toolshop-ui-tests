@@ -39,7 +39,8 @@ Start from `references/spec-template.md`.
 
 - Describe title = `<journey id>: <who does what>`. Tags: area plus depth (`@smoke`, `@negative`, `@a11y`).
 - Assertions in the spec, web-first, on page object locators. `expect.poll` for non-DOM state.
-- Accessibility depth: `await a11y.expectNoSeriousViolations('page:<key>')` at the end of a step.
+- Accessibility depth: `await a11y.expectNoViolations('page:<key>')` at the end of a step (level from
+  `use.a11yConfig`; a dedicated a11y spec follows `accessibility-testing`).
 - Verify side effects through fixtures (`invoicesOf(shopperAccount)`), never `api` directly.
 - Data-driven: 3 or more cases with the same steps follow `data-driven-tests` (a typed table in
   `src/data/<thing>.cases.ts`, one `test()` per row, see `auth/login-validation.spec.ts`). Cases that build on one
