@@ -1,0 +1,1 @@
+{"id":"946f19c11c5ae461b64ec95f3be81636.5bd835b0d6b1d4ada3b9f0db936e82c8","fullName":"auth/logout.spec.ts › auth.logout: A signed-in customer signs out › the session ends and stays ended when they come back to the shop","name":"the session ends and stays ended when they come back to the shop","status":"skipped","testResultsByEnv":{"default":"eb0fead34b75bb66643c00e01b1c7af8"}}

@@ -1,0 +1,378 @@
+[
+  {
+    "runNumber": "2",
+    "commit": "c71835fde3df89cc18c6f65e2d668df2783c9b9d",
+    "env": "public",
+    "date": "2026-11-23T09:19:33.106Z",
+    "durationMs": 117619,
+    "total": 18,
+    "counts": {
+      "passed": 11,
+      "failed": 6,
+      "broken": 0,
+      "flaky": 1,
+      "skipped": 0
+    },
+    "passRate": 66.7,
+    "flakyRate": 5.6,
+    "journeyCoverage": 25,
+    "pageCoverage": 33.3,
+    "criticalPassing": 20,
+    "a11ySerious": 1,
+    "failingJourneys": [
+      "catalog.search",
+      "auth.login"
+    ]
+  },
+  {
+    "runNumber": "4",
+    "commit": "c71835fde3df89cc18c6f65e2d668df2783c9b9d",
+    "env": "public",
+    "date": "2026-11-23T09:25:41.635Z",
+    "durationMs": 69365,
+    "total": 18,
+    "counts": {
+      "passed": 14,
+      "failed": 4,
+      "broken": 0,
+      "flaky": 0,
+      "skipped": 0
+    },
+    "passRate": 77.8,
+    "flakyRate": 0,
+    "journeyCoverage": 25,
+    "pageCoverage": 33.3,
+    "criticalPassing": 40,
+    "a11ySerious": 1,
+    "failingJourneys": [
+      "auth.login"
+    ]
+  },
+  {
+    "runNumber": "6",
+    "commit": "1ef7c87672d1c38446db30b29899c7dc2de5e9b4",
+    "env": "public",
+    "date": "2026-11-23T09:33:42.565Z",
+    "durationMs": 75780,
+    "total": 18,
+    "counts": {
+      "passed": 14,
+      "failed": 4,
+      "broken": 0,
+      "flaky": 0,
+      "skipped": 0
+    },
+    "passRate": 77.8,
+    "flakyRate": 0,
+    "journeyCoverage": 25,
+    "pageCoverage": 33.3,
+    "criticalPassing": 40,
+    "a11ySerious": 1,
+    "failingJourneys": [
+      "auth.login"
+    ]
+  },
+  {
+    "runNumber": "8",
+    "commit": "94986d1958d76b3543368e837db033936df8a3db",
+    "env": "public",
+    "date": "2026-11-23T10:00:50.129Z",
+    "durationMs": 1028071,
+    "total": 18,
+    "counts": {
+      "passed": 2,
+      "failed": 0,
+      "broken": 14,
+      "flaky": 2,
+      "skipped": 0
+    },
+    "passRate": 22.2,
+    "flakyRate": 11.1,
+    "journeyCoverage": 25,
+    "pageCoverage": 33.3,
+    "criticalPassing": 0,
+    "a11ySerious": 1,
+    "failingJourneys": [
+      "catalog.search",
+      "catalog.sort",
+      "auth.login",
+      "cart.update",
+      "checkout.card"
+    ]
+  },
+  {
+    "runNumber": "10",
+    "commit": "6ec3e8410ee6774e3b1459aa92e2ca2f88f2fd89",
+    "env": "public",
+    "date": "2026-11-23T10:32:20.794Z",
+    "durationMs": 236337,
+    "total": 18,
+    "counts": {
+      "passed": 14,
+      "failed": 0,
+      "broken": 0,
+      "flaky": 0,
+      "skipped": 4
+    },
+    "passRate": 100,
+    "flakyRate": 0,
+    "journeyCoverage": 25,
+    "pageCoverage": 33.3,
+    "criticalPassing": 40,
+    "a11ySerious": 1,
+    "failingJourneys": []
+  },
+  {
+    "runNumber": "12",
+    "commit": "7b99bff3eaa1a022ffa433397cff7b3ad3ded5dc",
+    "env": "public",
+    "date": "2026-11-23T10:46:02.874Z",
+    "durationMs": 82737,
+    "total": 18,
+    "counts": {
+      "passed": 14,
+      "failed": 0,
+      "broken": 0,
+      "flaky": 0,
+      "skipped": 4
+    },
+    "passRate": 100,
+    "flakyRate": 0,
+    "journeyCoverage": 25,
+    "pageCoverage": 33.3,
+    "criticalPassing": 40,
+    "a11ySerious": 1,
+    "failingJourneys": []
+  },
+  {
+    "runNumber": "14",
+    "commit": "69f77e0758932ae011b4b526be9a0caf390a629a",
+    "env": "public",
+    "date": "2026-11-23T11:23:04.944Z",
+    "durationMs": 210616,
+    "total": 18,
+    "counts": {
+      "passed": 14,
+      "failed": 0,
+      "broken": 0,
+      "flaky": 0,
+      "skipped": 4
+    },
+    "passRate": 100,
+    "flakyRate": 0,
+    "journeyCoverage": 25,
+    "pageCoverage": 33.3,
+    "criticalPassing": 40,
+    "a11ySerious": 1,
+    "failingJourneys": []
+  },
+  {
+    "runNumber": "16",
+    "commit": "7573142d2cf320907f97f9b29440942eefd4c548",
+    "env": "public",
+    "date": "2026-11-23T11:51:13.545Z",
+    "durationMs": 57667,
+    "total": 30,
+    "counts": {
+      "passed": 25,
+      "failed": 0,
+      "broken": 0,
+      "flaky": 1,
+      "skipped": 4
+    },
+    "passRate": 100,
+    "flakyRate": 3.8,
+    "journeyCoverage": 28.6,
+    "pageCoverage": 33.3,
+    "criticalPassing": 40,
+    "a11ySerious": 1,
+    "failingJourneys": []
+  },
+  {
+    "runNumber": "18",
+    "commit": "309a824361e705c0d0e7621b09e5030fa6b9cd68",
+    "env": "public",
+    "date": "2026-11-23T16:22:41.726Z",
+    "durationMs": 322756,
+    "total": 30,
+    "counts": {
+      "passed": 24,
+      "failed": 0,
+      "broken": 0,
+      "flaky": 2,
+      "skipped": 4
+    },
+    "passRate": 100,
+    "flakyRate": 7.7,
+    "journeyCoverage": 28.6,
+    "pageCoverage": 33.3,
+    "criticalPassing": 40,
+    "a11ySerious": 1,
+    "failingJourneys": []
+  },
+  {
+    "runNumber": "20",
+    "commit": "0ccad71e3f7268c82affd0bf030dcafe6866c418",
+    "env": "public",
+    "date": "2026-11-23T17:16:11.704Z",
+    "durationMs": 220304,
+    "total": 46,
+    "counts": {
+      "passed": 29,
+      "failed": 8,
+      "broken": 0,
+      "flaky": 5,
+      "skipped": 4
+    },
+    "passRate": 81,
+    "flakyRate": 11.9,
+    "journeyCoverage": 42.9,
+    "pageCoverage": 36.7,
+    "criticalPassing": 60,
+    "a11ySerious": 1,
+    "failingJourneys": [
+      "auth.register",
+      "auth.logout"
+    ]
+  },
+  {
+    "runNumber": "22",
+    "commit": "0ccad71e3f7268c82affd0bf030dcafe6866c418",
+    "env": "public",
+    "date": "2026-11-24T11:36:44.732Z",
+    "durationMs": 131488,
+    "total": 46,
+    "counts": {
+      "passed": 34,
+      "failed": 8,
+      "broken": 0,
+      "flaky": 0,
+      "skipped": 4
+    },
+    "passRate": 81,
+    "flakyRate": 0,
+    "journeyCoverage": 42.9,
+    "pageCoverage": 36.7,
+    "criticalPassing": 60,
+    "a11ySerious": 1,
+    "failingJourneys": [
+      "auth.register",
+      "auth.logout"
+    ]
+  },
+  {
+    "runNumber": "23",
+    "commit": "a71d08a273ab65845aee922c4e231ed510c9e058",
+    "env": "public",
+    "date": "2026-11-24T12:30:50.349Z",
+    "durationMs": 89822,
+    "total": 46,
+    "counts": {
+      "passed": 30,
+      "failed": 0,
+      "broken": 0,
+      "flaky": 0,
+      "skipped": 16
+    },
+    "passRate": 100,
+    "flakyRate": 0,
+    "journeyCoverage": 42.9,
+    "pageCoverage": 36.7,
+    "criticalPassing": 60,
+    "a11ySerious": 1,
+    "failingJourneys": []
+  },
+  {
+    "runNumber": "25",
+    "commit": "a71d08a273ab65845aee922c4e231ed510c9e058",
+    "env": "public",
+    "date": "2026-11-25T10:28:23.320Z",
+    "durationMs": 112545,
+    "total": 46,
+    "counts": {
+      "passed": 29,
+      "failed": 0,
+      "broken": 0,
+      "flaky": 1,
+      "skipped": 16
+    },
+    "passRate": 100,
+    "flakyRate": 3.3,
+    "journeyCoverage": 42.9,
+    "pageCoverage": 36.7,
+    "criticalPassing": 60,
+    "a11ySerious": 1,
+    "failingJourneys": []
+  },
+  {
+    "runNumber": "27",
+    "commit": "a71d08a273ab65845aee922c4e231ed510c9e058",
+    "env": "public",
+    "date": "2026-11-26T10:02:47.882Z",
+    "durationMs": 102463,
+    "total": 46,
+    "counts": {
+      "passed": 0,
+      "failed": 0,
+      "broken": 0,
+      "flaky": 0,
+      "skipped": 46
+    },
+    "passRate": 0,
+    "flakyRate": 0,
+    "journeyCoverage": 42.9,
+    "pageCoverage": 36.7,
+    "criticalPassing": 0,
+    "a11ySerious": 0,
+    "failingJourneys": []
+  },
+  {
+    "runNumber": "28",
+    "commit": "a71d08a273ab65845aee922c4e231ed510c9e058",
+    "env": "public",
+    "date": "2026-11-27T10:07:35.393Z",
+    "durationMs": 164896,
+    "total": 46,
+    "counts": {
+      "passed": 21,
+      "failed": 0,
+      "broken": 9,
+      "flaky": 0,
+      "skipped": 16
+    },
+    "passRate": 70,
+    "flakyRate": 0,
+    "journeyCoverage": 42.9,
+    "pageCoverage": 36.7,
+    "criticalPassing": 20,
+    "a11ySerious": 1,
+    "failingJourneys": [
+      "catalog.sort",
+      "cart.update",
+      "checkout.card",
+      "checkout.guest"
+    ]
+  },
+  {
+    "runNumber": "29",
+    "commit": "a71d08a273ab65845aee922c4e231ed510c9e058",
+    "env": "public",
+    "date": "2026-11-28T09:26:13.789Z",
+    "durationMs": 66276,
+    "total": 46,
+    "counts": {
+      "passed": 30,
+      "failed": 0,
+      "broken": 0,
+      "flaky": 0,
+      "skipped": 16
+    },
+    "passRate": 100,
+    "flakyRate": 0,
+    "journeyCoverage": 42.9,
+    "pageCoverage": 36.7,
+    "criticalPassing": 60,
+    "a11ySerious": 1,
+    "failingJourneys": []
+  }
+]

@@ -1,0 +1,5378 @@
+{
+  "runs": [],
+  "tests": {
+    "[setup] tests/setup/environment.setup.ts::record which Toolshop build is under test": [
+      {
+        "passed": true,
+        "duration": 334,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Read the API status and version": 321
+        },
+        "retryWaste": 1415
+      },
+      {
+        "passed": true,
+        "duration": 458,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Read the API status and version": 449
+        },
+        "retryWaste": 1770
+      },
+      {
+        "passed": true,
+        "duration": 500,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Read the API status and version": 487
+        },
+        "retryWaste": 1405
+      },
+      {
+        "passed": true,
+        "duration": 513,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Read the API status and version": 502
+        },
+        "retryWaste": 1398
+      },
+      {
+        "passed": true,
+        "duration": 371,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Read the API status and version": 362
+        },
+        "retryWaste": 1298
+      },
+      {
+        "passed": true,
+        "duration": 363,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Read the API status and version": 354
+        },
+        "retryWaste": 1372
+      },
+      {
+        "passed": true,
+        "duration": 361,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Read the API status and version": 352
+        },
+        "retryWaste": 1211
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "9d7e963108c979d8"
+      },
+      {
+        "passed": true,
+        "duration": 578,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Read the API status and version": 565
+        },
+        "retryWaste": 1322
+      },
+      {
+        "passed": true,
+        "duration": 505,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Read the API status and version": 491
+        },
+        "retryWaste": 1274
+      }
+    ],
+    "[chromium] tests/auth/login.spec.ts::auth.login: A customer signs in with the login form › a wrong password is refused without a session, then the right one opens the account": [
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[chromium] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": [
+      {
+        "passed": true,
+        "duration": 7987,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1211,
+          "They search for the product by a word in its name": 622,
+          "They open the product from the results": 520,
+          "The product page shows the right name, price and brand": 75,
+          "The product page has no serious accessibility problems": 1859
+        }
+      },
+      {
+        "passed": true,
+        "duration": 6112,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1229,
+          "They search for the product by a word in its name": 469,
+          "They open the product from the results": 394,
+          "The product page shows the right name, price and brand": 21,
+          "The product page has no serious accessibility problems": 1071
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8798,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1816,
+          "They search for the product by a word in its name": 556,
+          "They open the product from the results": 436,
+          "The product page shows the right name, price and brand": 64,
+          "The product page has no serious accessibility problems": 1592
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9006,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1944,
+          "They search for the product by a word in its name": 456,
+          "They open the product from the results": 574,
+          "The product page shows the right name, price and brand": 75,
+          "The product page has no serious accessibility problems": 1117
+        }
+      },
+      {
+        "passed": true,
+        "duration": 6837,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1386,
+          "They search for the product by a word in its name": 886,
+          "They open the product from the results": 357,
+          "The product page shows the right name, price and brand": 33,
+          "The product page has no serious accessibility problems": 697
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10759,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1941,
+          "They search for the product by a word in its name": 980,
+          "They open the product from the results": 1484,
+          "The product page shows the right name, price and brand": 27,
+          "The product page has no serious accessibility problems": 1051
+        }
+      },
+      {
+        "passed": true,
+        "duration": 5917,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 854,
+          "They search for the product by a word in its name": 407,
+          "They open the product from the results": 383,
+          "The product page shows the right name, price and brand": 29,
+          "The product page has no serious accessibility problems": 1159
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 14029,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1287,
+          "They search for the product by a word in its name": 1063,
+          "They open the product from the results": 592,
+          "The product page shows the right name, price and brand": 30,
+          "The product page has no serious accessibility problems": 1412
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9464,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1791,
+          "They search for the product by a word in its name": 684,
+          "They open the product from the results": 468,
+          "The product page shows the right name, price and brand": 75,
+          "The product page has no serious accessibility problems": 1688
+        }
+      }
+    ],
+    "[chromium] tests/cart/cart.spec.ts::cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity": [
+      {
+        "passed": true,
+        "duration": 9202,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2454,
+          "They open the cart and see one item at the unit price": 1248,
+          "They change the quantity to 3": 159,
+          "The line total, the cart total and the badge all show 3 items": 874
+        }
+      },
+      {
+        "passed": true,
+        "duration": 7772,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2409,
+          "They open the cart and see one item at the unit price": 592,
+          "They change the quantity to 3": 81,
+          "The line total, the cart total and the badge all show 3 items": 835
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10648,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2708,
+          "They open the cart and see one item at the unit price": 1632,
+          "They change the quantity to 3": 83,
+          "The line total, the cart total and the badge all show 3 items": 858
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9474,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2242,
+          "They open the cart and see one item at the unit price": 994,
+          "They change the quantity to 3": 87,
+          "The line total, the cart total and the badge all show 3 items": 871
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8822,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2261,
+          "They open the cart and see one item at the unit price": 601,
+          "They change the quantity to 3": 150,
+          "The line total, the cart total and the badge all show 3 items": 891
+        }
+      },
+      {
+        "passed": true,
+        "duration": 15085,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 4366,
+          "They open the cart and see one item at the unit price": 1518,
+          "They change the quantity to 3": 42,
+          "The line total, the cart total and the badge all show 3 items": 2329
+        }
+      },
+      {
+        "passed": true,
+        "duration": 7620,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2256,
+          "They open the cart and see one item at the unit price": 584,
+          "They change the quantity to 3": 90,
+          "The line total, the cart total and the badge all show 3 items": 867
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "1bbe80193218d974",
+        "retryWaste": 78176
+      },
+      {
+        "passed": true,
+        "duration": 10373,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2525,
+          "They open the cart and see one item at the unit price": 676,
+          "They change the quantity to 3": 167,
+          "The line total, the cart total and the badge all show 3 items": 885
+        }
+      }
+    ],
+    "[chromium] tests/catalog/sort.spec.ts::catalog.sort: A shopper orders the catalogue by price › a shopper sorts the results by price, low to high and then high to low": [
+      {
+        "passed": true,
+        "duration": 7080,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 1984,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 320,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 358
+        }
+      },
+      {
+        "passed": true,
+        "duration": 6997,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 1790,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 301,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 301
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9285,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2237,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 375,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 379
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9696,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2649,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 441,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 388
+        }
+      },
+      {
+        "passed": true,
+        "duration": 7412,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 1798,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 332,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 300
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10748,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2312,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 475,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 402
+        }
+      },
+      {
+        "passed": true,
+        "duration": 6692,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 1833,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 307,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 248
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "1bbe80193218d974",
+        "retryWaste": 25214
+      },
+      {
+        "passed": true,
+        "duration": 9094,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2068,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 429,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 386
+        }
+      }
+    ],
+    "[chromium] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": [
+      {
+        "passed": true,
+        "duration": 9759,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 2466,
+          "They confirm the cart and continue as the signed-in customer": 176,
+          "Their saved billing address is filled in for them": 169,
+          "They pay by card and see the order confirmation": 2437,
+          "The order is recorded for the customer with the right product and total": 373
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10388,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3072,
+          "They confirm the cart and continue as the signed-in customer": 123,
+          "Their saved billing address is filled in for them": 86,
+          "They pay by card and see the order confirmation": 2589,
+          "The order is recorded for the customer with the right product and total": 401
+        },
+        "retryWaste": 18386
+      },
+      {
+        "passed": true,
+        "duration": 12510,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3474,
+          "They confirm the cart and continue as the signed-in customer": 160,
+          "Their saved billing address is filled in for them": 110,
+          "They pay by card and see the order confirmation": 2427,
+          "The order is recorded for the customer with the right product and total": 534
+        }
+      },
+      {
+        "passed": true,
+        "duration": 16385,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 5358,
+          "They confirm the cart and continue as the signed-in customer": 351,
+          "Their saved billing address is filled in for them": 259,
+          "They pay by card and see the order confirmation": 3454,
+          "The order is recorded for the customer with the right product and total": 528
+        },
+        "retryWaste": 57234
+      },
+      {
+        "passed": true,
+        "duration": 12350,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3785,
+          "They confirm the cart and continue as the signed-in customer": 168,
+          "Their saved billing address is filled in for them": 139,
+          "They pay by card and see the order confirmation": 2691,
+          "The order is recorded for the customer with the right product and total": 366
+        }
+      },
+      {
+        "passed": true,
+        "duration": 14919,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3257,
+          "They confirm the cart and continue as the signed-in customer": 134,
+          "Their saved billing address is filled in for them": 118,
+          "They pay by card and see the order confirmation": 3141,
+          "The order is recorded for the customer with the right product and total": 949
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10069,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3095,
+          "They confirm the cart and continue as the signed-in customer": 134,
+          "Their saved billing address is filled in for them": 80,
+          "They pay by card and see the order confirmation": 2136,
+          "The order is recorded for the customer with the right product and total": 382
+        },
+        "retryWaste": 18432
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 978,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "1747c14932dd0dd3"
+      },
+      {
+        "passed": true,
+        "duration": 12626,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3144,
+          "They confirm the cart and continue as the signed-in customer": 148,
+          "Their saved billing address is filled in for them": 100,
+          "They pay by card and see the order confirmation": 2838,
+          "The order is recorded for the customer with the right product and total": 511
+        }
+      }
+    ],
+    "[teardown] tests/setup/sweep-test-data.teardown.ts::remove test data left behind by this run": [
+      {
+        "passed": true,
+        "duration": 3110,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Find categories tagged with this run id": 320,
+          "Delete products left in those categories": 649,
+          "Delete categories and brands tagged with this run id": 995,
+          "Delete test customers registered by this run": 705
+        },
+        "retryWaste": 11351
+      },
+      {
+        "passed": true,
+        "duration": 3052,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Find categories tagged with this run id": 342,
+          "Delete products left in those categories": 655,
+          "Delete categories and brands tagged with this run id": 1027,
+          "Delete test customers registered by this run": 638
+        },
+        "retryWaste": 11006
+      },
+      {
+        "passed": true,
+        "duration": 4737,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Find categories tagged with this run id": 521,
+          "Delete products left in those categories": 1065,
+          "Delete categories and brands tagged with this run id": 1574,
+          "Delete test customers registered by this run": 980
+        },
+        "retryWaste": 12750
+      },
+      {
+        "passed": true,
+        "duration": 7916,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Find categories tagged with this run id": 541,
+          "Delete products left in those categories": 1926,
+          "Delete categories and brands tagged with this run id": 2426,
+          "Delete test customers registered by this run": 2439
+        },
+        "retryWaste": 22694
+      },
+      {
+        "passed": true,
+        "duration": 5677,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Find categories tagged with this run id": 331,
+          "Delete products left in those categories": 1381,
+          "Delete categories and brands tagged with this run id": 1648,
+          "Delete test customers registered by this run": 1875
+        },
+        "retryWaste": 20430
+      },
+      {
+        "passed": true,
+        "duration": 4916,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Find categories tagged with this run id": 474,
+          "Delete products left in those categories": 1509,
+          "Delete categories and brands tagged with this run id": 1799,
+          "Delete test customers registered by this run": 671
+        },
+        "retryWaste": 19230
+      },
+      {
+        "passed": true,
+        "duration": 4395,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Find categories tagged with this run id": 361,
+          "Delete products left in those categories": 1301,
+          "Delete categories and brands tagged with this run id": 1656,
+          "Delete test customers registered by this run": 658
+        },
+        "retryWaste": 15674
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "9d7e963108c979d8"
+      },
+      {
+        "passed": false,
+        "duration": 345,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "1747c14932dd0dd3",
+        "retryWaste": 37993
+      },
+      {
+        "passed": true,
+        "duration": 6324,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "Find categories tagged with this run id": 533,
+          "Delete products left in those categories": 1937,
+          "Delete categories and brands tagged with this run id": 2359,
+          "Delete test customers registered by this run": 946
+        },
+        "retryWaste": 16146
+      }
+    ],
+    "[firefox] tests/auth/login.spec.ts::auth.login: A customer signs in with the login form › a wrong password is refused without a session, then the right one opens the account": [
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[firefox] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": [
+      {
+        "passed": true,
+        "duration": 8322,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1347,
+          "They search for the product by a word in its name": 548,
+          "They open the product from the results": 469,
+          "The product page shows the right name, price and brand": 27,
+          "The product page has no serious accessibility problems": 737
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8471,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1691,
+          "They search for the product by a word in its name": 728,
+          "They open the product from the results": 501,
+          "The product page shows the right name, price and brand": 47,
+          "The product page has no serious accessibility problems": 1192
+        }
+      },
+      {
+        "passed": true,
+        "duration": 6906,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1554,
+          "They search for the product by a word in its name": 566,
+          "They open the product from the results": 439,
+          "The product page shows the right name, price and brand": 40,
+          "The product page has no serious accessibility problems": 728
+        }
+      },
+      {
+        "passed": true,
+        "duration": 7208,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1368,
+          "They search for the product by a word in its name": 610,
+          "They open the product from the results": 581,
+          "The product page shows the right name, price and brand": 77,
+          "The product page has no serious accessibility problems": 862
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9184,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1949,
+          "They search for the product by a word in its name": 964,
+          "They open the product from the results": 1034,
+          "The product page shows the right name, price and brand": 45,
+          "The product page has no serious accessibility problems": 855
+        }
+      },
+      {
+        "passed": true,
+        "duration": 14411,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 2700,
+          "They search for the product by a word in its name": 1550,
+          "They open the product from the results": 1665,
+          "The product page shows the right name, price and brand": 46,
+          "The product page has no serious accessibility problems": 1244
+        }
+      },
+      {
+        "passed": true,
+        "duration": 6845,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1285,
+          "They search for the product by a word in its name": 705,
+          "They open the product from the results": 416,
+          "The product page shows the right name, price and brand": 85,
+          "The product page has no serious accessibility problems": 1337
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 7355,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1223,
+          "They search for the product by a word in its name": 1088,
+          "They open the product from the results": 508,
+          "The product page shows the right name, price and brand": 36,
+          "The product page has no serious accessibility problems": 1008
+        }
+      },
+      {
+        "passed": true,
+        "duration": 6970,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1261,
+          "They search for the product by a word in its name": 502,
+          "They open the product from the results": 936,
+          "The product page shows the right name, price and brand": 35,
+          "The product page has no serious accessibility problems": 693
+        }
+      }
+    ],
+    "[firefox] tests/cart/cart.spec.ts::cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity": [
+      {
+        "passed": true,
+        "duration": 9786,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2317,
+          "They open the cart and see one item at the unit price": 547,
+          "They change the quantity to 3": 54,
+          "The line total, the cart total and the badge all show 3 items": 850
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9902,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2522,
+          "They open the cart and see one item at the unit price": 1206,
+          "They change the quantity to 3": 91,
+          "The line total, the cart total and the badge all show 3 items": 866
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8939,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2541,
+          "They open the cart and see one item at the unit price": 1056,
+          "They change the quantity to 3": 32,
+          "The line total, the cart total and the badge all show 3 items": 814
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9869,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2198,
+          "They open the cart and see one item at the unit price": 1009,
+          "They change the quantity to 3": 55,
+          "The line total, the cart total and the badge all show 3 items": 844
+        }
+      },
+      {
+        "passed": true,
+        "duration": 12441,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 3355,
+          "They open the cart and see one item at the unit price": 1474,
+          "They change the quantity to 3": 38,
+          "The line total, the cart total and the badge all show 3 items": 821
+        }
+      },
+      {
+        "passed": true,
+        "duration": 18733,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 5397,
+          "They open the cart and see one item at the unit price": 1788,
+          "They change the quantity to 3": 57,
+          "The line total, the cart total and the badge all show 3 items": 2373
+        }
+      },
+      {
+        "passed": true,
+        "duration": 7539,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2142,
+          "They open the cart and see one item at the unit price": 729,
+          "They change the quantity to 3": 115,
+          "The line total, the cart total and the badge all show 3 items": 876
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 8830,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2834,
+          "They open the cart and see one item at the unit price": 649,
+          "They change the quantity to 3": 90,
+          "The line total, the cart total and the badge all show 3 items": 849
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8199,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2088,
+          "They open the cart and see one item at the unit price": 976,
+          "They change the quantity to 3": 57,
+          "The line total, the cart total and the badge all show 3 items": 826
+        }
+      }
+    ],
+    "[firefox] tests/catalog/sort.spec.ts::catalog.sort: A shopper orders the catalogue by price › a shopper sorts the results by price, low to high and then high to low": [
+      {
+        "passed": true,
+        "duration": 8141,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2373,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 68,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 328
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10449,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 3033,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 884,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 848
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8206,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2100,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 485,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 342
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8079,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2132,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 332,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 338
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10463,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2835,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 394,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 367
+        }
+      },
+      {
+        "passed": true,
+        "duration": 13909,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 3135,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 686,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 508
+        }
+      },
+      {
+        "passed": true,
+        "duration": 6301,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 1451,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 311,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 314
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 7010,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 1644,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 313,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 297
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8530,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2565,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 408,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 532
+        }
+      }
+    ],
+    "[firefox] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": [
+      {
+        "passed": true,
+        "duration": 10844,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3016,
+          "They confirm the cart and continue as the signed-in customer": 138,
+          "Their saved billing address is filled in for them": 125,
+          "They pay by card and see the order confirmation": 1616,
+          "The order is recorded for the customer with the right product and total": 466
+        }
+      },
+      {
+        "passed": true,
+        "duration": 12841,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3476,
+          "They confirm the cart and continue as the signed-in customer": 161,
+          "Their saved billing address is filled in for them": 138,
+          "They pay by card and see the order confirmation": 2622,
+          "The order is recorded for the customer with the right product and total": 627
+        }
+      },
+      {
+        "passed": true,
+        "duration": 11334,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3471,
+          "They confirm the cart and continue as the signed-in customer": 135,
+          "Their saved billing address is filled in for them": 100,
+          "They pay by card and see the order confirmation": 1605,
+          "The order is recorded for the customer with the right product and total": 466
+        }
+      },
+      {
+        "passed": true,
+        "duration": 11912,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3434,
+          "They confirm the cart and continue as the signed-in customer": 239,
+          "Their saved billing address is filled in for them": 159,
+          "They pay by card and see the order confirmation": 2125,
+          "The order is recorded for the customer with the right product and total": 512
+        }
+      },
+      {
+        "passed": true,
+        "duration": 15058,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3767,
+          "They confirm the cart and continue as the signed-in customer": 191,
+          "Their saved billing address is filled in for them": 110,
+          "They pay by card and see the order confirmation": 3479,
+          "The order is recorded for the customer with the right product and total": 851
+        }
+      },
+      {
+        "passed": true,
+        "duration": 18214,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 4598,
+          "They confirm the cart and continue as the signed-in customer": 213,
+          "Their saved billing address is filled in for them": 125,
+          "They pay by card and see the order confirmation": 4347,
+          "The order is recorded for the customer with the right product and total": 603
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10520,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 2872,
+          "They confirm the cart and continue as the signed-in customer": 224,
+          "Their saved billing address is filled in for them": 130,
+          "They pay by card and see the order confirmation": 2579,
+          "The order is recorded for the customer with the right product and total": 432
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 20080,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3142,
+          "They confirm the cart and continue as the signed-in customer": 162,
+          "Their saved billing address is filled in for them": 159,
+          "They pay by card and see the order confirmation": 3100,
+          "The order is recorded for the customer with the right product and total": 650
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10620,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 2929,
+          "They confirm the cart and continue as the signed-in customer": 150,
+          "Their saved billing address is filled in for them": 109,
+          "They pay by card and see the order confirmation": 1656,
+          "The order is recorded for the customer with the right product and total": 436
+        }
+      }
+    ],
+    "[mobile-chrome] tests/auth/login.spec.ts::auth.login: A customer signs in with the login form › a wrong password is refused without a session, then the right one opens the account": [
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[mobile-chrome] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": [
+      {
+        "passed": true,
+        "duration": 10085,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1565,
+          "They search for the product by a word in its name": 1073,
+          "They open the product from the results": 539,
+          "The product page shows the right name, price and brand": 38,
+          "The product page has no serious accessibility problems": 1258
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8951,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1618,
+          "They search for the product by a word in its name": 570,
+          "They open the product from the results": 518,
+          "The product page shows the right name, price and brand": 91,
+          "The product page has no serious accessibility problems": 1360
+        }
+      },
+      {
+        "passed": true,
+        "duration": 7967,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1337,
+          "They search for the product by a word in its name": 618,
+          "They open the product from the results": 414,
+          "The product page shows the right name, price and brand": 43,
+          "The product page has no serious accessibility problems": 911
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10087,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1852,
+          "They search for the product by a word in its name": 794,
+          "They open the product from the results": 577,
+          "The product page shows the right name, price and brand": 49,
+          "The product page has no serious accessibility problems": 1336
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8644,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1421,
+          "They search for the product by a word in its name": 666,
+          "They open the product from the results": 564,
+          "The product page shows the right name, price and brand": 64,
+          "The product page has no serious accessibility problems": 1566
+        }
+      },
+      {
+        "passed": true,
+        "duration": 13562,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 2083,
+          "They search for the product by a word in its name": 1027,
+          "They open the product from the results": 987,
+          "The product page shows the right name, price and brand": 81,
+          "The product page has no serious accessibility problems": 1345
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9469,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1978,
+          "They search for the product by a word in its name": 1019,
+          "They open the product from the results": 430,
+          "The product page shows the right name, price and brand": 29,
+          "The product page has no serious accessibility problems": 931
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 10161,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 3208,
+          "They search for the product by a word in its name": 1102,
+          "They open the product from the results": 494,
+          "The product page shows the right name, price and brand": 31,
+          "The product page has no serious accessibility problems": 1299
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8107,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1271,
+          "They search for the product by a word in its name": 525,
+          "They open the product from the results": 535,
+          "The product page shows the right name, price and brand": 68,
+          "The product page has no serious accessibility problems": 1383
+        }
+      }
+    ],
+    "[mobile-chrome] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": [
+      {
+        "passed": true,
+        "duration": 15019,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 4078,
+          "They confirm the cart and continue as the signed-in customer": 144,
+          "Their saved billing address is filled in for them": 100,
+          "They pay by card and see the order confirmation": 2706,
+          "The order is recorded for the customer with the right product and total": 523
+        }
+      },
+      {
+        "passed": true,
+        "duration": 13961,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 4094,
+          "They confirm the cart and continue as the signed-in customer": 140,
+          "Their saved billing address is filled in for them": 110,
+          "They pay by card and see the order confirmation": 2789,
+          "The order is recorded for the customer with the right product and total": 469
+        }
+      },
+      {
+        "passed": true,
+        "duration": 14306,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 4438,
+          "They confirm the cart and continue as the signed-in customer": 137,
+          "Their saved billing address is filled in for them": 111,
+          "They pay by card and see the order confirmation": 2651,
+          "The order is recorded for the customer with the right product and total": 553
+        }
+      },
+      {
+        "passed": true,
+        "duration": 15884,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 5326,
+          "They confirm the cart and continue as the signed-in customer": 202,
+          "Their saved billing address is filled in for them": 179,
+          "They pay by card and see the order confirmation": 3445,
+          "The order is recorded for the customer with the right product and total": 548
+        }
+      },
+      {
+        "passed": true,
+        "duration": 11985,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3082,
+          "They confirm the cart and continue as the signed-in customer": 196,
+          "Their saved billing address is filled in for them": 182,
+          "They pay by card and see the order confirmation": 2646,
+          "The order is recorded for the customer with the right product and total": 426
+        }
+      },
+      {
+        "passed": true,
+        "duration": 23774,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 5558,
+          "They confirm the cart and continue as the signed-in customer": 164,
+          "Their saved billing address is filled in for them": 1042,
+          "They pay by card and see the order confirmation": 4527,
+          "The order is recorded for the customer with the right product and total": 1063
+        }
+      },
+      {
+        "passed": true,
+        "duration": 14117,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3814,
+          "They confirm the cart and continue as the signed-in customer": 130,
+          "Their saved billing address is filled in for them": 82,
+          "They pay by card and see the order confirmation": 2530,
+          "The order is recorded for the customer with the right product and total": 592
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 13151,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 4089,
+          "They confirm the cart and continue as the signed-in customer": 309,
+          "Their saved billing address is filled in for them": 250,
+          "They pay by card and see the order confirmation": 2334,
+          "The order is recorded for the customer with the right product and total": 432
+        }
+      },
+      {
+        "passed": true,
+        "duration": 11796,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 2908,
+          "They confirm the cart and continue as the signed-in customer": 137,
+          "Their saved billing address is filled in for them": 95,
+          "They pay by card and see the order confirmation": 2355,
+          "The order is recorded for the customer with the right product and total": 403
+        }
+      }
+    ],
+    "[webkit] tests/auth/login.spec.ts::auth.login: A customer signs in with the login form › a wrong password is refused without a session, then the right one opens the account": [
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[webkit] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": [
+      {
+        "passed": true,
+        "duration": 10800,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1290,
+          "They search for the product by a word in its name": 2272,
+          "They open the product from the results": 431,
+          "The product page shows the right name, price and brand": 83,
+          "The product page has no serious accessibility problems": 1710
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9796,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1504,
+          "They search for the product by a word in its name": 1939,
+          "They open the product from the results": 602,
+          "The product page shows the right name, price and brand": 78,
+          "The product page has no serious accessibility problems": 2280
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8461,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1806,
+          "They search for the product by a word in its name": 1539,
+          "They open the product from the results": 391,
+          "The product page shows the right name, price and brand": 97,
+          "The product page has no serious accessibility problems": 1068
+        },
+        "retryWaste": 38790
+      },
+      {
+        "passed": true,
+        "duration": 13218,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 4630,
+          "They search for the product by a word in its name": 1661,
+          "They open the product from the results": 597,
+          "The product page shows the right name, price and brand": 185,
+          "The product page has no serious accessibility problems": 1669
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10713,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1747,
+          "They search for the product by a word in its name": 1403,
+          "They open the product from the results": 725,
+          "The product page shows the right name, price and brand": 55,
+          "The product page has no serious accessibility problems": 2212
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9734,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1338,
+          "They search for the product by a word in its name": 1847,
+          "They open the product from the results": 633,
+          "The product page shows the right name, price and brand": 55,
+          "The product page has no serious accessibility problems": 2239
+        }
+      },
+      {
+        "passed": true,
+        "duration": 13322,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 2445,
+          "They search for the product by a word in its name": 2507,
+          "They open the product from the results": 709,
+          "The product page shows the right name, price and brand": 242,
+          "The product page has no serious accessibility problems": 2446
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 49358,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1526,
+          "They search for the product by a word in its name": 1687,
+          "They open the product from the results": 1183,
+          "The product page shows the right name, price and brand": 203,
+          "The product page has no serious accessibility problems": 1750
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9440,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the Toolshop": 1777,
+          "They search for the product by a word in its name": 1477,
+          "They open the product from the results": 553,
+          "The product page shows the right name, price and brand": 190,
+          "The product page has no serious accessibility problems": 1679
+        }
+      }
+    ],
+    "[webkit] tests/cart/cart.spec.ts::cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity": [
+      {
+        "passed": true,
+        "duration": 11394,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 3508,
+          "They open the cart and see one item at the unit price": 820,
+          "They change the quantity to 3": 263,
+          "The line total, the cart total and the badge all show 3 items": 986
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9429,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2885,
+          "They open the cart and see one item at the unit price": 1110,
+          "They change the quantity to 3": 74,
+          "The line total, the cart total and the badge all show 3 items": 962
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9612,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2782,
+          "They open the cart and see one item at the unit price": 1272,
+          "They change the quantity to 3": 141,
+          "The line total, the cart total and the badge all show 3 items": 1004
+        },
+        "retryWaste": 39011
+      },
+      {
+        "passed": true,
+        "duration": 14001,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 4119,
+          "They open the cart and see one item at the unit price": 1901,
+          "They change the quantity to 3": 233,
+          "The line total, the cart total and the badge all show 3 items": 1068
+        }
+      },
+      {
+        "passed": true,
+        "duration": 13524,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 3591,
+          "They open the cart and see one item at the unit price": 1818,
+          "They change the quantity to 3": 260,
+          "The line total, the cart total and the badge all show 3 items": 981
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9790,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 3010,
+          "They open the cart and see one item at the unit price": 952,
+          "They change the quantity to 3": 299,
+          "The line total, the cart total and the badge all show 3 items": 1128
+        }
+      },
+      {
+        "passed": true,
+        "duration": 13256,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 3973,
+          "They open the cart and see one item at the unit price": 1902,
+          "They change the quantity to 3": 425,
+          "The line total, the cart total and the badge all show 3 items": 978
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "1bbe80193218d974",
+        "retryWaste": 77496
+      },
+      {
+        "passed": true,
+        "duration": 9569,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer adds a product to the cart": 2911,
+          "They open the cart and see one item at the unit price": 905,
+          "They change the quantity to 3": 193,
+          "The line total, the cart total and the badge all show 3 items": 974
+        }
+      }
+    ],
+    "[webkit] tests/catalog/sort.spec.ts::catalog.sort: A shopper orders the catalogue by price › a shopper sorts the results by price, low to high and then high to low": [
+      {
+        "passed": true,
+        "duration": 10090,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2857,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 885,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 913
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8758,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2626,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 291,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 1080
+        }
+      },
+      {
+        "passed": true,
+        "duration": 32972,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 27192,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 600,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 519
+        }
+      },
+      {
+        "passed": true,
+        "duration": 12468,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 4309,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 817,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 703
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10912,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 3382,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 755,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 689
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9267,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2893,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 749,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 787
+        }
+      },
+      {
+        "passed": true,
+        "duration": 11971,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 3639,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 848,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 827
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "1bbe80193218d974",
+        "retryWaste": 15015
+      },
+      {
+        "passed": true,
+        "duration": 9552,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper searches for a range of three products": 2654,
+          "They sort by \"Price (Low - High)\" and the prices are ascending": 622,
+          "They sort by \"Price (High - Low)\" and the prices are descending": 596
+        }
+      }
+    ],
+    "[webkit] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": [
+      {
+        "passed": true,
+        "duration": 12721,
+        "timestamp": "2026-11-23T11:26:59.976Z",
+        "runId": "run-45164573348",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3358,
+          "They confirm the cart and continue as the signed-in customer": 332,
+          "Their saved billing address is filled in for them": 432,
+          "They pay by card and see the order confirmation": 3023,
+          "The order is recorded for the customer with the right product and total": 470
+        }
+      },
+      {
+        "passed": true,
+        "duration": 12826,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3730,
+          "They confirm the cart and continue as the signed-in customer": 471,
+          "Their saved billing address is filled in for them": 340,
+          "They pay by card and see the order confirmation": 3550,
+          "The order is recorded for the customer with the right product and total": 397
+        }
+      },
+      {
+        "passed": true,
+        "duration": 13284,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 4471,
+          "They confirm the cart and continue as the signed-in customer": 398,
+          "Their saved billing address is filled in for them": 216,
+          "They pay by card and see the order confirmation": 3565,
+          "The order is recorded for the customer with the right product and total": 390
+        }
+      },
+      {
+        "passed": true,
+        "duration": 17326,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 5449,
+          "They confirm the cart and continue as the signed-in customer": 593,
+          "Their saved billing address is filled in for them": 259,
+          "They pay by card and see the order confirmation": 4305,
+          "The order is recorded for the customer with the right product and total": 575
+        }
+      },
+      {
+        "passed": true,
+        "duration": 17555,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 4094,
+          "They confirm the cart and continue as the signed-in customer": 727,
+          "Their saved billing address is filled in for them": 430,
+          "They pay by card and see the order confirmation": 5662,
+          "The order is recorded for the customer with the right product and total": 601
+        }
+      },
+      {
+        "passed": true,
+        "duration": 14927,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3923,
+          "They confirm the cart and continue as the signed-in customer": 788,
+          "Their saved billing address is filled in for them": 494,
+          "They pay by card and see the order confirmation": 4191,
+          "The order is recorded for the customer with the right product and total": 516
+        }
+      },
+      {
+        "passed": true,
+        "duration": 17003,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 4610,
+          "They confirm the cart and continue as the signed-in customer": 576,
+          "Their saved billing address is filled in for them": 342,
+          "They pay by card and see the order confirmation": 4165,
+          "The order is recorded for the customer with the right product and total": 609
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 439,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "1747c14932dd0dd3",
+        "retryWaste": 1839
+      },
+      {
+        "passed": true,
+        "duration": 13597,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A signed-in customer puts a product in the cart": 3794,
+          "They confirm the cart and continue as the signed-in customer": 372,
+          "Their saved billing address is filled in for them": 219,
+          "They pay by card and see the order confirmation": 3184,
+          "The order is recorded for the customer with the right product and total": 537
+        }
+      }
+    ],
+    "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the email is missing": [
+      {
+        "passed": true,
+        "duration": 2013,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 750,
+          "They try to sign in when the email is missing": 109,
+          "The form flags the email with \"Email is required\" and no session starts": 62
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3969,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2828,
+          "They try to sign in when the email is missing": 146,
+          "The form flags the email with \"Email is required\" and no session starts": 74
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3297,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2290,
+          "They try to sign in when the email is missing": 145,
+          "The form flags the email with \"Email is required\" and no session starts": 33
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2458,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1464,
+          "They try to sign in when the email is missing": 120,
+          "The form flags the email with \"Email is required\" and no session starts": 34
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2678,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1244,
+          "They try to sign in when the email is missing": 248,
+          "The form flags the email with \"Email is required\" and no session starts": 75
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2340,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1584,
+          "They try to sign in when the email is missing": 121,
+          "The form flags the email with \"Email is required\" and no session starts": 32
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 5870,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 4736,
+          "They try to sign in when the email is missing": 145,
+          "The form flags the email with \"Email is required\" and no session starts": 69
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2276,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 972,
+          "They try to sign in when the email is missing": 240,
+          "The form flags the email with \"Email is required\" and no session starts": 87
+        }
+      }
+    ],
+    "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the email is not an email address": [
+      {
+        "passed": true,
+        "duration": 2213,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 875,
+          "They try to sign in when the email is not an email address": 93,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 41
+        }
+      },
+      {
+        "passed": true,
+        "duration": 4097,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2914,
+          "They try to sign in when the email is not an email address": 193,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 71
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2929,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1870,
+          "They try to sign in when the email is not an email address": 156,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 48
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3049,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2069,
+          "They try to sign in when the email is not an email address": 117,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 35
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2601,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 983,
+          "They try to sign in when the email is not an email address": 201,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 72
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3011,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2187,
+          "They try to sign in when the email is not an email address": 135,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 33
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 5791,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 4578,
+          "They try to sign in when the email is not an email address": 203,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 76
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2412,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1173,
+          "They try to sign in when the email is not an email address": 192,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 63
+        }
+      }
+    ],
+    "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is missing": [
+      {
+        "passed": true,
+        "duration": 1174,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 841,
+          "They try to sign in when the password is missing": 146,
+          "The form flags the password with \"Password is required\" and no session starts": 28
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2213,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1918,
+          "They try to sign in when the password is missing": 81,
+          "The form flags the password with \"Password is required\" and no session starts": 28
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1877,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 826,
+          "They try to sign in when the password is missing": 156,
+          "The form flags the password with \"Password is required\" and no session starts": 31
+        },
+        "retryWaste": 30598
+      },
+      {
+        "passed": true,
+        "duration": 959,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 559,
+          "They try to sign in when the password is missing": 121,
+          "The form flags the password with \"Password is required\" and no session starts": 53
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1306,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 804,
+          "They try to sign in when the password is missing": 164,
+          "The form flags the password with \"Password is required\" and no session starts": 86
+        }
+      },
+      {
+        "passed": true,
+        "duration": 953,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 614,
+          "They try to sign in when the password is missing": 116,
+          "The form flags the password with \"Password is required\" and no session starts": 23
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1681,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1255,
+          "They try to sign in when the password is missing": 164,
+          "The form flags the password with \"Password is required\" and no session starts": 47
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1579,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1072,
+          "They try to sign in when the password is missing": 201,
+          "The form flags the password with \"Password is required\" and no session starts": 54
+        }
+      }
+    ],
+    "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is too short": [
+      {
+        "passed": true,
+        "duration": 1133,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 808,
+          "They try to sign in when the password is too short": 84,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 19
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1633,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1273,
+          "They try to sign in when the password is too short": 133,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 37
+        }
+      },
+      {
+        "passed": true,
+        "duration": 25722,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 24329,
+          "They try to sign in when the password is too short": 257,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 94
+        },
+        "retryWaste": 30710
+      },
+      {
+        "passed": true,
+        "duration": 945,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 659,
+          "They try to sign in when the password is too short": 81,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 28
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1377,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 896,
+          "They try to sign in when the password is too short": 203,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 65
+        }
+      },
+      {
+        "passed": true,
+        "duration": 936,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 620,
+          "They try to sign in when the password is too short": 79,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 25
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1327,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 928,
+          "They try to sign in when the password is too short": 127,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 41
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1174,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 618,
+          "They try to sign in when the password is too short": 172,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 46
+        }
+      }
+    ],
+    "[firefox] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the email is missing": [
+      {
+        "passed": true,
+        "duration": 4304,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2047,
+          "They try to sign in when the email is missing": 314,
+          "The form flags the email with \"Email is required\" and no session starts": 97
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3609,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1821,
+          "They try to sign in when the email is missing": 182,
+          "The form flags the email with \"Email is required\" and no session starts": 42
+        }
+      },
+      {
+        "passed": true,
+        "duration": 4469,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2737,
+          "They try to sign in when the email is missing": 167,
+          "The form flags the email with \"Email is required\" and no session starts": 83
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2348,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 632,
+          "They try to sign in when the email is missing": 121,
+          "The form flags the email with \"Email is required\" and no session starts": 81
+        }
+      },
+      {
+        "passed": true,
+        "duration": 5189,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2673,
+          "They try to sign in when the email is missing": 231,
+          "The form flags the email with \"Email is required\" and no session starts": 79
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3738,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1439,
+          "They try to sign in when the email is missing": 274,
+          "The form flags the email with \"Email is required\" and no session starts": 90
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 2895,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1071,
+          "They try to sign in when the email is missing": 261,
+          "The form flags the email with \"Email is required\" and no session starts": 87
+        }
+      },
+      {
+        "passed": true,
+        "duration": 4652,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 3019,
+          "They try to sign in when the email is missing": 135,
+          "The form flags the email with \"Email is required\" and no session starts": 70
+        }
+      }
+    ],
+    "[firefox] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the email is not an email address": [
+      {
+        "passed": true,
+        "duration": 3856,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1442,
+          "They try to sign in when the email is not an email address": 313,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 73
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3326,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1767,
+          "They try to sign in when the email is not an email address": 163,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 56
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2863,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1157,
+          "They try to sign in when the email is not an email address": 184,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 43
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2322,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 833,
+          "They try to sign in when the email is not an email address": 105,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 27
+        }
+      },
+      {
+        "passed": true,
+        "duration": 5986,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 3513,
+          "They try to sign in when the email is not an email address": 281,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 95
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3993,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1431,
+          "They try to sign in when the email is not an email address": 356,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 116
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 2995,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1024,
+          "They try to sign in when the email is not an email address": 307,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 56
+        }
+      },
+      {
+        "passed": true,
+        "duration": 4358,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2864,
+          "They try to sign in when the email is not an email address": 144,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 81
+        }
+      }
+    ],
+    "[firefox] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is missing": [
+      {
+        "passed": true,
+        "duration": 1825,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1008,
+          "They try to sign in when the password is missing": 234,
+          "The form flags the password with \"Password is required\" and no session starts": 94
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1918,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1463,
+          "They try to sign in when the password is missing": 101,
+          "The form flags the password with \"Password is required\" and no session starts": 31
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1415,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 851,
+          "They try to sign in when the password is missing": 146,
+          "The form flags the password with \"Password is required\" and no session starts": 49
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1638,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1039,
+          "They try to sign in when the password is missing": 167,
+          "The form flags the password with \"Password is required\" and no session starts": 115
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2415,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1503,
+          "They try to sign in when the password is missing": 326,
+          "The form flags the password with \"Password is required\" and no session starts": 70
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2042,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1090,
+          "They try to sign in when the password is missing": 388,
+          "The form flags the password with \"Password is required\" and no session starts": 65
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1690,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 951,
+          "They try to sign in when the password is missing": 222,
+          "The form flags the password with \"Password is required\" and no session starts": 84
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1519,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 851,
+          "They try to sign in when the password is missing": 260,
+          "The form flags the password with \"Password is required\" and no session starts": 75
+        }
+      }
+    ],
+    "[firefox] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is too short": [
+      {
+        "passed": true,
+        "duration": 2077,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1399,
+          "They try to sign in when the password is too short": 252,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 39
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2141,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1658,
+          "They try to sign in when the password is too short": 125,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 39
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1747,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1188,
+          "They try to sign in when the password is too short": 128,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 61
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1492,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 849,
+          "They try to sign in when the password is too short": 328,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 74
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2362,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1468,
+          "They try to sign in when the password is too short": 285,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 90
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1880,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1085,
+          "They try to sign in when the password is too short": 286,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 41
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1568,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1086,
+          "They try to sign in when the password is too short": 140,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 28
+        }
+      },
+      {
+        "passed": true,
+        "duration": 1566,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 897,
+          "They try to sign in when the password is too short": 281,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 51
+        }
+      }
+    ],
+    "[webkit] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the email is missing": [
+      {
+        "passed": true,
+        "duration": 8651,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1142,
+          "They try to sign in when the email is missing": 3586,
+          "The form flags the email with \"Email is required\" and no session starts": 45
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10681,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1990,
+          "They try to sign in when the email is missing": 2485,
+          "The form flags the email with \"Email is required\" and no session starts": 24
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9621,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2076,
+          "They try to sign in when the email is missing": 4194,
+          "The form flags the email with \"Email is required\" and no session starts": 65
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8972,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2139,
+          "They try to sign in when the email is missing": 3791,
+          "The form flags the email with \"Email is required\" and no session starts": 88
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9301,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1154,
+          "They try to sign in when the email is missing": 2147,
+          "The form flags the email with \"Email is required\" and no session starts": 39
+        }
+      },
+      {
+        "passed": true,
+        "duration": 15051,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 4914,
+          "They try to sign in when the email is missing": 2888,
+          "The form flags the email with \"Email is required\" and no session starts": 89
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 5177,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 3477,
+          "They try to sign in when the email is missing": 485,
+          "The form flags the email with \"Email is required\" and no session starts": 56
+        }
+      },
+      {
+        "passed": true,
+        "duration": 5643,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1273,
+          "They try to sign in when the email is missing": 1883,
+          "The form flags the email with \"Email is required\" and no session starts": 81
+        }
+      }
+    ],
+    "[webkit] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the email is not an email address": [
+      {
+        "passed": true,
+        "duration": 8741,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1190,
+          "They try to sign in when the email is not an email address": 3501,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 92
+        }
+      },
+      {
+        "passed": true,
+        "duration": 18670,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 12040,
+          "They try to sign in when the email is not an email address": 324,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 79
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10349,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1907,
+          "They try to sign in when the email is not an email address": 4317,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 107
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8879,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2440,
+          "They try to sign in when the email is not an email address": 3370,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 112
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9355,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1275,
+          "They try to sign in when the email is not an email address": 2135,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 62
+        }
+      },
+      {
+        "passed": true,
+        "duration": 14873,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 5327,
+          "They try to sign in when the email is not an email address": 2963,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 61
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 5537,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 3626,
+          "They try to sign in when the email is not an email address": 449,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 90
+        }
+      },
+      {
+        "passed": true,
+        "duration": 5543,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1247,
+          "They try to sign in when the email is not an email address": 1861,
+          "The form flags the email with \"Email format is invalid\" and no session starts": 44
+        }
+      }
+    ],
+    "[webkit] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is too short": [
+      {
+        "passed": true,
+        "duration": 2502,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1172,
+          "They try to sign in when the password is too short": 489,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 66
+        }
+      },
+      {
+        "passed": true,
+        "duration": 13875,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 13174,
+          "They try to sign in when the password is too short": 262,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 33
+        }
+      },
+      {
+        "passed": true,
+        "duration": 4578,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2586,
+          "They try to sign in when the password is too short": 1183,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 52
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3776,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1493,
+          "They try to sign in when the password is too short": 1487,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 90
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2080,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1211,
+          "They try to sign in when the password is too short": 290,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 28
+        }
+      },
+      {
+        "passed": true,
+        "duration": 4307,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1507,
+          "They try to sign in when the password is too short": 1994,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 111
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1908,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1123,
+          "They try to sign in when the password is too short": 314,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 37
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2128,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1237,
+          "They try to sign in when the password is too short": 378,
+          "The form flags the password with \"Password length is invalid\" and no session starts": 34
+        }
+      }
+    ],
+    "[webkit] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is missing": [
+      {
+        "passed": true,
+        "duration": 2669,
+        "timestamp": "2026-11-23T11:52:38.925Z",
+        "runId": "run-45168744540",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1362,
+          "They try to sign in when the password is missing": 491,
+          "The form flags the password with \"Password is required\" and no session starts": 53
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3724,
+        "timestamp": "2026-11-23T16:28:28.986Z",
+        "runId": "run-45215607879",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2539,
+          "They try to sign in when the password is missing": 753,
+          "The form flags the password with \"Password is required\" and no session starts": 26
+        }
+      },
+      {
+        "passed": true,
+        "duration": 5394,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 4170,
+          "They try to sign in when the password is missing": 443,
+          "The form flags the password with \"Password is required\" and no session starts": 57
+        }
+      },
+      {
+        "passed": true,
+        "duration": 3868,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1466,
+          "They try to sign in when the password is missing": 1541,
+          "The form flags the password with \"Password is required\" and no session starts": 50
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2179,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1053,
+          "They try to sign in when the password is missing": 603,
+          "The form flags the password with \"Password is required\" and no session starts": 33
+        }
+      },
+      {
+        "passed": true,
+        "duration": 4050,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 2105,
+          "They try to sign in when the password is missing": 1085,
+          "The form flags the password with \"Password is required\" and no session starts": 50
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1865,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1063,
+          "They try to sign in when the password is missing": 317,
+          "The form flags the password with \"Password is required\" and no session starts": 48
+        }
+      },
+      {
+        "passed": true,
+        "duration": 2437,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A shopper opens the sign-in page": 1504,
+          "They try to sign in when the password is missing": 516,
+          "The form flags the password with \"Password is required\" and no session starts": 26
+        }
+      }
+    ],
+    "[chromium] tests/auth/logout.spec.ts::auth.logout: A signed-in customer signs out › the session ends and stays ended when they come back to the shop": [
+      {
+        "passed": false,
+        "duration": 13967,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer sees their name in the account menu": 1708,
+          "They sign out from the account menu": 200,
+          "The menu offers to sign in again and no session is left": 10048
+        },
+        "clusterId": "a772a83346967e1b",
+        "retryWaste": 13169
+      },
+      {
+        "passed": false,
+        "duration": 13053,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer sees their name in the account menu": 1334,
+          "They sign out from the account menu": 245,
+          "The menu offers to sign in again and no session is left": 10040
+        },
+        "clusterId": "a772a83346967e1b",
+        "retryWaste": 12504
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[chromium] tests/auth/register.spec.ts::auth.register: A visitor registers a new account › the account is stored with their details and signs in with the password they chose": [
+      {
+        "passed": false,
+        "duration": 14246,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A visitor opens the registration form": 1453,
+          "They register with their details and land on the sign-in page": 11384
+        },
+        "clusterId": "a1b4c4990de4e7ca",
+        "retryWaste": 12857
+      },
+      {
+        "passed": false,
+        "duration": 12893,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A visitor opens the registration form": 790,
+          "They register with their details and land on the sign-in page": 11077
+        },
+        "clusterId": "a1b4c4990de4e7ca",
+        "retryWaste": 12367
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[chromium] tests/auth/register.spec.ts::auth.register: A visitor registers a new account › the house number they enter is stored with their address": [
+      {
+        "passed": true,
+        "duration": 15535,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A visitor registers with a house number in their address": 14708
+        }
+      },
+      {
+        "passed": true,
+        "duration": 12468,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A visitor registers with a house number in their address": 11643
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[chromium] tests/checkout/guest-checkout.spec.ts::checkout.guest: A guest places an order without an account › a guest checks out paying cash on delivery and the order is recorded": [
+      {
+        "passed": true,
+        "duration": 12369,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A guest puts a product in the cart": 3912,
+          "They continue as a guest with their name and email": 772,
+          "They enter their billing address": 692,
+          "They pay cash on delivery and see the order confirmation": 1503,
+          "The order is recorded as a guest order with the right product and total": 566
+        },
+        "retryWaste": 61528
+      },
+      {
+        "passed": true,
+        "duration": 8276,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 2875,
+          "They continue as a guest with their name and email": 450,
+          "They enter their billing address": 491,
+          "They pay cash on delivery and see the order confirmation": 922,
+          "The order is recorded as a guest order with the right product and total": 368
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10189,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 2904,
+          "They continue as a guest with their name and email": 475,
+          "They enter their billing address": 1147,
+          "They pay cash on delivery and see the order confirmation": 1737,
+          "The order is recorded as a guest order with the right product and total": 375
+        }
+      },
+      {
+        "passed": true,
+        "duration": 7812,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 2152,
+          "They continue as a guest with their name and email": 483,
+          "They enter their billing address": 481,
+          "They pay cash on delivery and see the order confirmation": 1258,
+          "The order is recorded as a guest order with the right product and total": 353
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 492,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "1747c14932dd0dd3",
+        "retryWaste": 1619
+      },
+      {
+        "passed": true,
+        "duration": 10752,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 3323,
+          "They continue as a guest with their name and email": 364,
+          "They enter their billing address": 517,
+          "They pay cash on delivery and see the order confirmation": 1738,
+          "The order is recorded as a guest order with the right product and total": 544
+        }
+      }
+    ],
+    "[firefox] tests/auth/logout.spec.ts::auth.logout: A signed-in customer signs out › the session ends and stays ended when they come back to the shop": [
+      {
+        "passed": false,
+        "duration": 14791,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer sees their name in the account menu": 2225,
+          "They sign out from the account menu": 429,
+          "The menu offers to sign in again and no session is left": 10041
+        },
+        "clusterId": "a772a83346967e1b",
+        "retryWaste": 12980
+      },
+      {
+        "passed": false,
+        "duration": 14912,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer sees their name in the account menu": 1997,
+          "They sign out from the account menu": 372,
+          "The menu offers to sign in again and no session is left": 10264
+        },
+        "clusterId": "a772a83346967e1b",
+        "retryWaste": 13210
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[firefox] tests/auth/register.spec.ts::auth.register: A visitor registers a new account › the account is stored with their details and signs in with the password they chose": [
+      {
+        "passed": false,
+        "duration": 14922,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A visitor opens the registration form": 2244,
+          "They register with their details and land on the sign-in page": 11049
+        },
+        "clusterId": "a1b4c4990de4e7ca",
+        "retryWaste": 13706
+      },
+      {
+        "passed": false,
+        "duration": 13545,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A visitor opens the registration form": 982,
+          "They register with their details and land on the sign-in page": 11055
+        },
+        "clusterId": "a1b4c4990de4e7ca",
+        "retryWaste": 12458
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[firefox] tests/auth/register.spec.ts::auth.register: A visitor registers a new account › the house number they enter is stored with their address": [
+      {
+        "passed": true,
+        "duration": 13345,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A visitor registers with a house number in their address": 12048
+        }
+      },
+      {
+        "passed": true,
+        "duration": 12774,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A visitor registers with a house number in their address": 11498
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[firefox] tests/checkout/guest-checkout.spec.ts::checkout.guest: A guest places an order without an account › a guest checks out paying cash on delivery and the order is recorded": [
+      {
+        "passed": true,
+        "duration": 9984,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 3765,
+          "They continue as a guest with their name and email": 524,
+          "They enter their billing address": 515,
+          "They pay cash on delivery and see the order confirmation": 947,
+          "The order is recorded as a guest order with the right product and total": 457
+        }
+      },
+      {
+        "passed": true,
+        "duration": 12480,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 3515,
+          "They continue as a guest with their name and email": 501,
+          "They enter their billing address": 1606,
+          "They pay cash on delivery and see the order confirmation": 1977,
+          "The order is recorded as a guest order with the right product and total": 714
+        }
+      },
+      {
+        "passed": true,
+        "duration": 12900,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 3900,
+          "They continue as a guest with their name and email": 479,
+          "They enter their billing address": 566,
+          "They pay cash on delivery and see the order confirmation": 2013,
+          "The order is recorded as a guest order with the right product and total": 593
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8063,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 2965,
+          "They continue as a guest with their name and email": 488,
+          "They enter their billing address": 450,
+          "They pay cash on delivery and see the order confirmation": 847,
+          "The order is recorded as a guest order with the right product and total": 359
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 15027,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "0cec169debb5f07d",
+        "retryWaste": 82069
+      },
+      {
+        "passed": true,
+        "duration": 8372,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 2938,
+          "They continue as a guest with their name and email": 352,
+          "They enter their billing address": 501,
+          "They pay cash on delivery and see the order confirmation": 884,
+          "The order is recorded as a guest order with the right product and total": 457
+        }
+      }
+    ],
+    "[mobile-chrome] tests/auth/register.spec.ts::auth.register: A visitor registers a new account › the account is stored with their details and signs in with the password they chose": [
+      {
+        "passed": false,
+        "duration": 15384,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A visitor opens the registration form": 3243,
+          "They register with their details and land on the sign-in page": 10894
+        },
+        "clusterId": "a1b4c4990de4e7ca",
+        "retryWaste": 13248
+      },
+      {
+        "passed": false,
+        "duration": 12915,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A visitor opens the registration form": 874,
+          "They register with their details and land on the sign-in page": 10990
+        },
+        "clusterId": "a1b4c4990de4e7ca",
+        "retryWaste": 13566
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[mobile-chrome] tests/auth/logout.spec.ts::auth.logout: A signed-in customer signs out › the session ends and stays ended when they come back to the shop": [
+      {
+        "passed": false,
+        "duration": 14125,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer sees their name in the account menu": 1894,
+          "They sign out from the account menu": 222,
+          "The menu offers to sign in again and no session is left": 10052
+        },
+        "clusterId": "a772a83346967e1b",
+        "retryWaste": 14798
+      },
+      {
+        "passed": false,
+        "duration": 13068,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer sees their name in the account menu": 1284,
+          "They sign out from the account menu": 216,
+          "The menu offers to sign in again and no session is left": 10044
+        },
+        "clusterId": "a772a83346967e1b",
+        "retryWaste": 13815
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[mobile-chrome] tests/auth/register.spec.ts::auth.register: A visitor registers a new account › the house number they enter is stored with their address": [
+      {
+        "passed": true,
+        "duration": 13720,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A visitor registers with a house number in their address": 12733
+        }
+      },
+      {
+        "passed": true,
+        "duration": 12610,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A visitor registers with a house number in their address": 11760
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[mobile-chrome] tests/checkout/guest-checkout.spec.ts::checkout.guest: A guest places an order without an account › a guest checks out paying cash on delivery and the order is recorded": [
+      {
+        "passed": true,
+        "duration": 12164,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 3905,
+          "They continue as a guest with their name and email": 690,
+          "They enter their billing address": 460,
+          "They pay cash on delivery and see the order confirmation": 1902,
+          "The order is recorded as a guest order with the right product and total": 626
+        }
+      },
+      {
+        "passed": true,
+        "duration": 9434,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 2794,
+          "They continue as a guest with their name and email": 595,
+          "They enter their billing address": 690,
+          "They pay cash on delivery and see the order confirmation": 1412,
+          "The order is recorded as a guest order with the right product and total": 415
+        }
+      },
+      {
+        "passed": true,
+        "duration": 17036,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 6174,
+          "They continue as a guest with their name and email": 395,
+          "They enter their billing address": 1094,
+          "They pay cash on delivery and see the order confirmation": 1804,
+          "The order is recorded as a guest order with the right product and total": 611
+        }
+      },
+      {
+        "passed": true,
+        "duration": 11597,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 4312,
+          "They continue as a guest with their name and email": 299,
+          "They enter their billing address": 481,
+          "They pay cash on delivery and see the order confirmation": 1730,
+          "The order is recorded as a guest order with the right product and total": 508
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 8509,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 2872,
+          "They continue as a guest with their name and email": 367,
+          "They enter their billing address": 369,
+          "They pay cash on delivery and see the order confirmation": 731,
+          "The order is recorded as a guest order with the right product and total": 620
+        }
+      },
+      {
+        "passed": true,
+        "duration": 8331,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 2819,
+          "They continue as a guest with their name and email": 331,
+          "They enter their billing address": 508,
+          "They pay cash on delivery and see the order confirmation": 729,
+          "The order is recorded as a guest order with the right product and total": 388
+        }
+      }
+    ],
+    "[webkit] tests/auth/logout.spec.ts::auth.logout: A signed-in customer signs out › the session ends and stays ended when they come back to the shop": [
+      {
+        "passed": false,
+        "duration": 17335,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer sees their name in the account menu": 2701,
+          "They sign out from the account menu": 919,
+          "The menu offers to sign in again and no session is left": 10152
+        },
+        "clusterId": "a772a83346967e1b",
+        "retryWaste": 20672
+      },
+      {
+        "passed": false,
+        "duration": 16534,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A signed-in customer sees their name in the account menu": 2102,
+          "They sign out from the account menu": 1065,
+          "The menu offers to sign in again and no session is left": 10346
+        },
+        "clusterId": "a772a83346967e1b",
+        "retryWaste": 16505
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[webkit] tests/auth/register.spec.ts::auth.register: A visitor registers a new account › the account is stored with their details and signs in with the password they chose": [
+      {
+        "passed": false,
+        "duration": 17773,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A visitor opens the registration form": 1913,
+          "They register with their details and land on the sign-in page": 12127
+        },
+        "clusterId": "a1b4c4990de4e7ca",
+        "retryWaste": 20749
+      },
+      {
+        "passed": false,
+        "duration": 18456,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A visitor opens the registration form": 1497,
+          "They register with their details and land on the sign-in page": 14383
+        },
+        "clusterId": "a1b4c4990de4e7ca",
+        "retryWaste": 16339
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[webkit] tests/auth/register.spec.ts::auth.register: A visitor registers a new account › the house number they enter is stored with their address": [
+      {
+        "passed": true,
+        "duration": 14803,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A visitor registers with a house number in their address": 13832
+        }
+      },
+      {
+        "passed": true,
+        "duration": 14558,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A visitor registers with a house number in their address": 13152
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": true,
+        "retry": 0
+      }
+    ],
+    "[webkit] tests/checkout/guest-checkout.spec.ts::checkout.guest: A guest places an order without an account › a guest checks out paying cash on delivery and the order is recorded": [
+      {
+        "passed": true,
+        "duration": 14657,
+        "timestamp": "2026-11-23T17:20:34.005Z",
+        "runId": "run-45225631553",
+        "skipped": false,
+        "retry": 1,
+        "stepDurations": {
+          "A guest puts a product in the cart": 4478,
+          "They continue as a guest with their name and email": 1150,
+          "They enter their billing address": 682,
+          "They pay cash on delivery and see the order confirmation": 2685,
+          "The order is recorded as a guest order with the right product and total": 580
+        },
+        "retryWaste": 14593
+      },
+      {
+        "passed": true,
+        "duration": 14751,
+        "timestamp": "2026-11-24T11:39:32.165Z",
+        "runId": "run-45385650389",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 4198,
+          "They continue as a guest with their name and email": 1967,
+          "They enter their billing address": 837,
+          "They pay cash on delivery and see the order confirmation": 2588,
+          "The order is recorded as a guest order with the right product and total": 697
+        }
+      },
+      {
+        "passed": true,
+        "duration": 10913,
+        "timestamp": "2026-11-24T12:32:47.103Z",
+        "runId": "run-45394070269",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 3635,
+          "They continue as a guest with their name and email": 1096,
+          "They enter their billing address": 726,
+          "They pay cash on delivery and see the order confirmation": 1740,
+          "The order is recorded as a guest order with the right product and total": 412
+        }
+      },
+      {
+        "passed": true,
+        "duration": 14223,
+        "timestamp": "2026-11-25T10:30:38.409Z",
+        "runId": "run-45595161786",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 4020,
+          "They continue as a guest with their name and email": 1073,
+          "They enter their billing address": 766,
+          "They pay cash on delivery and see the order confirmation": 3053,
+          "The order is recorded as a guest order with the right product and total": 673
+        }
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-11-26T10:04:51.338Z",
+        "runId": "run-45797469469",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 455,
+        "timestamp": "2026-11-27T10:11:15.163Z",
+        "runId": "run-45979322396",
+        "skipped": false,
+        "retry": 1,
+        "clusterId": "1747c14932dd0dd3",
+        "retryWaste": 1558
+      },
+      {
+        "passed": true,
+        "duration": 10758,
+        "timestamp": "2026-11-28T09:27:44.566Z",
+        "runId": "run-46130416420",
+        "skipped": false,
+        "retry": 0,
+        "stepDurations": {
+          "A guest puts a product in the cart": 3318,
+          "They continue as a guest with their name and email": 731,
+          "They enter their billing address": 554,
+          "They pay cash on delivery and see the order confirmation": 2052,
+          "The order is recorded as a guest order with the right product and total": 430
+        }
+      }
+    ]
+  },
+  "summaries": [
+    {
+      "runId": "run-45164573348",
+      "timestamp": "2026-11-23T11:23:29.334Z",
+      "total": 20,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 4,
+      "flaky": 0,
+      "slow": 0,
+      "duration": 210642,
+      "passRate": 100,
+      "ciInfo": {
+        "provider": "github",
+        "branch": "main",
+        "commit": "69f77e07",
+        "buildId": "45164573348",
+        "sha": "69f77e0758932ae011b4b526be9a0caf390a629a",
+        "repoUrl": "https://github.com/youvegotnigel/toolshop-ui-tests"
+      },
+      "stabilityGrade": "A"
+    },
+    {
+      "runId": "run-45168744540",
+      "timestamp": "2026-11-23T11:51:41.227Z",
+      "total": 32,
+      "passed": 28,
+      "failed": 0,
+      "skipped": 4,
+      "flaky": 1,
+      "slow": 0,
+      "duration": 57698,
+      "passRate": 100,
+      "ciInfo": {
+        "provider": "github",
+        "branch": "main",
+        "commit": "7573142d",
+        "buildId": "45168744540",
+        "sha": "7573142d2cf320907f97f9b29440942eefd4c548",
+        "repoUrl": "https://github.com/youvegotnigel/toolshop-ui-tests"
+      },
+      "stabilityGrade": "A"
+    },
+    {
+      "runId": "run-45215607879",
+      "timestamp": "2026-11-23T16:23:06.204Z",
+      "total": 32,
+      "passed": 28,
+      "failed": 0,
+      "skipped": 4,
+      "flaky": 2,
+      "slow": 0,
+      "duration": 322782,
+      "passRate": 100,
+      "ciInfo": {
+        "provider": "github",
+        "branch": "main",
+        "commit": "309a8243",
+        "buildId": "45215607879",
+        "sha": "309a824361e705c0d0e7621b09e5030fa6b9cd68",
+        "repoUrl": "https://github.com/youvegotnigel/toolshop-ui-tests"
+      },
+      "stabilityGrade": "A"
+    },
+    {
+      "runId": "run-45225631553",
+      "timestamp": "2026-11-23T17:16:53.641Z",
+      "total": 48,
+      "passed": 36,
+      "failed": 8,
+      "skipped": 4,
+      "flaky": 5,
+      "slow": 0,
+      "duration": 220364,
+      "passRate": 82,
+      "ciInfo": {
+        "provider": "github",
+        "branch": "main",
+        "commit": "0ccad71e",
+        "buildId": "45225631553",
+        "sha": "0ccad71e3f7268c82affd0bf030dcafe6866c418",
+        "repoUrl": "https://github.com/youvegotnigel/toolshop-ui-tests"
+      },
+      "stabilityGrade": "A"
+    },
+    {
+      "runId": "run-45385650389",
+      "timestamp": "2026-11-24T11:37:20.411Z",
+      "total": 48,
+      "passed": 36,
+      "failed": 8,
+      "skipped": 4,
+      "flaky": 0,
+      "slow": 6,
+      "duration": 131754,
+      "passRate": 82,
+      "ciInfo": {
+        "provider": "github",
+        "branch": "main",
+        "commit": "0ccad71e",
+        "buildId": "45385650389",
+        "sha": "0ccad71e3f7268c82affd0bf030dcafe6866c418",
+        "repoUrl": "https://github.com/youvegotnigel/toolshop-ui-tests"
+      },
+      "stabilityGrade": "B"
+    },
+    {
+      "runId": "run-45394070269",
+      "timestamp": "2026-11-24T12:31:17.259Z",
+      "total": 48,
+      "passed": 32,
+      "failed": 0,
+      "skipped": 16,
+      "flaky": 0,
+      "slow": 14,
+      "duration": 89844,
+      "passRate": 100,
+      "ciInfo": {
+        "provider": "github",
+        "branch": "main",
+        "commit": "a71d08a2",
+        "buildId": "45394070269",
+        "sha": "a71d08a273ab65845aee922c4e231ed510c9e058",
+        "repoUrl": "https://github.com/youvegotnigel/toolshop-ui-tests"
+      },
+      "stabilityGrade": "B"
+    },
+    {
+      "runId": "run-45595161786",
+      "timestamp": "2026-11-25T10:28:45.844Z",
+      "total": 48,
+      "passed": 32,
+      "failed": 0,
+      "skipped": 16,
+      "flaky": 1,
+      "slow": 6,
+      "duration": 112565,
+      "passRate": 100,
+      "ciInfo": {
+        "provider": "github",
+        "branch": "main",
+        "commit": "a71d08a2",
+        "buildId": "45595161786",
+        "sha": "a71d08a273ab65845aee922c4e231ed510c9e058",
+        "repoUrl": "https://github.com/youvegotnigel/toolshop-ui-tests"
+      },
+      "stabilityGrade": "A"
+    },
+    {
+      "runId": "run-45797469469",
+      "timestamp": "2026-11-26T10:03:08.863Z",
+      "total": 48,
+      "passed": 0,
+      "failed": 2,
+      "skipped": 46,
+      "flaky": 0,
+      "slow": 0,
+      "duration": 102475,
+      "passRate": 0,
+      "ciInfo": {
+        "provider": "github",
+        "branch": "main",
+        "commit": "a71d08a2",
+        "buildId": "45797469469",
+        "sha": "a71d08a273ab65845aee922c4e231ed510c9e058",
+        "repoUrl": "https://github.com/youvegotnigel/toolshop-ui-tests"
+      },
+      "stabilityGrade": "A"
+    },
+    {
+      "runId": "run-45979322396",
+      "timestamp": "2026-11-27T10:08:30.246Z",
+      "total": 48,
+      "passed": 22,
+      "failed": 10,
+      "skipped": 16,
+      "flaky": 0,
+      "slow": 6,
+      "duration": 164917,
+      "passRate": 69,
+      "ciInfo": {
+        "provider": "github",
+        "branch": "main",
+        "commit": "a71d08a2",
+        "buildId": "45979322396",
+        "sha": "a71d08a273ab65845aee922c4e231ed510c9e058",
+        "repoUrl": "https://github.com/youvegotnigel/toolshop-ui-tests"
+      },
+      "stabilityGrade": "B"
+    },
+    {
+      "runId": "run-46130416420",
+      "timestamp": "2026-11-28T09:26:38.258Z",
+      "total": 48,
+      "passed": 32,
+      "failed": 0,
+      "skipped": 16,
+      "flaky": 0,
+      "slow": 5,
+      "duration": 66308,
+      "passRate": 100,
+      "ciInfo": {
+        "provider": "github",
+        "branch": "main",
+        "commit": "a71d08a2",
+        "buildId": "46130416420",
+        "sha": "a71d08a273ab65845aee922c4e231ed510c9e058",
+        "repoUrl": "https://github.com/youvegotnigel/toolshop-ui-tests"
+      },
+      "stabilityGrade": "A"
+    }
+  ],
+  "forecasts": {
+    "run-45164573348": {},
+    "run-45168744540": {},
+    "run-45215607879": {},
+    "run-45225631553": {},
+    "run-45385650389": {
+      "[chromium] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": 0.8,
+      "[webkit] tests/cart/cart.spec.ts::cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity": 0.61,
+      "[webkit] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": 0.61
+    },
+    "run-45394070269": {
+      "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is missing": 0.61,
+      "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is too short": 0.61,
+      "[chromium] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": 0.8,
+      "[webkit] tests/cart/cart.spec.ts::cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity": 0.44,
+      "[webkit] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": 0.44
+    },
+    "run-45595161786": {
+      "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is missing": 0.44,
+      "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is too short": 0.44,
+      "[webkit] tests/cart/cart.spec.ts::cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity": 0.33,
+      "[webkit] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": 0.33
+    },
+    "run-45797469469": {},
+    "run-45979322396": {
+      "[setup] tests/setup/environment.setup.ts::record which Toolshop build is under test": 0.96,
+      "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is too short": 0.33,
+      "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is missing": 0.33,
+      "[chromium] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": 0.7,
+      "[firefox] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": 0.11,
+      "[firefox] tests/cart/cart.spec.ts::cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity": 0.7,
+      "[firefox] tests/catalog/sort.spec.ts::catalog.sort: A shopper orders the catalogue by price › a shopper sorts the results by price, low to high and then high to low": 0.7,
+      "[firefox] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": 0.38,
+      "[mobile-chrome] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": 0.03,
+      "[webkit] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": 0.25
+    },
+    "run-46130416420": {
+      "[setup] tests/setup/environment.setup.ts::record which Toolshop build is under test": 0.98,
+      "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is too short": 0.25,
+      "[chromium] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is missing": 0.25,
+      "[chromium] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": 0.7,
+      "[chromium] tests/cart/cart.spec.ts::cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity": 0.97,
+      "[chromium] tests/catalog/sort.spec.ts::catalog.sort: A shopper orders the catalogue by price › a shopper sorts the results by price, low to high and then high to low": 0.97,
+      "[chromium] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": 0.98,
+      "[chromium] tests/checkout/guest-checkout.spec.ts::checkout.guest: A guest places an order without an account › a guest checks out paying cash on delivery and the order is recorded": 0.98,
+      "[teardown] tests/setup/sweep-test-data.teardown.ts::remove test data left behind by this run": 0.99,
+      "[firefox] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the email is missing": 0.13,
+      "[firefox] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the email is not an email address": 0.07,
+      "[firefox] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the password is missing": 0.11,
+      "[firefox] tests/cart/cart.spec.ts::cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity": 0.44,
+      "[firefox] tests/catalog/sort.spec.ts::catalog.sort: A shopper orders the catalogue by price › a shopper sorts the results by price, low to high and then high to low": 0.7,
+      "[firefox] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": 0.71,
+      "[firefox] tests/checkout/guest-checkout.spec.ts::checkout.guest: A guest places an order without an account › a guest checks out paying cash on delivery and the order is recorded": 0.97,
+      "[mobile-chrome] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": 0.08,
+      "[webkit] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the email is not an email address": 0.58,
+      "[webkit] tests/auth/login-validation.spec.ts::auth.login-validation: The sign-in form rejects invalid details before sending them › a shopper cannot sign in when the email is missing": 0.7,
+      "[webkit] tests/cart/cart.spec.ts::cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity": 0.99,
+      "[webkit] tests/catalog/search.spec.ts::catalog.search: A shopper finds a product by name › a shopper searches for a product, opens it and sees its name, price and brand": 0.19,
+      "[webkit] tests/catalog/sort.spec.ts::catalog.sort: A shopper orders the catalogue by price › a shopper sorts the results by price, low to high and then high to low": 0.96,
+      "[webkit] tests/checkout/checkout.spec.ts::checkout.card: A signed-in customer places an order › a customer checks out end to end and the order is recorded": 0.97,
+      "[webkit] tests/checkout/guest-checkout.spec.ts::checkout.guest: A guest places an order without an account › a guest checks out paying cash on delivery and the order is recorded": 0.98
+    }
+  }
+}

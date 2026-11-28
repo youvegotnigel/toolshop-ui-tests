@@ -1,0 +1,5 @@
+␞runlog␞{"t":1795858010771,"l":"info","w":"3","s":"AuthSession","m":"Logged in as admin (token valid 300s)"}
+␞runlog␞{"t":1795858012624,"l":"info","w":"3","s":"TestDataSweep","m":"Sweep removed 0 leftover products, kept 2 referenced by orders (HTTP 409)"}
+␞runlog␞{"t":1795858013374,"l":"info","w":"3","s":"TestDataSweep","m":"Sweep removed 0 leftover categories, kept 2 referenced by orders (HTTP 409)"}
+␞runlog␞{"t":1795858014439,"l":"info","w":"3","s":"TestDataSweep","m":"Sweep removed 0 leftover brands, kept 2 referenced by orders (HTTP 409)"}
+␞runlog␞{"t":1795858015166,"l":"info","w":"3","s":"TestDataSweep","m":"Sweep removed 0 leftover customers, kept 1 referenced by orders (HTTP 409)"}

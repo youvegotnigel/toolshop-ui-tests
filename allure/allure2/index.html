@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="allure-report-uuid" content="bc76ea11-8bf1-49dd-a378-0d9c85ffdd42">
+    <title>Toolshop UI tests</title>
+    
+</head>
+<body>
+    <div id="alert"></div>
+    <div id="content">
+        <span class="spinner">
+            <span class="spinner__circle"></span>
+        </span>
+    </div>
+    <div id="popup"></div>
+    <script>
+      window.__allureCoreLoaded = new Promise(function (resolve, reject) {
+        window.__allureResolveCoreLoaded = resolve;
+        window.__allureRejectCoreLoaded = reject;
+      });
+    </script>
+    <script   src="assets/index-D2pk6gQP.js"></script>
+    <script>
+      if (typeof window.__allureResolveCoreLoaded === "function") {
+        window.__allureResolveCoreLoaded([]);
+      }
+    </script>
+    
+    <script>
+      const url = new URL(window.location.href);
+      url.search = "";
+      url.hash = "";
+      const baseEl = document.createElement("base");
+      
+      baseEl.href = url.toString();
+      
+      window.document.head.appendChild(baseEl);
+    </script>
+  
+    <script>
+      window.allureReportOptions = {"overviewHref":"../index.html"}
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVWC4GKEYS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FVWC4GKEYS', {
+          'allureVersion': '3.33.0',
+          'reportUuid': 'bc76ea11-8bf1-49dd-a378-0d9c85ffdd42',
+          'single_file': false
+        });
+    </script>
+    
+<a href="../../" style="position:fixed;right:14px;bottom:14px;z-index:99999;background:#14202b;color:#fff;padding:8px 14px;border-radius:99px;font:600 13px system-ui,sans-serif;text-decoration:none">← Automation dashboard</a></body>
+</html>

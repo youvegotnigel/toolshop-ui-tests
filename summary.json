@@ -1,0 +1,756 @@
+{
+  "summary": {
+    "runNumber": "29",
+    "commit": "a71d08a273ab65845aee922c4e231ed510c9e058",
+    "env": "public",
+    "date": "2026-11-28T09:26:13.789Z",
+    "durationMs": 66276,
+    "total": 46,
+    "counts": {
+      "passed": 30,
+      "failed": 0,
+      "broken": 0,
+      "flaky": 0,
+      "skipped": 16
+    },
+    "passRate": 100,
+    "flakyRate": 0,
+    "journeyCoverage": 42.9,
+    "pageCoverage": 36.7,
+    "criticalPassing": 60,
+    "a11ySerious": 1,
+    "failingJourneys": []
+  },
+  "journeys": [
+    {
+      "id": "catalog.search",
+      "title": "Find a product by name",
+      "area": "catalog",
+      "priority": "critical",
+      "target": "0.1",
+      "planned": true,
+      "tests": 1,
+      "status": "passed",
+      "depth": {
+        "happy": "passed",
+        "negative": "none",
+        "a11y": "passed",
+        "mobile": "passed"
+      },
+      "browsers": {
+        "chromium": "passed",
+        "firefox": "passed",
+        "webkit": "passed",
+        "mobile-chrome": "passed"
+      },
+      "lastFailure": "2026-11-23T10:00:50.129Z",
+      "allureUrl": "allure/allure2/index.html#testresult/1a98bf576afae027be6dfaa20f65ac7b"
+    },
+    {
+      "id": "catalog.sort",
+      "title": "Sort the catalogue",
+      "area": "catalog",
+      "priority": "high",
+      "target": "0.1",
+      "planned": true,
+      "tests": 1,
+      "status": "passed",
+      "depth": {
+        "happy": "passed",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "passed",
+        "firefox": "passed",
+        "webkit": "passed",
+        "mobile-chrome": "none"
+      },
+      "lastFailure": "2026-11-27T10:07:35.393Z",
+      "allureUrl": "allure/allure2/index.html#testresult/dc9e482b77693369d6ef637016dc2c70"
+    },
+    {
+      "id": "catalog.filter",
+      "title": "Filter by brand, category and price",
+      "area": "catalog",
+      "priority": "high",
+      "target": "0.2",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "catalog.category",
+      "title": "Browse a category page",
+      "area": "catalog",
+      "priority": "normal",
+      "target": "0.2",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "catalog.compare",
+      "title": "Compare products",
+      "area": "catalog",
+      "priority": "normal",
+      "target": "0.3",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "catalog.rentals",
+      "title": "Browse rentals",
+      "area": "catalog",
+      "priority": "normal",
+      "target": "0.3",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "auth.login",
+      "title": "Sign in with the login form",
+      "area": "auth",
+      "priority": "critical",
+      "target": "0.1",
+      "planned": true,
+      "tests": 1,
+      "status": "skipped",
+      "depth": {
+        "happy": "skipped",
+        "negative": "skipped",
+        "a11y": "none",
+        "mobile": "skipped"
+      },
+      "browsers": {
+        "chromium": "skipped",
+        "firefox": "skipped",
+        "webkit": "skipped",
+        "mobile-chrome": "skipped"
+      },
+      "lastFailure": "2026-11-23T10:00:50.129Z",
+      "allureUrl": "allure/allure2/index.html#testresult/6986364e09de2f7920c3bad7ad1641eb"
+    },
+    {
+      "id": "auth.login-validation",
+      "title": "The sign-in form rejects invalid details before sending them",
+      "area": "auth",
+      "priority": "high",
+      "target": "0.1",
+      "planned": true,
+      "tests": 4,
+      "status": "passed",
+      "depth": {
+        "happy": "passed",
+        "negative": "passed",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "passed",
+        "firefox": "passed",
+        "webkit": "passed",
+        "mobile-chrome": "none"
+      },
+      "allureUrl": "allure/allure2/index.html#testresult/206ba9aacb697fbea907765e9fa7e578"
+    },
+    {
+      "id": "auth.register",
+      "title": "Register a new account",
+      "area": "auth",
+      "priority": "critical",
+      "target": "0.2",
+      "planned": true,
+      "tests": 2,
+      "status": "skipped",
+      "depth": {
+        "happy": "skipped",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "skipped"
+      },
+      "browsers": {
+        "chromium": "skipped",
+        "firefox": "skipped",
+        "webkit": "skipped",
+        "mobile-chrome": "skipped"
+      },
+      "lastFailure": "2026-11-24T11:36:44.732Z",
+      "allureUrl": "allure/allure2/index.html#testresult/34b7a01d6002d73d0db94ff3e0d189b3"
+    },
+    {
+      "id": "auth.logout",
+      "title": "Sign out",
+      "area": "auth",
+      "priority": "high",
+      "target": "0.2",
+      "planned": true,
+      "tests": 1,
+      "status": "skipped",
+      "depth": {
+        "happy": "skipped",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "skipped"
+      },
+      "browsers": {
+        "chromium": "skipped",
+        "firefox": "skipped",
+        "webkit": "skipped",
+        "mobile-chrome": "skipped"
+      },
+      "lastFailure": "2026-11-24T11:36:44.732Z",
+      "allureUrl": "allure/allure2/index.html#testresult/eb0fead34b75bb66643c00e01b1c7af8"
+    },
+    {
+      "id": "cart.update",
+      "title": "Change the quantity in the cart",
+      "area": "cart",
+      "priority": "high",
+      "target": "0.1",
+      "planned": true,
+      "tests": 1,
+      "status": "passed",
+      "depth": {
+        "happy": "passed",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "passed",
+        "firefox": "passed",
+        "webkit": "passed",
+        "mobile-chrome": "none"
+      },
+      "lastFailure": "2026-11-27T10:07:35.393Z",
+      "allureUrl": "allure/allure2/index.html#testresult/63c801875c19ad5080173e2f69611acc"
+    },
+    {
+      "id": "cart.remove",
+      "title": "Remove an item from the cart",
+      "area": "cart",
+      "priority": "high",
+      "target": "0.2",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "checkout.card",
+      "title": "Check out signed in, paying by card",
+      "area": "checkout",
+      "priority": "critical",
+      "target": "0.1",
+      "planned": true,
+      "tests": 1,
+      "status": "passed",
+      "depth": {
+        "happy": "passed",
+        "negative": "none",
+        "a11y": "passed",
+        "mobile": "passed"
+      },
+      "browsers": {
+        "chromium": "passed",
+        "firefox": "passed",
+        "webkit": "passed",
+        "mobile-chrome": "passed"
+      },
+      "lastFailure": "2026-11-27T10:07:35.393Z",
+      "allureUrl": "allure/allure2/index.html#testresult/f8bd63d4e2c2c4e2d71b6b57584d71a7"
+    },
+    {
+      "id": "checkout.guest",
+      "title": "Check out as a guest",
+      "area": "checkout",
+      "priority": "critical",
+      "target": "0.2",
+      "planned": true,
+      "tests": 1,
+      "status": "passed",
+      "depth": {
+        "happy": "passed",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "passed"
+      },
+      "browsers": {
+        "chromium": "passed",
+        "firefox": "passed",
+        "webkit": "passed",
+        "mobile-chrome": "passed"
+      },
+      "lastFailure": "2026-11-27T10:07:35.393Z",
+      "allureUrl": "allure/allure2/index.html#testresult/27bba5c74ea0775c3e992a2381144164"
+    },
+    {
+      "id": "checkout.payment-methods",
+      "title": "Pay by bank transfer, gift card, buy now pay later",
+      "area": "checkout",
+      "priority": "high",
+      "target": "0.2",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "account.profile",
+      "title": "Update the profile",
+      "area": "account",
+      "priority": "high",
+      "target": "0.2",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "account.invoices",
+      "title": "See past orders and invoices",
+      "area": "account",
+      "priority": "high",
+      "target": "0.2",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "account.favorites",
+      "title": "Save and remove favourites",
+      "area": "account",
+      "priority": "normal",
+      "target": "0.3",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "account.contact",
+      "title": "Send a contact message",
+      "area": "account",
+      "priority": "normal",
+      "target": "0.3",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "admin.products",
+      "title": "An admin manages products",
+      "area": "admin",
+      "priority": "high",
+      "target": "0.3",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    },
+    {
+      "id": "admin.orders",
+      "title": "An admin updates an order status",
+      "area": "admin",
+      "priority": "high",
+      "target": "0.3",
+      "planned": true,
+      "tests": 0,
+      "status": "none",
+      "depth": {
+        "happy": "none",
+        "negative": "none",
+        "a11y": "none",
+        "mobile": "none"
+      },
+      "browsers": {
+        "chromium": "none",
+        "firefox": "none",
+        "webkit": "none",
+        "mobile-chrome": "none"
+      }
+    }
+  ],
+  "pages": [
+    {
+      "key": "page:home",
+      "route": "/",
+      "area": "catalog",
+      "priority": "critical",
+      "tests": 2,
+      "status": "passed"
+    },
+    {
+      "key": "page:search",
+      "route": "/ (search results)",
+      "area": "catalog",
+      "priority": "critical",
+      "tests": 2,
+      "status": "passed"
+    },
+    {
+      "key": "page:product",
+      "route": "/product/:id",
+      "area": "catalog",
+      "priority": "critical",
+      "tests": 4,
+      "status": "passed"
+    },
+    {
+      "key": "page:category",
+      "route": "/category/:name",
+      "area": "catalog",
+      "priority": "high",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:rentals",
+      "route": "/rentals",
+      "area": "catalog",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:comparison",
+      "route": "/comparison",
+      "area": "catalog",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:cart",
+      "route": "/checkout (step 1)",
+      "area": "cart",
+      "priority": "critical",
+      "tests": 3,
+      "status": "passed"
+    },
+    {
+      "key": "page:checkout-sign-in",
+      "route": "/checkout (step 2)",
+      "area": "checkout",
+      "priority": "critical",
+      "tests": 2,
+      "status": "passed"
+    },
+    {
+      "key": "page:checkout-address",
+      "route": "/checkout (step 3)",
+      "area": "checkout",
+      "priority": "critical",
+      "tests": 2,
+      "status": "passed"
+    },
+    {
+      "key": "page:checkout-payment",
+      "route": "/checkout (step 4)",
+      "area": "checkout",
+      "priority": "critical",
+      "tests": 2,
+      "status": "passed"
+    },
+    {
+      "key": "page:order-confirmation",
+      "route": "/checkout (done)",
+      "area": "checkout",
+      "priority": "critical",
+      "tests": 2,
+      "status": "passed"
+    },
+    {
+      "key": "page:sign-in",
+      "route": "/auth/login",
+      "area": "auth",
+      "priority": "critical",
+      "tests": 6,
+      "status": "passed"
+    },
+    {
+      "key": "page:register",
+      "route": "/auth/register",
+      "area": "auth",
+      "priority": "critical",
+      "tests": 2,
+      "status": "skipped"
+    },
+    {
+      "key": "page:forgot-password",
+      "route": "/auth/forgot-password",
+      "area": "auth",
+      "priority": "normal",
+      "excluded": "Safety rule: never call /users/forgot-password on the shared demo",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:account",
+      "route": "/account",
+      "area": "account",
+      "priority": "high",
+      "tests": 1,
+      "status": "skipped"
+    },
+    {
+      "key": "page:profile",
+      "route": "/account/profile",
+      "area": "account",
+      "priority": "high",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:favorites",
+      "route": "/account/favorites",
+      "area": "account",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:invoices",
+      "route": "/account/invoices",
+      "area": "account",
+      "priority": "high",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:invoice-detail",
+      "route": "/account/invoices/:id",
+      "area": "account",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:messages",
+      "route": "/account/messages",
+      "area": "account",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:contact",
+      "route": "/contact",
+      "area": "account",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:privacy",
+      "route": "/privacy",
+      "area": "account",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:admin-dashboard",
+      "route": "/admin/dashboard",
+      "area": "admin",
+      "priority": "high",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:admin-brands",
+      "route": "/admin/brands",
+      "area": "admin",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:admin-categories",
+      "route": "/admin/categories",
+      "area": "admin",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:admin-products",
+      "route": "/admin/products",
+      "area": "admin",
+      "priority": "high",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:admin-orders",
+      "route": "/admin/orders",
+      "area": "admin",
+      "priority": "high",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:admin-users",
+      "route": "/admin/users",
+      "area": "admin",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:admin-messages",
+      "route": "/admin/messages",
+      "area": "admin",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:admin-reports",
+      "route": "/admin/reports/*",
+      "area": "admin",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    },
+    {
+      "key": "page:admin-settings",
+      "route": "/admin/settings",
+      "area": "admin",
+      "priority": "normal",
+      "tests": 0,
+      "status": "none"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"id":"121eb7a6e4b1ccf7eee0449784f1b980.b444eb0fbe6390c71e68b51dd25701fc","fullName":"cart/cart.spec.ts › cart.update: A signed-in customer changes the quantity in the cart › the line total and the cart badge follow the quantity","name":"the line total and the cart badge follow the quantity","status":"passed","testResultsByEnv":{"default":"c72032f1f9b22b639b89af3743767301"}}

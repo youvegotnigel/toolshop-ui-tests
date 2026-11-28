@@ -1,0 +1,7 @@
+␞runlog␞{"t":1795857985130,"l":"info","w":"2","s":"AuthSession","m":"Logged in as admin (token valid 300s)"}
+␞runlog␞{"t":1795857988256,"l":"info","w":"2","s":"AuthFixtures","m":"Registered worker customer 01m8gqmejmpn65kevt499gh367"}
+␞runlog␞{"t":1795857989498,"l":"info","w":"2","s":"AuthSession","m":"Logged in as customer (token valid 300s)"}
+␞runlog␞{"t":1795857996220,"l":"info","w":"2","s":"DataFixtures","m":"cleanup kept delete customer 01m8gqmf65ksmn70wabjhf0770: referenced by an order (HTTP 409)"}
+␞runlog␞{"t":1795857996593,"l":"info","w":"2","s":"DataFixtures","m":"cleanup kept delete product 01m8gqmd48ej8syma2rdpwg6qn: referenced by an order (HTTP 409)"}
+␞runlog␞{"t":1795857996969,"l":"info","w":"2","s":"DataFixtures","m":"cleanup kept delete category 01m8gqmcq25tts9v8tmvdb124d: referenced by an order (HTTP 409)"}
+␞runlog␞{"t":1795857997407,"l":"info","w":"2","s":"DataFixtures","m":"cleanup kept delete brand 01m8gqmcbqgfr1yw4tb0k623x2: referenced by an order (HTTP 409)"}

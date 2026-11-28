@@ -1,0 +1,2 @@
+␞runlog␞{"t":1795857996788,"l":"info","w":"1","s":"AuthFixtures","m":"Registered worker customer 01m8gqmpxcf0qdyn00xskm7jxw"}
+␞runlog␞{"t":1795857997393,"l":"info","w":"1","s":"AuthSession","m":"Logged in as admin (token valid 300s)"}
